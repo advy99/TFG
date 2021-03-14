@@ -18,6 +18,8 @@ all: $(OUT)/TFG.pdf
 
 $(OUT)/TFG.pdf : TFG.tex $(FICHEROS_TEX)
 	$(TEXCC) $(TEXCCFLAGS) TFG.tex
+	# volvemos a compilar, para que genere bien el indice
+	$(TEXCC) $(TEXCCFLAGS) TFG.tex
 
 clean:
 	-rm -I $(OUT)/*
