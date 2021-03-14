@@ -1,15 +1,21 @@
 OUT = ./out
 
-
 .PHONY = all clean crear_carpetas
 
-all: crear_carpetas $(OUT)/TFG.pdf
+TEXCC = pdflatex
+TEXCCFLAGS = -output-directory=$(OUT)
+
+CARPETA_ENCONTRADA = $(wildcard out)
+
+ifeq ($(CARPETA_ENCONTRADA),)
+$(shell echo "Creando carpeta de salida")
+$(shell mkdir -p out)
+endif
+
+all: $(OUT)/TFG.pdf
 
 $(OUT)/TFG.pdf : TFG.tex
-	pdflatex -output-directory=$(OUT) TFG.tex
-
-crear_carpetas :
-	-mkdir -p $(OUT)
+	$(TEXCC) $(TEXCCFLAGS) TFG.tex
 
 clean:
 	-rm -I $(OUT)/*
