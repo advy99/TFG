@@ -2,6 +2,7 @@
 \usepackage[spanish]{babel}
 \selectlanguage{spanish}
 
+% estilo personalizado
 \usepackage{src/estilo}
 
 
@@ -37,6 +38,18 @@
     \doclicenseThis
 \end{titlepage}
 
+
+% resumen antes del indice
+
+\input{src/resumen.tex}
+
+\pagebreak
+
+% ponemos el estilo de página despues del resumen, firma y agradecimientos
+
+\pagestyle{fancy}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % indice
@@ -49,8 +62,6 @@
 % secciones
 
 \input{src/introduccion.tex}
-
-\input{src/resumen.tex}
 
 \input{src/estado_arte.tex}
 
