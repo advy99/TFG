@@ -7,6 +7,8 @@ TEXCCFLAGS = -output-directory=$(OUT)
 
 CARPETA_ENCONTRADA = $(wildcard out)
 
+FICHEROS_TEX = $(wildcard src/*)
+
 ifeq ($(CARPETA_ENCONTRADA),)
 $(shell echo "Creando carpeta de salida")
 $(shell mkdir -p out)
@@ -14,7 +16,7 @@ endif
 
 all: $(OUT)/TFG.pdf
 
-$(OUT)/TFG.pdf : TFG.tex
+$(OUT)/TFG.pdf : TFG.tex $(FICHEROS_TEX)
 	$(TEXCC) $(TEXCCFLAGS) TFG.tex
 
 clean:
