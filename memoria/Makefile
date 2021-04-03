@@ -1,25 +1,29 @@
 OUT = ./out
+TEX_FILE = TFG.tex
+OUT_NAME = $(strip $(OUT))$(strip $(basename $(TEX_FILE))).pdf
 
 .PHONY = all clean crear_carpetas
 
 TEXCC = pdflatex
 TEXCCFLAGS = -output-directory=$(OUT)
 
-CARPETA_ENCONTRADA = $(wildcard out)
+CARPETA_ENCONTRADA = $(wildcard $(OUT))
 
 FICHEROS_TEX = $(wildcard src/*)
 
-ifeq ($(CARPETA_ENCONTRADA),)
-$(shell echo "Creando carpeta de salida")
-$(shell mkdir -p out)
-endif
+all: crear_carpetas $(OUT_NAME)
 
-all: $(OUT)/TFG.pdf
-
-$(OUT)/TFG.pdf : TFG.tex $(FICHEROS_TEX)
-	$(TEXCC) $(TEXCCFLAGS) TFG.tex
+$(OUT_NAME) : $(TEX_FILE) $(FICHEROS_TEX)
+	$(TEXCC) $(TEXCCFLAGS) $(TEX_FILE)
 	# volvemos a compilar, para que genere bien el indice
-	$(TEXCC) $(TEXCCFLAGS) TFG.tex
+	$(TEXCC) $(TEXCCFLAGS) $(TEX_FILE)
 
 clean:
 	-rm -I $(OUT)/*
+
+
+crear_carpetas:
+ifeq ($(CARPETA_ENCONTRADA),)
+	@echo "Creando carpeta de salida"
+	@mkdir -p out
+endif
