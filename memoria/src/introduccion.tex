@@ -4,7 +4,7 @@ Para este trabajo nos centraremos en resolver un problema real de aprendizaje au
 
 \subsection{Problema a resolver}
 
-De cara a la identificación de cadaveres, una de las tareas clave es la estimación de la edad. Aunque los forenses tenian formas de estimar a que edad murio una persona a partir de sus restos óseos, no existía un método concreto y universal de forma que el forense solo tuviera que seguir ciertas pautas y observar ciertas características de cara a la estimación de la edad.
+De cara a la identificación de cadaveres, una de las tareas clave es la estimación de la edad. Aunque los forenses tenian formas de estimar a que edad murio una persona a partir de sus restos óseos, no existía un método concreto y universal de forma que el forense solo tuviera que seguir ciertas pautas y observar ciertas características para estimar la edad de un fallecido.
 
 Por este motivo, en el año 1920, Thomas Wingate Todd publicó un artículo científico \cite{todd} en el que proponía una forma de clasificar en diez rangos de edad los restos óseos de una persona fallecida a partir de ciertas características de la sínfisis púbica, de forma que el proceso de identificación de cadáveres fuera más sencillo para los forenses.
 
@@ -68,7 +68,7 @@ Este conjunto está formado por datos tomados de ambas lateralidades de la sínf
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale = 0.30]{num_elementos_fase_original.png}
+	\includegraphics[scale = 0.33]{num_elementos_fase_original.png}
 	\caption{Número de datos por cada clase con el conjunto de datos completo.}
 	\label{fig:conteo_original}
 
@@ -78,7 +78,9 @@ Como vemos, este conjunto de datos se encuentra claramente desbalanceado, hay mu
 
 \subsection{Motivación}
 
-Este trabajo está motivado ya que, aunque en los últimos años diversos modelos son capaces de obtener buenos resultados en esta clase de problemas, los modelos actuales apenas son interpretables por los expertos y esto no les permite utilizar estos modelos para avanzar en las técnicas de estimación de la edad a partir de restos óseos.
+Este trabajo está motivado ya que la propuesta de Todd y sus trabajos derivados son demasiado subjetivos, haciendo muy poca distinción entre las fases y dejando gran parte del criterio de la estimación a cargo del forense.
+
+Aunque en los últimos años se han desarrollado modelos de inteligencia artificial que son capaces de obtener buenos resultados en esta clase de problemas, los modelos actuales apenas son interpretables por los expertos y esto no les permite utilizarlos para avanzar en las técnicas de estimación de la edad a partir de restos óseos.
 
 Por este motivo aparece la Inteligencia Artificial Explicable, y utilizando este tipo de técnicas intentaremos resolver el problema para que el experto sea capaz de entender y razonar como funciona el modelo.
 
