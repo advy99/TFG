@@ -19,6 +19,25 @@ Ese mismo año, los mismos autores presentaron una mejora \cite{mejoraModelandoH
 
 A finales de 2015, Beatrix Dudzik y Natalie R. Langley, de la Universidad de Tennessee y la Universidad Lincoln Memorial, propusieron \cite{componentBased} varios modelos basados en árboles de decisión y regresión logística multinomial. Para estos experimentos utilizaron 5 características de la sínfisis púbica de 47 individuos de entre 18 y 40 años. Obtuvieron muy buenos resultados, con una tasa de acierto del $94\%$ aunque solo utilizaban 3 de las 6 fases propuestas por Suchey y Brooks.
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+	  \centering
+	  \includegraphics[scale = 0.8]{cita_7_arbol.jpg}
+	  \caption{Árbol de decisión implementado en \cite{componentBased}}
+	  \label{fig:arbol_c7}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	  \centering
+	  \includegraphics[scale = 0.8]{cita_7_ejemplo_dos_fases.jpg}
+	  \caption{Porcentaje de acierto para la fase 1 y 2 de \cite{componentBased}.}
+	  \label{fig:acierto_cita7}
+	\end{subfigure}
+	\caption{Imágenes obtenidas de \cite{componentBased}.}
+	\label{fig:arboles_cita7}
+\end{figure}
+
+
 
 Más adelante, en 2018, varios investigadores de la República Checa publicaron un trabajo \cite{estimacionHuesosCadera} en el que, con un conjunto de $941$ restos óseos de personas de distinta raza entre 19 y 100 años, utilizando datos de los huesos de la cadera estudiaban las características comunes y las que diferenciaban las distintas edades, y consideraban 9 modelos distintos para realizar una estimación, desde un sistema de puntuación tradicional, utilizando la variación entre los huesos, distintos de regresión lineal, árboles de decisiones o redes neuronales artificiales. De estos modelos se llega a la conclusión que el mejor es un modelo de regresión multinomial, con el que obtienen una raíz del error cuadrático medio de unos $12.5$ años.
 
