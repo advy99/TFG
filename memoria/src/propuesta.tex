@@ -1,6 +1,22 @@
 \section{Propuesta}
 
-
 \subsection{Conjunto de datos a utilizar}
+
+Para realizar este trabajo utilizaremos un conjunto de datos con $892$ muestras de la sínfisis púbica clasificados manualmente por investigadores del Laboratorio de Antropología Física de la Universidad de Granada utilizando las diez fases propuestas por Todd.
+
+Este conjunto de datos se divide en dos partes, las muestras tomadas de la lateralidad izquierda ($439$ muestras) y la lateralidad derecha ($453$ muestras) del pubis.
+
+\subsubsection{Problema del balanceo de clases}
+
+Como vimos en la figura \ref{fig:conteo_original} con el conteo de cada una de las fases, los datos de este problema se encuentran altamente desbalanceados, hay fases en las que apenas contamos con datos, y la diferencia entre número de datos en una fase baja y una fase alta es muy grande. De cara a resolver este problema proponemos utilizar un algoritmo de sobremuestreo de datos, al igual que  \cite{NSLVOrdAge}.
+
+En este artículo se proponen distintas técnicas de sobremuestreo, principalmente utilizando un sobremuestreo de forma aleatoria, utilizando el algoritmo SMOTE \cite{revisionSMOTE} (y varias variaciones de este algoritmo), y utilizando el algoritmo ADASYN \cite{propuestaADASYN}.
+
+En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artículo que la técnica que mejor ha funcionado para este conjunto de datos es Borderline-SMOTE. Por este motivo, en este trabajo también utilizaremos este algoritmo.
+
+\subsubsection{Problema de la alta dimensionalidad}
+
+
+\subsection{Algoritmos a utilizar}
 
 \subsection{Planificación temporal}
