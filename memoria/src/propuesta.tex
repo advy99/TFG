@@ -20,6 +20,16 @@ Para resolver este problema queremos obtener soluciones simples y fácilmente in
 
 De cara a solucionar esto proponemos utilizar la modificación propuesta en 1973 por Gilbert y McKern \cite{propuestaGilbert} al sistema de clasificación de Todd. En esta publicación, para realizar la estimación de la edad, a cada característica se le asocia un valor numérico. De esta forma realizar la estimación de la edad se basa en, para cada caso, sumar la puntuación asociada a sus característica y dependiendo del rango del valor final se asignará la fase.
 
-\subsection{Algoritmos a utilizar}
+\subsection{Algoritmos a utilizar e implementación}
 
-\subsection{Planificación temporal}
+Para resolver este problema utilizaremos el algoritmo de Programación Genética y su variante GA-P. Hemos escogido estos algoritmos ya que se tratan de algoritmos cuyas soluciones son sencillas de entender y además, como hemos visto en el estado del arte y antecedentes, estos algoritmos funcionan muy bien para regresión simbólica, con la que le podemos dar un nuevo enfoque al problema.
+
+De cara a la implementación se propone utilizar \textit{Python} para aplicar parte del preprocesado de los datos ya que este lenguaje cuenta con múltiples herramientas para análisis de datos, mientras que para la implementación de los algoritmos se utilizará \textit{C++}.
+
+La decisión de utilizar \textit{C++} viene dada ya que estos algoritmos tienden a ser lentos a la hora de realizar su entrenamiento, por lo que se ha buscado un lenguaje compilado con el que tener mejores tiempos de ejecución. También nos permite realizar una implementación orientada a objetos, lo que nos dará una mejor estructura del código a implementar, así como utilizar software como \textit{OpenMP} \cite{OpenMP} de cara a paralelizar secciones de código que nos permiten reducir el tiempo de ejecución gracias al paralelismo de datos, como veremos más adelante.
+
+Por último, este lenguaje nos ofrece distintas herramientas de control del software, como \textit{GDB} \cite{gdb} para depurar el código, \textit{Valgrind} \cite{valgrind} para comprobar que no existen problemas con la memoria dinámica y la biblioteca \textit{Google Test} \cite{gtest} para realizar test unitarios y comprobar que el código funciona correctamente.
+
+También se utilizará el sistema de control de versiones \textit{Git} \cite{git} durante todo el proceso de creación del código y esta memoria.
+
+% \subsection{Planificación temporal}
