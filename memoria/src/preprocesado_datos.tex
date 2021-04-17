@@ -63,6 +63,21 @@ Para esto simplemente leeremos los valores y a cada característica le asignarem
 
 \end{table}
 
+Para transformar las etiquetas simplemente se ha hecho la media del rango de edades de cada fase, quedando de la siguiente forma:
+
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Fase}                  & Fase 1 & Fase 2 & Fase 3 & Fase 3 & Fase 3 & Fase 6 & Fase 6 & Fase 8 & Fase 9 & Fase 10 \\ \hline
+\textbf{Valor correspondiente} & 19     & 20.5   & 23     & 25.5   & 25.5   & 32.5   & 37     & 42     & 47     & 55      \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Esta transformación es necesaria ya que los algoritmos a utilizar darán como resultado un valor numérico, que será la edad estimada. Como vemos en principio no hay problema, ya que las fases con mayor rango de edades contienen dos años de variación con respecto al valor asignado, a excepción de la última fase ya que esta es todos los mayores de 50. Para solucionar el problema de la última fase se ha asignado un valor que continua con la tendencia creciente del valor, aumentándolo en siete con respecto a la fase anterior, un valor mayor que la diferencia entre las dos fases anteriores (cuya diferencia es de cinco).
 
 \subsection{Algoritmo Borderline-SMOTE}
 
@@ -88,7 +103,7 @@ Este problema se hace mucho más presente en nuestro caso, al contar con tantas 
 
 Esta variante, basada en SMOTE, propone buscar los límites en el espacio de valores de la clase a obtener nuevos datos sintéticos, de forma que cuando se generen dichos datos nuevos, estén dentro de dichos límites. De esta forma evitamos problemas con conjuntos de datos con mucho ruido y múltiples clases.
 
-En su artículo proponen dos variantes, una donde las nuevas muestras sintéticas son creadas a partir de todo el conjunto de datos, y otra donde las nuevas muestras solo se generan a partir de los datos considerados en el borde.
+En su artículo proponen dos variantes, una donde las nuevas muestras sintéticas son creadas a partir de todo el conjunto de datos, y otra donde las nuevas muestras solo se generan a partir de los datos considerados en el límite.
 
 
 \begin{figure}[H]
@@ -109,7 +124,8 @@ En su artículo proponen dos variantes, una donde las nuevas muestras sintética
         \label{fig:blSMOTE-sintetico}
     \end{subfigure}
 
-    \caption{\ref{fig:blSMOTE-orig} Conjunto de datos original. \ref{fig:blSMOTE-border} datos que conforman el límite de la clase minoritaria (cuadros azules rellenos). \ref{fig:blSMOTE-sintetico} Nuevos datos generados de forma sintética dentro de los límites de la clase (cuadros azules no rellenos).}\label{fig:ejemploBL-SMOTE}
+    \caption{\ref{fig:blSMOTE-orig} Conjunto de datos original. \ref{fig:blSMOTE-border} datos que conforman el límite de la clase minoritaria (cuadros azules rellenos). \ref{fig:blSMOTE-sintetico} Nuevos datos generados de forma sintética dentro de los límites de la clase (cuadros azules no rellenos). Imagen obtenida de \cite{BL-SMOTE}.}
+	 \label{fig:ejemploBL-SMOTE}
 
 \end{figure}
 
@@ -134,8 +150,17 @@ En su artículo proponen dos variantes, una donde las nuevas muestras sintética
 
 \end{figure}
 
-
 Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \ref{fig:BLSMOTE-SMOTE}, esta técnica es mucho más versátil y conveniente que SMOTE, motivo por el que la utilizaremos.
 
 
+De cara a su implementación se utilizará el módulo de Python \texttt{imbalanced-learn} que implementa el algoritmo de BorderlineSMOTE \cite{imblearnBLSMOTE}.
+
+
+\subsection{Reducción de la dimensionalidad}
+
+Tras aplicar la transformación numérica y el sobremuestreo simplemente sumamos los valores numéricos de las característica para quedarnos con un fichero de datos con dos columnas, el valor final de la suma, y la correspondiente etiqueta.
+
+
 \subsection{Resultado tras el preprocesado}
+
+Tras aplicar todas las fases del preprocesado obtenemos los conjuntos de datos finales que utilizaremos.
