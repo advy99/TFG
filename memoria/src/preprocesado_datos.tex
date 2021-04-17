@@ -1,1 +1,69 @@
 \section{Preprocesado de los datos}
+
+Nuestro conjunto de datos se compone de tres ficheros:
+
+\begin{enumerate}
+	\item \texttt{lateralidad0.arff} : 439 muestras de la lateralidad izquierda del pubis.
+	\item \texttt{lateralidad1.arff} : 453 muestras de la lateralidad derecha del pubis.
+	\item \texttt{completo.arff} : 892 muestas de ambas lateralidades, se compone de los dos ficheros antes en conjunto.
+\end{enumerate}
+
+\begin{figure}[H]
+	\begin{lstlisting}[language={}]
+	NoGrooves,Absence,Defined,Absent,Defined,Present,Absent,Absent,FormedWithoutRarefactions,Ph07-35-39
+	\end{lstlisting}
+	\caption{Ejemplo de dato perteneciente a la fase 7 (entre 35 y 39 años) propuesta por Todd, del conjunto de datos \texttt{completo.arff}.}
+	\label{fig:ejemplo_dato}
+\end{figure}
+
+Como vemos en la figura \ref{fig:ejemplo_dato} los datos tienen asignados valores categóricos para cada característica, y finalmente la fase a la que pertenecen.
+
+\subsection{Transformación de las características}
+
+De cara a poder trabajar con estos datos para aplicar el sobremuestreo a los datos y después regresión simbólica tenemos que transformar estos valores categóricos a valores numéricos.
+
+Para esto simplemente leeremos los valores y a cada característica le asignaremos un valor entre uno y el máximo número de posibles valores para dicha característica, de forma que una característica con dos posibles valores será $1$ o $2$, dependiendo de cual de los dos valores aparezca.
+
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+                                                      & \textbf{Valor categórico}       & \textbf{Valor numérico asignado} \\ \hline
+\multirow{6}{*}{\textbf{Crestas y surcos}}            & No hay surcos                   & 1                                \\ \cline{2-3}
+                                                      & Restos de surcos                & 2                                \\ \cline{2-3}
+                                                      & Surcos poco profundas           & 3                                \\ \cline{2-3}
+                                                      & Crestas en formación            & 4                                \\ \cline{2-3}
+                                                      & Crestas poco profundas          & 5                                \\ \cline{2-3}
+                                                      & Crestas con porosidad regular   & 6                                \\ \hline
+\multirow{3}{*}{\textbf{Superficie porosa irregular}} & No                              & 1                                \\ \cline{2-3}
+                                                      & Medianamente                    & 2                                \\ \cline{2-3}
+                                                      & Si                              & 3                                \\ \hline
+\multirow{2}{*}{\textbf{Borde superior}}              & No definido                     & 1                                \\ \cline{2-3}
+                                                      & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Nódulo óseo}}                 & Ausente                         & 1                                \\ \cline{2-3}
+                                                      & Presente                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Borde inferior}}              & No definido                     & 1                                \\ \cline{2-3}
+                                                      & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Borde dorsal}}                & No definido                     & 1                                \\ \cline{2-3}
+                                                      & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Plataforma dorsal}}           & Ausente                         & 1                                \\ \cline{2-3}
+                                                      & Presente                        & 2                                \\ \hline
+\multirow{3}{*}{\textbf{Bisel ventral}}               & Ausente                         & 1                                \\ \cline{2-3}
+                                                      & En proceso de formación         & 2                                \\ \cline{2-3}
+                                                      & Formado                         & 3                                \\ \hline
+\multirow{5}{*}{\textbf{Borde ventral}}               & Ausente                         & 1                                \\ \cline{2-3}
+                                                      & Parcialmente formado            & 2                                \\ \cline{2-3}
+                                                      & Formado sin excrecencias        & 3                                \\ \cline{2-3}
+                                                      & Formado con pocas excrecencias  & 4                                \\ \cline{2-3}
+                                                      & Formado con muchas excrecencias & 5                                \\ \hline
+\end{tabular}%
+}
+\caption{Transformaciones aplicadas a las características antes de realizar el sobremuestreo.}\label{table:transformaciones_numericas}
+
+\end{table}
+
+
+\subsection{Algoritmo Borderline-SMOTE}
+
+\subsection{Resultado tras el preprocesado}
