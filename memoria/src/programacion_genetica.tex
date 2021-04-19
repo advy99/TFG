@@ -69,11 +69,30 @@ El segundo enfoque, Programación Evolutiva, fue propuesto por Lawrence J. Fogel
 
 El tercer enfoque, Algoritmos Genéticos, propuesto en 1975 por John Holland, de la Universidad de Michigan, en su libro publicado ese mismo año \cite{libroAlgoritmosGeneticos}. Este enfoque se basaba en dar a los elementos de la población una representación en cromosomas, de forma que se aplicaban operadores genéticos sobre dichos cromosomas para hacerlos evolucionar y mejorar su valor de la función objetivo.
 
-El último enfoque, Programación Genética, es el que utilizaremos, y explicaré más en detalle en el siguiente apartado.
+El último enfoque, Programación Genética, es el que utilizaremos, y se explicará más en detalle en el siguiente apartado.
 
 
 \subsection{Como funciona Programación Genética}
 
+Programación Genética fue impulsada por John Koza a comienzos de la década de 1990 \cite{kozaGP}. Este enfoque de algoritmo evolutivo se basa en utilizar expresiones en forma de árbol como individuos de la población. Con esta representación en árbol se puede llegar a entrenar desde fórmulas matemáticas o lógicas, hasta programas escritos en C o cualquier otro lenguaje de programación cuya gramática se pueda expresar como un árbol.
+
+\begin{figure}[H]
+    \centering
+	 \begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		 \includegraphics[width=0.5\textwidth]{arbol_exp_matematica.png}
+		 \caption{Expresión matemática $4 \cdot ( (-23 / 2) + 12)$ representada como un árbol.}
+		 \label{fig:exp_matematica}
+	 \end{subfigure}
+	 \begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		\includegraphics[width=0.5\textwidth]{arbol_exp_logica.png}
+		\caption{Expresión lógica $ a \wedge (\neg (b \vee c) ) $ representada como un árbol.}
+		\label{fig:exp_logica}
+   \end{subfigure}
+	\caption{Algunos ejemplos de expresiones representadas como árboles.}
+	\label{fig:arbol_exp}
+\end{figure}
 
 \subsection{Operadores de Programación Genética}
 
