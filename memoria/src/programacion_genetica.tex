@@ -1,25 +1,79 @@
 \section{Programación Genética}
 
-\subsection{Como funciona Programación Genética}
+Programación Genética es un tipo de algoritmo evolutivo, inspirado en la evolución biológica y sus mecanismos principales. Antes de comentar las principales particularidades de Programación Genética explicaremos en que se basan los algoritmos evolutivos.
 
-Programación Genética es un tipo de algoritmo evolutivo.
+\subsection{Bases de algoritmos evolutivos}
 
-\subsubsection{Bases de algoritmos evolutivos}
+Los algoritmos evolutivos son algoritmos que utilizan los mecanismos la evolución biológica, para intentar optimizar soluciones a un problema dado. Este tipo de algoritmos surgen tras diversas propuestas a finales de la década de 1950 \cite{historiaAlgoritmosEvolutivos} donde se proponen utilizar mecanismos basados en la biología para aplicarlos a máquinas de Turing. Tras estas propuestas, en la década de 1960 Hans-Joachim Bremermann desarrollo lo que sería la teoría de los algoritmos evolutivos.
 
-\begin{figure}[H]
-    \centering
-	  \includegraphics[width=\textwidth]{estacionario.png}
-     \label{fig:modelo_estacionario}
-    \caption{Esquema de un algoritmo evolutivo con un modelo estacionario.}
+\subsubsection{Funcionamiento de los algoritmos evolutivos}
 
-\end{figure}
+La idea principal de este tipo de algoritmos es utilizar una población de individuos que serán soluciones al problema, de forma que aplicando ciertos mecanismos como la reproducción, mutación, recombinación, elitismo y selección la población evolucione hacia mejores soluciones. Estas soluciones se evaluarán utilizando una función objetivo que será la función a minimizar o maximizar.
+
+El funcionamiento básico de este tipo de algoritmos es el siguiente:
+
+\begin{enumerate}
+	\item Generar una población inicial.
+	\item Repetir hasta la condición de parada:
+	\begin{enumerate}
+		\item Evaluar la población actual para la función objetivo.
+		\item Seleccionar los individuos que generarán la próxima generación.
+		\item Aplicar la reproducción, mutación o recombinación de los individuos seleccionados, generando la población de hijos.
+		\item Reemplazar la población de hijos por la población actual (con elitismo si así se quiere).
+	\end{enumerate}
+\end{enumerate}
+
+Estos pasos generales son los que todo algoritmo evolutivo suele seguir, aunque existen muchas variantes. La condición de parada puede variar dependiendo de que se busque conseguir, puede ser, por ejemplo, que se realicen cierto número de evaluaciones de la población, o que se consiga cierto valor mínimo de la función objetivo.
+
+Los distintos operadores de mutación, reproducción o recombinación no siempre son aplicados. Cada uno de estos eventos tendrá cierta probabilidad, de forma que el proceso será en parte aleatorio. Normalmente la recombinación o reproducción serán muy comunes, mientras que la mutación será más atípica.
+
+
+\subsubsection{Modelos de población en algoritmos evolutivos}
+
+También podemos hacer dos distinciones claras a la hora de como funcionan las poblaciones de este tipo de algoritmos:
+
+\begin{itemize}
+	\item Modelo de población generacional (figura \ref{fig:modelo_generacioal}): En este modelo la población es reemplazada por completo en cada iteración, de forma que se tienen que generar tantos hijos como elementos tiene la población.
+	\item Modelo de población estacionario (figura \ref{fig:modelo_estacionario}): En este modelo solo se generan dos hijos, y esos dos hijos compiten por entrar en la población, reemplazando a los dos peores individuos de esta.
+\end{itemize}
 
 \begin{figure}[H]
     \centering
 	  \includegraphics[width=\textwidth]{generacional.png}
-     \label{fig:modelo_generacioal}
     \caption{Esquema de un algoritmo evolutivo con un modelo generacional.}
+	 \label{fig:modelo_generacioal}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=\textwidth]{estacionario.png}
+    \caption{Esquema de un algoritmo evolutivo con un modelo estacionario.}
+	 \label{fig:modelo_estacionario}
+\end{figure}
+
+
+\subsubsection{Principales paradigmas de algoritmos evolutivos}
+
+Existen cuatro enfoques básicos de algoritmos evolutivos.
+
+\begin{enumerate}
+	\item Estrategias de Evolución.
+	\item Programación Evolutiva.
+	\item Algoritmos Genéticos.
+	\item Programación Genética.
+\end{enumerate}
+
+El primer enfoque, Estrategias de Evolución, es desarrollado por Hans-Paul Schwefel e Ingo Rechenberg a partir de 1964 y presentado en 1971 como su tesis doctoral \cite{estrategiasEvolucion}. En este trabajo se enfatiza en como los individuos de la población realizan sus cambios, haciendo un análisis más exhaustivo en como aplicar los cambios a los individuos, y no en su representación como tal.
+
+El segundo enfoque, Programación Evolutiva, fue propuesto por Lawrence J. Fogel en 1966 \cite{programacionEvolutiva}, y es de los primeros trabajos donde se propone un algoritmos basado en algoritmos evolutivos y la teoría desarrollada por Bremermann.
+
+El tercer enfoque, Algoritmos Genéticos, propuesto en 1975 por John Holland, de la Universidad de Michigan, en su libro publicado ese mismo año \cite{libroAlgoritmosGeneticos}. Este enfoque se basaba en dar a los elementos de la población una representación en cromosomas, de forma que se aplicaban operadores genéticos sobre dichos cromosomas para hacerlos evolucionar y mejorar su valor de la función objetivo.
+
+El último enfoque, Programación Genética, es el que utilizaremos, y explicaré más en detalle en el siguiente apartado.
+
+
+\subsection{Como funciona Programación Genética}
+
 
 \subsection{Operadores de Programación Genética}
 
