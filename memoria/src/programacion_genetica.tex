@@ -137,12 +137,52 @@ Como vemos en la figura \ref{fig:ej_cruce_GP}, se trata simplemente de escoger d
 
 \subsubsection{Operador de mutación}
 
+El operador de mutación puede tener dos comportamientos. Este operador escogerá un punto al azar del árbol, y puede:
+
+\begin{enumerate}
+	\item Reemplazar de forma aleatoria el valor del nodo actual (siempre por un nodo del mismo tipo) (figura \ref{fig:mutacion_suave}).
+	\item Reemplazar el subárbol a partir del punto escogido (figura \ref{fig:mutacion_fuerte}).
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+	 \begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		 \includegraphics[width=0.5\textwidth]{arbol_mutar.png}
+		 \caption{Expresión a mutar.}
+		 \label{fig:arbol_mutar}
+	 \end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		 \centering
+		\includegraphics[width=0.5\textwidth]{punto_mutacion.png}
+		\caption{Selección aleatoria del punto a mutar.}
+		\label{fig:punto_mutacion}
+   \end{subfigure}
+
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+	  \includegraphics[width=0.5\textwidth]{mutacion_suave.png}
+	  \caption{Expresiones tras realizar la mutación de tipo 1.}
+	  \label{fig:mutacion_suave}
+   \end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+	  \includegraphics[width=0.5\textwidth]{mutacion_fuerte.png}
+	  \caption{Expresiones tras realizar la mutación de tipo 2.}
+	  \label{fig:mutacion_fuerte}
+	\end{subfigure}
+
+	\caption{Ejemplo del operador de mutación sobre un individuo.}
+	\label{fig:ej_mutacion_GP}
+\end{figure}
+
+En este caso el segundo tipo de mutación nos ofrece una mayor diversidad en las expresiones y por eso es la que se suele utilizar, aunque cabe mencionar que el propio operador de cruce ya añade suficiente diversidad y por este motivo la mutación no es tan importante en Programación Genética.
 
 \subsection{Problemas de Programación Genética}
 
 \subsubsection{Sobreajuste en el tamaño de los árboles}
 
-\subsubsection{Aaprendizaje de constantes}
+\subsubsection{Aprendizaje de constantes}
 
 
 \subsection{Mi implementación de Programación Genética}
