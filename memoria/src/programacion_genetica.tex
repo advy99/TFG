@@ -69,7 +69,7 @@ El segundo enfoque, Programación Evolutiva, fue propuesto por Lawrence J. Fogel
 
 El tercer enfoque, Algoritmos Genéticos, propuesto en 1975 por John Holland, de la Universidad de Michigan, en su libro publicado ese mismo año \cite{libroAlgoritmosGeneticos}. Este enfoque se basaba en dar a los elementos de la población una representación en cromosomas, de forma que se aplicaban operadores genéticos sobre dichos cromosomas para hacerlos evolucionar y mejorar su valor de la función objetivo.
 
-El último enfoque, Programación Genética, es el que utilizaremos, y se explicará más en detalle en el siguiente apartado.
+El último enfoque, Programación Genética, es el que utilizaremos, y se explicará más en detalle en los siguientes apartados.
 
 
 \subsection{Como funciona Programación Genética}
@@ -94,14 +94,56 @@ Programación Genética fue impulsada por John Koza a comienzos de la década de
 	\label{fig:arbol_exp}
 \end{figure}
 
+Como podemos imaginar, estos árboles no son de un tamaño ni profundidad fijas, si no que el tamaño de los individuos será variable, a diferencia de los cromosomas utilizados en Algoritmos Genéticos.
+
+También tenemos que tener en cuenta que en este caso evaluar la población requiere recorrer cada árbol por completo de forma recursiva, por lo que esto será una operación bastante costosa.
+
+De cara a funcionar con expresiones en forma de árbol, los operadores de Programación Genética deben tener en cuenta esta estructura.
+
 \subsection{Operadores de Programación Genética}
 
 \subsubsection{Operador de cruce}
+
+El operador de cruce de Programación Genética se trata de una recombinación de subárboles escogidos de forma aleatoria.
+
+\begin{figure}[H]
+    \centering
+	 \begin{subfigure}[b]{\textwidth}
+		 \centering
+		 \includegraphics[width=0.5\textwidth]{cruce_GP.png}
+		 \caption{Dos expresiones a cruzar.}
+		 \label{fig:cruce_GP}
+	 \end{subfigure}
+
+	\begin{subfigure}[b]{\textwidth}
+		 \centering
+		\includegraphics[width=0.5\textwidth]{cruce_GP_seleccion.png}
+		\caption{Selección aleatoria de los subárboles a cruzar.}
+		\label{fig:cruce_GP_seleccion}
+   \end{subfigure}
+
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+	  \includegraphics[width=0.5\textwidth]{cruce_GP_final.png}
+	  \caption{Expresiones tras realizar el cruce.}
+	  \label{fig:cruce_GP_final}
+   \end{subfigure}
+
+	\caption{Ejemplo del operador de cruce en dos árboles.}
+	\label{fig:ej_cruce_GP}
+\end{figure}
+
+Como vemos en la figura \ref{fig:ej_cruce_GP}, se trata simplemente de escoger dos puntos al azar en el árbol e intercambiar los respectivos subárboles, aunque esto puede acarrear problemas ya que podríamos llegar a tener árboles excesivamente grandes.
 
 \subsubsection{Operador de mutación}
 
 
 \subsection{Problemas de Programación Genética}
+
+\subsubsection{Sobreajuste en el tamaño de los árboles}
+
+\subsubsection{Aaprendizaje de constantes}
+
 
 \subsection{Mi implementación de Programación Genética}
 
