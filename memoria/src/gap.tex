@@ -1,7 +1,32 @@
 \section{GA-P}
 
+GA-P se trata de una mejora de Programación Genética. Esta propuesta fue publicada en 1995 por investigadores de la Universidad de Georgia \cite{primerGAP}.
+
+Esta modificación está pensada especialmente para problemas donde Programación Genética se utiliza para regresión simbólica.
+
 \subsection{Como funciona GA-P}
 
-\subsection{Mi implementación de GA-P}
+Uno de los principales problemas de Programación Genética es el aprendizaje de las constantes numéricas. GA-P soluciona este problema siendo un híbrido entre Programación Genética y Algoritmo Genético.
 
-\subsection{Resultados}
+GA-P, además de utilizar la representación en árbol de Programación Genética, añadirá un cromosoma de forma que las constantes numéricas en el árbol se referirán a posiciones en dicho cromosoma. De esta forma GA-P, además de ajustar el árbol, también ajustará el cromosoma como si fuera un problema de Programación Genética para así buscar unos mejores valores de las constantes numéricas sin tener que realizar operaciones con estas para obtener cierto valor.
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.6\textwidth]{expresion_gap.png}
+    \caption{Ejemplo de una expresión de GA-P con un cromosoma asociado.}
+	 \label{fig:expresion_gap}
+\end{figure}
+
+De esta forma, como vemos en la figura \ref{fig:expresion_gap}, los nodos de las expresiones tendrán asociados una variable del problema (como $x$ en el ejemplo), o una constante, la cual tendrá un valor asociado en el cromosoma de la expresión. Por ejemplo, con los valores actuales de la imagen la expresión sería la siguiente:
+
+$$ -6 \cdot ( (-3.9 / x) + 12 ) $$
+
+Esta representación nos permitirá entrenar la parte de Programación Genética del modelo con los operadores vistos en Programación Genética, y por otra parte ajustar las constantes numéricas utilizando el cromosoma, la parte de Algoritmo Genético.
+
+\subsection{Operadores de GA-P}
+
+\subsubsection{Operador de cruce}
+
+\subsection{Problemas de GA-P}
+
+\subsection{Modificaciones de GA-P}
