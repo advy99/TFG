@@ -17,7 +17,7 @@ GA-P, además de utilizar la representación en árbol de Programación Genétic
 	 \label{fig:expresion_gap}
 \end{figure}
 
-De esta forma, como vemos en la figura \ref{fig:expresion_gap}, los nodos de las expresiones tendrán asociados una variable del problema (como $x$ en el ejemplo), o una constante, la cual tendrá un valor asociado en el cromosoma de la expresión. Por ejemplo, con los valores actuales de la imagen la expresión sería la siguiente:
+De esta forma, como vemos en la figura \ref{fig:expresion_gap}, los nodos de las expresiones tendrán asociados variables del problema (como $x$ en el ejemplo), o constantes, las cuales tendrá un valor asociado en el cromosoma de la expresión. Por ejemplo, con los valores actuales de la imagen la expresión sería la siguiente:
 
 $$ -6 \cdot ( (-3.9 / x) + 12 ) $$
 
@@ -25,7 +25,14 @@ Esta representación nos permitirá entrenar la parte de Programación Genética
 
 \subsection{Operadores de GA-P}
 
+Además de los operadores de la parte de Programación Genética, que se mantendrán, GA-P utilizará operadores para la parte de Algoritmo Genético. En este caso se podrían aplicar todo tipo de operadores de codificación real ya que existe una gran variedad, pero se comentarán los operadores más comunes y que utilizaremos en este caso.
+
 \subsubsection{Operador de cruce}
+
+Como operador de cruce utilizaremos el cruce BLX-$\alpha$, propuesto en 1993 por Larry J. Eshelman y J. David Schaffer \cite{cruceBLXalfa}.
+
+\subsubsection{Operador de mutación}
+
 
 \subsection{Problemas de GA-P}
 
