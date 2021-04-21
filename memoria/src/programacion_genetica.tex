@@ -81,7 +81,7 @@ Programación Genética fue impulsada por John Koza a comienzos de la década de
 	 \begin{subfigure}[b]{0.49\textwidth}
 		 \centering
 		 \includegraphics[width=0.5\textwidth]{arbol_exp_matematica.png}
-		 \caption{Expresión matemática $4 \cdot ( (-23 / 2) + 12)$ representada como un árbol.}
+		 \caption{Expresión matemática $4 \cdot ( (-x / 2) + y)$ representada como un árbol.}
 		 \label{fig:exp_matematica}
 	 \end{subfigure}
 	 \begin{subfigure}[b]{0.49\textwidth}
@@ -180,13 +180,23 @@ En este caso el segundo tipo de mutación nos ofrece una mayor diversidad en las
 
 \subsection{Problemas de Programación Genética}
 
+También tenemos que tener en cuenta que, por como funciona Programación Genética y sus operadores, existen algunos problemas con este algoritmo.
+
 \subsubsection{Sobreajuste en el tamaño de los árboles}
 
-\subsubsection{Aprendizaje de constantes}
+Uno de los problemas principales en todos los modelos de Aprendizaje Automático es el sobreajuste de un modelo a los datos con los que se entrena.
+
+En Programación Genética este problema se acentúa, ya que la estructura utilizada, los árboles, pueden variar su tamaño, y por lo tanto crecer tanto como sea necesario para ajustarse lo máximo posible a los datos de entrenamiento.
+
+De cara a evitar esto se suele utilizar una profundidad máxima para los árboles, de forma que todo operador que se aplique a un árbol ha de asegurar que dicha profundidad máxima no se ha sobrepasado.
+
+\subsubsection{Aprendizaje de constantes numéricas}
+
+Programación Genética utilizará como variables de entrada las características del conjunto de datos que queramos entrenar, sin embargo aplicará operaciones matemáticas a dichas características y será necesario utilizar valores constantes para obtener la salida deseada como etiqueta.
+
+Esto será uno de los problemas de Programación Genética, ya que, por ejemplo, si de forma aleatoria no se obtienen los valores deseados se deberán realizar esas operaciones con las constantes actuales, llenando gran parte de la expresión de operaciones entre constantes, que en realidad podrían ser un único nodo.
+
+Este problema se ha solucionado de distintas formas, desde propuestas de modificaciones a Programación Genética como veremos más adelante, o aplicando algún tipo de búsqueda de mínimos (como una búsqueda local) a las constantes numéricas cada ciertas iteraciones del algoritmo.
 
 
-\subsection{Mi implementación de Programación Genética}
-
-\subsection{Resultados}
-
-\subsection{Problemas de Programación Genética}
+\newpage
