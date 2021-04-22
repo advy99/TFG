@@ -31,7 +31,22 @@ Además de los operadores de la parte de Programación Genética, que se mantend
 
 Como operador de cruce utilizaremos el cruce BLX-$\alpha$, propuesto en 1993 por Larry J. Eshelman y J. David Schaffer \cite{cruceBLXalfa}.
 
+Este operador de cruce se trata de una modificación del operador de cruce para cromosomas de codificación real de Radcliffe \cite{cruceRadcliffe}, en el que para cada punto de ambos cromosomas se escogía un valor aleatorio escogido de forma uniforme entre ambos valores reales.
+
+BLX-$\alpha$ además de tomar en cuenta el intervalo entre ambos números de ambos cromosomas $I$, amplía dicho intervalo en un $\alpha \cdot I$, es decir, si al cruzar dos cromosomas, si el valor del padre es $x$ y el de la madre es $y$, $I = y - x$, utilizando el operador de cruce de Radcliffe el nuevo valor estaría en el intervalo $[x, y]$, mientras que utilizando el cruce BLX-$\alpha$ utilizará como intervalo $[x - I \cdot \alpha, y + I \cdot \alpha]$. Como vemos, BLX-$0.0$ sería equivalente al operador de cruce de Radcliffe.
+
+Con esta modificación conseguimos que el operador de cruce sea capaz de tener una mayor exploración del espacio de búsqueda, además de evitar que los cromosomas converjan demasiado rápido.
+
+\begin{figure}[H]
+	 \centering
+	 \includegraphics[width=0.6\textwidth]{blxalfa.png}
+	 \caption{Ejemplo de un intervalo entre $x$ e $y$ al que aplicar BLX-$\alpha$.}
+	\label{fig:cruceBLXa}
+\end{figure}
+
+
 \subsubsection{Operador de mutación}
+
 
 
 \subsection{Problemas de GA-P}
