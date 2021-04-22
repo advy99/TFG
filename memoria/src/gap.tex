@@ -40,14 +40,31 @@ Con esta modificación conseguimos que el operador de cruce sea capaz de tener u
 \begin{figure}[H]
 	 \centering
 	 \includegraphics[width=0.6\textwidth]{blxalfa.png}
-	 \caption{Ejemplo de un intervalo entre $x$ e $y$ al que aplicar BLX-$\alpha$.}
+	 \caption{Ejemplo del intervalo al que aplicar BLX-$\alpha$.}
 	\label{fig:cruceBLXa}
 \end{figure}
 
 
 \subsubsection{Operador de mutación}
 
+Como operador de mutación utilizaremos el operador de mutación no uniforme de Michalewicz \cite{mutacionMichalewicz}.
 
+Esta mutación se realiza de la siguiente forma:
+
+\[ x^{t + 1} =
+	\begin{cases}
+		x_k^t + \Delta(t, k, x_k)\\
+		x_k^t - \Delta(t, k, x_k)
+	\end{cases}
+\]
+
+Donde $x_k^t$ es el valor del posición $k$ del cromosoma en la generación $t$, y la función $\Delta$ es la siguiente:
+
+$$ \Delta(t, y) = y \cdot r \cdot (1 - \frac{t}{T})^b $$
+
+Donde $r$ es un número aleatorio en el intervalo $[0, 1]$, $T$ es el número total de generaciones, y $b$ es un parámetro interno con el que ajustar la no linealidad.
+
+Con esta mutación conseguimos un operador de mutación que sea brusco en la etapa inicial del algoritmo, añadiendo una mayor diversidad en el cromosoma, mientras que en las últimas generaciones no será tan brusco, comportamiento que buscamos ya que al final del algoritmo queremos que se realice una mayor explotación de la mejor solución encontrada. 
 
 \subsection{Problemas de GA-P}
 
