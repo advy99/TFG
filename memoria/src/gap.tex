@@ -64,8 +64,30 @@ $$ \Delta(t, y) = y \cdot r \cdot (1 - \frac{t}{T})^b $$
 
 Donde $r$ es un número aleatorio en el intervalo $[0, 1]$, $T$ es el número total de generaciones, y $b$ es un parámetro interno con el que ajustar la no linealidad.
 
-Con esta mutación conseguimos un operador de mutación que sea brusco en la etapa inicial del algoritmo, añadiendo una mayor diversidad en el cromosoma, mientras que en las últimas generaciones no será tan brusco, comportamiento que buscamos ya que al final del algoritmo queremos que se realice una mayor explotación de la mejor solución encontrada. 
+Con esta mutación conseguimos un operador de mutación que sea brusco en la etapa inicial del algoritmo, añadiendo una mayor diversidad en el cromosoma, mientras que en las últimas generaciones no será tan brusco, comportamiento que buscamos ya que al final del algoritmo queremos que se realice una mayor explotación de la mejor solución encontrada.
 
 \subsection{Problemas de GA-P}
 
-\subsection{Modificaciones de GA-P}
+Uno de los problemas que podemos encontrar en GA-P es que a priori no podemos saber si una expresión es una buena solución sin ajustar las constantes numéricas que intervienen en dicha expresión.
+
+Esto, sumado a la gran diversidad que añade el operador de cruce de la parte de Programación Genética, puede hacer que pasemos por alto una zona del espacio de búsqueda con buenas soluciones, pero que al no tener suficientemente desarrollados los cromosomas parezcan malas soluciones.
+
+
+\newpage
+
+\subsection{Modificaciones de GA-P: GA-P con nichos}
+
+De cara a resolver este problema, en el año 2000 investigadores de la Universidad de Granada y la Universitat Politècnica de Catalunya propusieron un nuevo esquema de GA-P donde utilizar nichos \cite{GAPnichos}. Esta propuesta se basa en utilizar nichos, de forma que con cierta probabilidad se decidirá si hacer un cruce intra-nicho o inter-nicho. Diremos que dos expresiones están en el mismo nicho cuando la forma de su expresión sea la misma.
+
+De esta forma, los cruces funcionan de la siguiente forma:
+
+\begin{enumerate}
+	\item Cruce intra-nicho: Si se decide realizar un cruce intra-nicho, este cruce escogerá como padres dos elementos en el mismo nicho y, como ambos tienen la misma expresión, solo se cruzará el cromosoma, la parte de Algoritmo Genético, de forma que se intente mejorar las constantes numéricas de las expresiones.
+	\item Cruce inter-nicho: Se escogerán padres de dos nichos distintos, y el cruce será el cruce clásico de GA-P, donde se intenta mejorar tanto la expresión como el cromosoma.
+\end{enumerate}
+
+
+Con esta modificación conseguiremos un mejor ajuste de la parte de Algoritmo Genético en las expresiones.
+
+
+\newpage
