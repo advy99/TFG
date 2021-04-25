@@ -93,7 +93,7 @@ Esta clase se trata de la clase del algoritmo de Programación Genética que imp
 
 Como vemos, con la estructura de clases con plantillas introducir un nuevo algoritmo es tan simple como definir el comportamiento de la expresión a utilizar y como se ajusta dicho algoritmo a los datos. Por este motivo, introducir la variante de GA-P es muy simple.
 
-Para las expresiones de GA-P usaremos como base las expresiones de Programación Genética, ya que el único añadido es el cromosoma, y la forma en la que se obtienen los valores numéricos, por lo tanto la clase \texttt{Expresion\_GAP} quedará de la siguiente forma.
+Para las expresiones de GA-P usaremos como base las expresiones de Programación Genética, ya que el único añadido es el cromosoma, los operadores de cruce y mutación de GA-P y la forma en la que se obtienen los valores numéricos, por lo tanto la clase \texttt{Expresion\_GAP} quedará de la siguiente forma.
 
 
 
@@ -125,7 +125,7 @@ De cara a hacer más sencillo el uso de los algoritmos también se ha implementa
 	 \centering
 	 \includegraphics[width=0.2\textwidth]{clases/parametros.png}
 	 \caption{Diagrama de la clase AlgoritmoPG.}
-	\label{fig:diagrama_clase_algoritmoPG}
+	\label{fig:diagrama_clase_parametros}
 \end{figure}
 
 
@@ -135,7 +135,7 @@ Con todas estas clases, el diagrama final quedaría de la siguiente forma:
 
 \begin{figure}[H]
 	 \centering
-	 \includegraphics[width=\textwidth]{diagrama_clases.png}
+	 \includegraphics[width=\textwidth]{clases/diagrama_clases.png}
 	 \caption{Diagrama de clases.}
 	\label{fig:diagrama_clases}
 \end{figure}
@@ -150,7 +150,25 @@ double (*funcion_evaluacion_t)(const std::vector<double> & datos, const std::vec
 
 También disponemos de algunas funciones auxiliares, que nos servirán a lo largo de todo el código, como la comprobación de si dos valores reales son iguales teniendo en cuenta los problemas de representación de números en coma flotante de C++, o distintas posibles funciones de evaluación que hemos predefinido.
 
+\newpage
 
+\subsection{Documentación del proyecto}
+
+Todo el proyecto se ha documentado con Doxygen, y se puede acceder a la documentación a través del fichero \texttt{index.html} de la carpeta \texttt{doc/html} en el código.
+
+En este documento se puede encontrar la estructura del proyecto, así como las distintas opciones de compilación.
+
+
+\begin{figure}[H]
+	 \centering
+	 \includegraphics[width=\textwidth]{documentacion.png}
+	 \caption{Página principal de la documentación del proyecto.}
+	\label{fig:documentación}
+\end{figure}
+
+\subsection{Validación del software}
 
 
 \subsection{Uso de paralelismo}
+
+\subsection{Como utilizar y compilar el software}
