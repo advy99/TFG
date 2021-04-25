@@ -158,7 +158,6 @@ Todo el proyecto se ha documentado con Doxygen, y se puede acceder a la document
 
 En este documento se puede encontrar la estructura del proyecto, así como las distintas opciones de compilación.
 
-
 \begin{figure}[H]
 	 \centering
 	 \includegraphics[width=\textwidth]{documentacion.png}
@@ -166,9 +165,28 @@ En este documento se puede encontrar la estructura del proyecto, así como las d
 	\label{fig:documentación}
 \end{figure}
 
-\subsection{Validación del software}
+\subsection{Verificación del software desarrollado}
 
+De cara a verificar que las distintas clases y métodos desarrollados funcionan utilizaremos GoogleTest \cite{gtest}.
+
+GoogleTest es un entorno de trabajo para verificar software a través de test unitarios.
+
+Los test unitarios son test que evalúan una sección concreta de un software, con el objetivo de comprobar que dicha sección de código funciona de forma correcta, y de esta forma aislar las secciones de código que no se comportan como esperábamos, facilitando la tarea de prueba y corrección de errores en un código.
+
+Para que estos tests nos sean útiles tienen que cumplir las siguientes condiciones:
+
+\begin{enumerate}
+	\item Tienen que ser independientes y repetibles. El resultado de un test no debe depender de otros test, de forma que si un test falla este falle por la sección de código que estamos probando, no porque existe un test que no se comporta como creíamos.
+	\item Tienen que estar estructurados, y reflejar como funciona todo el conjunto del software. De esta forma es sencillo separar como funcionan las distintas partes del software, permitiendo centrarnos en comprobar que cada parte funciona de forma correcta.
+	\item Deben de ser portables y reutilizables. Los tests deben finalizar correctamente independientemente del sistema y compilador utilizado.
+	\item Cuando un test falla debe proporcionar tanta información como le sea posible.
+	\item Los test han de ser rápidos. El objetivo es comprobar que el software funciona como queremos de una forma rápida, sin perder más tiempo en ejecutar los tests que en compilar y ejecutar el sistema.
+\end{enumerate}
+
+Siguiendo estas premisas, se han diseñado tests para cada una de las clases y el conjunto del sistema software. Dichos tests están disponibles en la carpeta \texttt{test} del software, y además el fichero para generar el software ejecutará dichos tests, de forma que si estos tests no son completados correctamente detendrá la compilación.
 
 \subsection{Uso de paralelismo}
 
 \subsection{Como utilizar y compilar el software}
+
+\subsection{Ejecución con un conjunto de datos de prueba}
