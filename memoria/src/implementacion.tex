@@ -152,6 +152,68 @@ También disponemos de algunas funciones auxiliares, que nos servirán a lo larg
 
 \newpage
 
+\subsection{Validación de los algoritmos}
+
+
+Uno de los problemas que nos encontramos en los algoritmos de aprendizaje automático es la validación del algoritmo, es decir, como podemos asegurar que nuestro algoritmo realmente funciona, y no se trata de que ha hecho un sobreajuste con los datos con los que ha entrenado y fuera de dichos datos no es capaz de realizar buenas predicciones.
+
+Para comprobar y asegurarnos que los algoritmos son capaces de realizar buenas predicciones fuera de los datos con los que ha entrenado utilizaremos validación cruzada con $k$ iteraciones.
+
+Este método consiste en dividir el conjunto de entrenamiento en $k$ partes de mismo tamaño, de forma que realizaremos $k$ iteraciones para entrenar nuestro modelo. En cada iteración utilizaremos una de estas partes como conjunto de validación y las otras $k - 1$ partes como conjunto de entrenamiento, de forma que el algoritmo no haya entrenado con esa parte de validación. Finalmente para obtener el error del algoritmo para dicho conjunto de datos utilizaremos la media del error en los distintos conjuntos de validación de cada iteración.
+
+Es importante destacar que antes de hacer las separaciones en $k$ subconjuntos de datos el conjunto de entrenamiento se reordenará de forma aleatoria para evitar que un conjunto en el que los datos estén ordenados por clase se excluya del entrenamiento cierta clase, porque todas sus muestras están en el conjunto de validación.
+
+De esta forma podremos obtener un valor del error del algoritmo para unos datos con los que no ha entrenado, a la vez que comprobamos que nuestro algoritmo es capaz de ajustarse bien o no a un conjunto de datos.
+
+
+\begin{figure}[H]
+    \centering
+
+	 \begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{cross_validation/conjunto_datos.png}
+		\caption{Ejemplo de un conjunto de 16 datos.}
+	  \label{fig:ej_16_datos}
+   \end{subfigure}
+	\vspace{1cm}
+
+	 \begin{subfigure}[b]{\textwidth}
+		 \centering
+		 \includegraphics[width=0.8\textwidth]{cross_validation/iteracion1.png}
+ 		 \caption{Separación entre validación y entrenamiento en la primera iteración.}
+ 	    \label{fig:cv_iteracion1}
+	 \end{subfigure}
+	 \vspace{1cm}
+
+	\begin{subfigure}[b]{\textwidth}
+		 \centering
+		 \includegraphics[width=0.8\textwidth]{cross_validation/iteracion2.png}
+ 		 \caption{Separación entre validación y entrenamiento en la segunda iteración.}
+ 	    \label{fig:cv_iteracion2}
+   \end{subfigure}
+	\vspace{1cm}
+
+	\begin{subfigure}[b]{\textwidth}
+		 \centering
+		 \includegraphics[width=0.8\textwidth]{cross_validation/iteracion3.png}
+ 		 \caption{Separación entre validación y entrenamiento en la tercera iteración.}
+ 	    \label{fig:cv_iteracion3}
+	\end{subfigure}
+	\vspace{1cm}
+
+	\begin{subfigure}[b]{\textwidth}
+		 \centering
+		 \includegraphics[width=0.8\textwidth]{cross_validation/iteracion4.png}
+ 		 \caption{Separación entre validación y entrenamiento en la cuarta iteración.}
+ 	    \label{fig:cv_iteracion4}
+	\end{subfigure}
+
+	\caption{Ejemplo de validación cruzada de 4 iteraciones.}
+	\label{fig:4-cv-ejemplo}
+\end{figure}
+
+\newpage
+
 \subsection{Documentación del proyecto}
 
 Todo el proyecto se ha documentado con Doxygen, y se puede acceder a la documentación a través del fichero \texttt{index.html} de la carpeta \texttt{doc/html} en el código.
@@ -164,6 +226,8 @@ En este documento se puede encontrar la estructura del proyecto, así como las d
 	 \caption{Página principal de la documentación del proyecto.}
 	\label{fig:documentación}
 \end{figure}
+
+\newpage
 
 \subsection{Verificación del software desarrollado}
 
@@ -185,8 +249,30 @@ Para que estos tests nos sean útiles tienen que cumplir las siguientes condicio
 
 Siguiendo estas premisas, se han diseñado tests para cada una de las clases y el conjunto del sistema software. Dichos tests están disponibles en la carpeta \texttt{test} del software, y además el fichero para generar el software ejecutará dichos tests, de forma que si estos tests no son completados correctamente detendrá la compilación.
 
-\subsection{Uso de paralelismo}
+\newpage
 
 \subsection{Como utilizar y compilar el software}
 
+Existen diversas formas de compilar, todas ellas utilizando el comando `make`.
+
+\begin{itemize}
+	\item Sin parámetros (\texttt{make}): Compilar con optimización y utilizando OpenMP para añadir paralelismo.
+	\item Target \texttt{test} (\texttt{make test}): Compilar los test de GTest.
+	\item Target \texttt{doc} (\texttt{make doc}): Compilar la documentación.
+	\item Target \texttt{clean} (\texttt{make clean}): Limpiar los objetos tras una compilación.
+	\item Variable \texttt{OPTIMIZACION} (\texttt{make OPTIMIZACION=3}): Por defecto 3, asignar un nivel de compilación. Los posibles valores son 0, 1, 2, 3 y g.
+	\item Variable \texttt{OPENMP} (\texttt{make OPENMP=1}): Por defecto 1. Activar o desactivar la compilación con OpenMP, 0 desactivado, 1 activado.
+	\item Variable \texttt{DEBUG} (\texttt{make DEBUG=0}): Por defecto 0. Activar o desactivar la compilación con símbolos de depuración.
+	\item Variable \texttt{GPROF} (\texttt{make GPROF=0}): Por defecto 0. Activar o desactivar la compilación con GPROF de cara a hacer profiling al software.
+
+\end{itemize}
+
+Siempre que se compile se recompilará la documentación, de cara a posibles cambios.
+
+Todas las variables se pueden combinar, por ejemplo, es posible cambiar el nivel de optimización y a la vez desactivar OpenMP.
+
+Los binarios se generarán en la carpeta \texttt{bin} y cada uno de ellos tiene instrucciones de como utilizarlos.
+
 \subsection{Ejecución con un conjunto de datos de prueba}
+
+\subsection{Uso de paralelismo}
