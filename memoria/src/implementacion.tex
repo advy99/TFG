@@ -273,6 +273,8 @@ Todas las variables se pueden combinar, por ejemplo, es posible cambiar el nivel
 
 Los binarios se generarán en la carpeta \texttt{bin} y cada uno de ellos tiene instrucciones de como utilizarlos.
 
+\newpage
+
 \subsection{Ejecución con un conjunto de datos de prueba}
 
 De cara a probar que nuestra implementación funciona vamos a utilizar un conjunto de datos sencillo, con pocos datos y cuyo funcionamiento es muy simple, Iris \cite{irisDataset}. Este dataset contiene tres características de tres variantes de la flor Iris: Setosa, Versicolour y Virginica. Existen 50 muestras de cada clase, siendo 150 muestras en total.
@@ -280,5 +282,76 @@ De cara a probar que nuestra implementación funciona vamos a utilizar un conjun
 En principio este problema es de clasificación, pero para hacer esta prueba se han asignado valores numéricos a cada clase, de forma que a cada clase asignaremos un valor numérico, 0, 1 y 2. De esta forma, nuestro algoritmo utilizará las tres características numéricas para predecir el valor numérico que será la clase.
 
 
+Para la prueba se ha separado el conjunto de entrada en un 80\% de entrenamiento y un 20\% de test. Tras esto se han ajustado los algoritmos usando validación cruzada de 5 iteraciones y los siguientes parámetros:
+
+\begin{itemize}
+	\item Tamaño de población: 1000.
+	\item Probabilidad de que un nodo sea una variable: 30\%.
+	\item Tamaño máximo del árbol: 10.
+	\item Número de evaluaciones: 100000.
+	\item Probabilidad de cruce en PG: 75\%.
+	\item Probabilidad de cruce en GA: 75\%.
+	\item Probabilidad de mutación en PG: 5\%.
+	\item Probabilidad de mutación en GA: 5\%.
+	\item Probabilidad de cruce intra-nicho: 3\%.
+	\item Tamaño del torneo: 30.
+\end{itemize}
+
+Tras realizar las ejecuciones, obtenemos los siguientes resultados en Programación Genética:
+
+\begin{lstlisting}
+RMSE (Root Mean Square Error) en validacion cruzada de: 0.2616322184
+\end{lstlisting}
+
+Con las siguientes predicciones sobre el conjunto de test:
+
+\begin{figure}[H]
+	 \centering
+	 \includegraphics[width=0.8\textwidth]{iris_gp.png}
+	 \caption{Comparación de valores reales y predicciones con Programación genetica.}
+	\label{fig:iris_gp}
+\end{figure}
+
+Y con la siguiente fórmula:
+
+\begin{figure}[H]
+	 \centering
+	 $$( ( -1.136984  / ( -3.640915  +  9.897730 ) ) +  x3 )$$
+	 \caption{Fórmula obtenida de la regresión simbólica con Programación Genética.}
+	\label{fig:formula_iris_gp}
+\end{figure}
+
+Mientras que en GA-P obtenemos:
+
+\begin{lstlisting}
+RMSE (Root Mean Square Error) en validacion cruzada de: 0.24989117
+\end{lstlisting}
+
+Con las siguientes predicciones sobre el conjunto de test:
+
+\begin{figure}[H]
+	 \centering
+	 \includegraphics[width=0.8\textwidth]{iris_gap.png}
+	 \caption{Comparación de valores reales y predicciones con GA-P.}
+	\label{fig:iris_gap}
+\end{figure}
+
+Y con la siguiente fórmula:
+
+\begin{figure}[H]
+	 \centering
+	 $$( -0.299342  +  x_3 )$$
+	 \caption{Fórmula obtenida de la regresión simbólica con GA-P.}
+	\label{fig:formula_iris_gap}
+\end{figure}
+
+Como vemos, el resultado es muy similar, y es que si nos fijamos en las fórmulas obtenidas de la regresión simbólica (figuras \ref{fig:formula_iris_gp} y \ref{fig:formula_iris_gap}), ambas son prácticamente la misma, pero GA-P ha sido capaz de aprender mejor los valores numéricos constantes necesarios y por lo tanto obtener un resultado más compacto, tal y como esperábamos.
+
 
 \subsection{Uso de paralelismo}
+
+Una de las tareas más costosas que nos podemos encontrar en ambos algoritmos es evaluar la población cuando esta tiene un gran número de individuos y el número de datos es muy elevado.
+
+Para reducir el tiempo utilizado por estas tareas podemos aprovechar el paralelismo de los datos. Evaluar una expresión es totalmente independiente de evaluar otra, de forma que esta tarea se puede realizar en paralelo y así reducir el tiempo de ejecución.
+
+También se ha probado el paralelizar la generación de la nueva población en cada generación del algoritmo, ya que en las operaciones de cruce y mutación son independientes entre sí al seleccionar a priori que elementos formarán parte del cruce y mutación, sin embargo esto no ha dado buenos resultados ya que el coste de crear y eliminar los hilos que se ejecutarán en paralelo, sumado a las esperas en secciones críticas esto hacía que el tiempo de ejecución fuera igual o superior a ejecutarlo en secuencial.
