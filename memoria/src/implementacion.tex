@@ -214,6 +214,41 @@ De esta forma podremos obtener un valor del error del algoritmo para unos datos 
 
 \newpage
 
+\subsection{Funciones de evaluación}
+
+De cara a evaluar los algoritmos necesitaremos una función de evaluación que nos permita saber el error que estamos cometiendo en las estimaciones.
+
+En nuestro caso, al realizar una regresión simbólica, utilizaremos dos medidas:
+
+\begin{itemize}
+	\item Error cuadrático medio.
+	\item Raíz del error cuadrático medio.
+\end{itemize}
+
+\subsubsection{Error cuadrático medio}
+
+El error cuadrático medio es un estimador que medirá el promedio de los errores cometidos al cuadrado. Esta función de error se utiliza especialmente al entrenar modelos, ya que es muy sensible a errores, lo que ayuda a la hora del aprendizaje a distinguir dos soluciones, aunque el error que cometan ambas sea similar, esta función penalizará mucho más a la que tenga un mayor error.
+
+\begin{figure}[H]
+	 \centering
+	 $$ ECM = \frac{1}{n} \sum_{i = 1}^{n}(\hat{Y_i} - Y_i)^2 $$
+	 \caption{Fórmula para calcular el error cuadrático medio, donde $\hat{Y_i}$ son las etiquetas predecidas y $Y_i$ son las etiquetas reales.}
+	\label{fig:ECM}
+\end{figure}
+
+% \subsubsection{Raíz del error cuadrático medio}
+%
+% La raíz del error cuadrático medio se trata de aplicar la raíz cuadrada
+%
+% \begin{figure}[H]
+% 	 \centering
+% 	 $$ RECM = \sqrt{ECM} $$
+% 	 \caption{Fórmula para calcular la raíz del error cuadrático medio.}
+% 	\label{fig:ECM}
+% \end{figure}
+
+\newpage
+
 \subsection{Documentación del proyecto}
 
 Todo el proyecto se ha documentado con Doxygen, y se puede acceder a la documentación a través del fichero \texttt{index.html} de la carpeta \texttt{doc/html} en el código.
@@ -285,16 +320,16 @@ En principio este problema es de clasificación, pero para hacer esta prueba se 
 Para la prueba se ha separado el conjunto de entrada en un 80\% de entrenamiento y un 20\% de test. Tras esto se han ajustado los algoritmos usando validación cruzada de 5 iteraciones y los siguientes parámetros:
 
 \begin{itemize}
-	\item Tamaño de población: 1000.
-	\item Probabilidad de que un nodo sea una variable: 30\%.
-	\item Tamaño máximo del árbol: 10.
-	\item Número de evaluaciones: 100000.
-	\item Probabilidad de cruce en PG: 75\%.
-	\item Probabilidad de cruce en GA: 75\%.
-	\item Probabilidad de mutación en PG: 5\%.
-	\item Probabilidad de mutación en GA: 5\%.
-	\item Probabilidad de cruce intra-nicho: 3\%.
-	\item Tamaño del torneo: 30.
+	\item Tamaño de población: $1.000$.
+	\item Probabilidad de que un nodo sea una variable: $30\%$.
+	\item Tamaño máximo del árbol: $10$.
+	\item Número de evaluaciones: $100.000$.
+	\item Probabilidad de cruce en PG: $75\%$.
+	\item Probabilidad de cruce en GA: $75\%$.
+	\item Probabilidad de mutación en PG: $5\%$.
+	\item Probabilidad de mutación en GA: $5\%$.
+	\item Probabilidad de cruce intra-nicho: $3\%$.
+	\item Tamaño del torneo: $30$.
 \end{itemize}
 
 Tras realizar las ejecuciones, obtenemos los siguientes resultados en Programación Genética:
@@ -347,6 +382,7 @@ Y con la siguiente fórmula:
 
 Como vemos, el resultado es muy similar, y es que si nos fijamos en las fórmulas obtenidas de la regresión simbólica (figuras \ref{fig:formula_iris_gp} y \ref{fig:formula_iris_gap}), ambas son prácticamente la misma, pero GA-P ha sido capaz de aprender mejor los valores numéricos constantes necesarios y por lo tanto obtener un resultado más compacto, tal y como esperábamos.
 
+\newpage
 
 \subsection{Uso de paralelismo}
 
