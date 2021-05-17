@@ -4,8 +4,6 @@
 
 Para la ejecución de nuestros algoritmos separaremos los conjuntos de datos en dos partes, una de entrenamiento y otra de test, utilizando un $80\%$ del conjunto para el entrenamiento y el $20\%$ restante para el test.
 
-De cara a obtener resultados fiables utilizaremos validación cruzada al entrenar, utilizando el método de 5x2 iteraciones, es decir, haremos dos experimentos, cada uno con 5 iteraciones de validación cruzada, y a partir de estos resultados obtendremos el error cuadrático medio resultante.
-
 También tenemos que tener en cuenta que los algoritmos implementados son algoritmos estocásticos, es decir, la aleatoriedad juega una parte importante en las zonas del espacio de soluciones que se explorarán, por este motivo se han realizado cinco ejecuciones distintas, con cinco semillas aleatorias distintas.
 
 \subsection{Parámetros utilizados}
@@ -39,19 +37,194 @@ Tras las distintas ejecuciones con las semillas aleatorias, en cada uno de los c
 \subsubsection{Resultados en la lateralidad izquierda}
 
 
-% \caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas.}\label{table:resultados_PG_l0}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                                                                                                                       \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                       & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 79,6918                 & 8,92319                 & $x_{1} + 6.806152 x_{2} x_{8} - 7.806152 x_{8} + 16.671427 + \frac{9.247572}{x_{0}}$                                                                                  & 238,673                      \\ \hline
+12345            & 78,748                  & 8,87077                 & $\left(2 x_{8} + 2.098443\right) \left(0.700703 x_{1} + 1.401406 x_{4} - 0.700703 x_{8} + 3.760288315053\right)$                                                      & 235,178                      \\ \hline
+34634            & 78,5101                 & 8,85238                 & $\frac{3.82800029092802 x_{4} + \left(x_{0} x_{6} + 0.261233\right) \left(x_{1} + 8.718205 x_{4} + 3.82800029092802 x_{8} + 8.015956\right)}{x_{0} x_{6} + 0.261233}$ & 232,605                      \\ \hline
+34679            & 76,4396                 & 8,74064                 & $3.304648 x_{1} - \frac{4.72837514266291 x_{4}^{2}}{x_{8}} + 22.85009927751 x_{4}$                                                                                    & 238,217                      \\ \hline
+92034            & 73,8851                 & 8,58666                 & $x_{1} + 3.960578 x_{4} - 3.960578 x_{6} + 7.318114433142 x_{8} + 17.2568409638182$                                                                                   & 233,941                      \\ \hline
+\textbf{Media}   & \textbf{77,45492}       & \textbf{8,794728}       & \textbf{}                                                                                                                                                             & \textbf{235,7228}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_PG_l0_20}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                    \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                    & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 77,5695                 & 8,80486                 & $\frac{x_{4} \left(- x_{0} + x_{1} + \left(x_{2} + x_{4} - 3.516791\right) \left(x_{0} \left(x_{1} - 2.678125\right) + x_{1} + 21.1392634039345 x_{5} + x_{8} - 1.993189\right)\right)}{x_{5} \left(x_{2} + x_{4} - 3.516791\right)}$              & 409,343                      \\ \hline
+12345            & 79,6452                 & 8,92197                 & $\frac{\left(x_{2} - x_{6}\right) \left(0.211757197248 x_{0} x_{1}^{3} - 1.652752 x_{0} + 0.826376 x_{1} - 2.685948427024 x_{2} + 0.826376 x_{3} + 0.826376 x_{4} + 4.87586218092 x_{8} + 25.730921261812\right) + 7.105793192616}{x_{2} - x_{6}}$ & 398,863                      \\ \hline
+34634            & 76,0195                 & 8,71611                 & $- x_{0} + x_{1} + \frac{4.525078468023 x_{1}}{x_{4}} + 8.577242 x_{4} x_{5} + x_{8} - 4.561349 + \frac{26.290481852848}{x_{0} + 1.920516} + \frac{1.595766}{x_{7} \left(x_{1} - x_{4}\right)}$                                                    & 404,25                       \\ \hline
+34679            & 80,0396                 & 8,94082                 & $48.6935516493485 - \frac{2.16730498877799 \left(19.24343465353 - \frac{40.957095707356}{2.327915 + \frac{4.306107}{x_{1}^{3} x_{7} + x_{4} - 0.992512}}\right)}{x_{1} x_{8}}$                                                                     & 408,77                       \\ \hline
+92034            & 71,2555                 & 8,43807                 & $- \frac{x_{0} + 14.807475}{x_{1} + \frac{x_{7}^{2}}{x_{1} x_{6} \left(4.719054 + \frac{5.96478}{x_{0}}\right)}} + 57.973520100924 + \frac{16.419773}{x_{7} + 0.91291} - \frac{28.14811891812}{x_{8}}$                                             & 406,054                      \\ \hline
+\textbf{Media}   & \textbf{76,90586}       & \textbf{8,764366}       & \textbf{}                                                                                                                                                                                                                                          & \textbf{405,456}             \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_PG_l0_40}
+
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                             & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 76,1425                 & 8,72387                 & $- x_{0} + x_{7} + 1.41125320625032 x_{8} - \left(x_{0} + \frac{8.133226}{x_{7} \left(x_{7} - 1.721679\right) \left(4.987063 x_{8} - 6.062558\right)}\right) \left(0.123744182167275 x_{8} + 0.96301905115931\right) + 41.8615419920975 + \frac{0.108907573786774}{x_{7} \left(0.117460143666326 - \frac{0.146273}{x_{1}}\right)}$          & 557,485                      \\ \hline
+12345            & 79,2651                 & 8,89095                 & $1.22449335519861 x_{0} x_{8} - 1.52786264982266 x_{0} - \frac{3.01210181661254 x_{0}}{x_{6}} + x_{4} - 1.52573755449916 x_{8} + 43.623109264054 + \frac{9.32731736290719}{x_{6}} - \frac{19.4056717568343}{x_{1} x_{8}}$                                                                                                                   & 555,405                      \\ \hline
+34634            & 78,234                  & 8,83189                 & $x_{7} + x_{8} \left(x_{1} - 0.427277\right) + x_{8} + 45.848308829856 + \frac{x_{0} + 7.838993}{\left(0.55441470297948 x_{0} - 5.525467\right) \left(x_{0} - 2.499842\right)} - \frac{9.388158 \left(x_{0} + x_{6}\right)}{x_{5}} - \frac{1.5203922451896 x_{6} \left(x_{0} - 2.499842\right) \left(x_{8} - 4.099186\right)}{x_{0} x_{1}}$ & 555,924                      \\ \hline
+34679            & 76,624                  & 8,74702                 & $- \frac{3.11656327087967 x_{0}}{2.124324 - \frac{0.195967037560414 x_{8}}{x_{1}}} + 3.11656327087967 x_{1} + 0.663148657160205 x_{8} + 42.5121357779988 + \frac{17.7017272069469}{2.13433049253945 x_{1} x_{7} + 5.085895} - \frac{12.85058005571}{x_{8} \left(0.220182847436783 x_{8} + 0.390667326701419\right)}$                        & 548,444                      \\ \hline
+92034            & 643,363                 & 15,3321                 & $- 1.28612400807686 x_{1} + 4.699019 x_{2} - 4.699019 x_{5} + 2 x_{8} + 37.445072111831 - \frac{3.543768}{\frac{0.381420692911716 x_{0} \left(\frac{x_{1}}{x_{7}} - 5.682149\right)}{x_{1}} + 0.346093} - \frac{4.21979785528129 \left(x_{2} + 2.448052\right)}{x_{8}^{2}}$                                                                 & 556,782                      \\ \hline
+\textbf{Media}   & \textbf{190,72572}      & \textbf{10,105166}      & \textbf{}                                                                                                                                                                                                                                                                                                                                   & \textbf{554,808}             \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_PG_l0_60}
+
+\end{table}
 
 \subsubsection{Resultados en la lateralidad derecha}
 
 
-% \caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas.}\label{table:resultados_PG_l1}
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                                                                                                                                    \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                    & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 74,6494                 & 8,63421                 & $17.505549517592 x_{4} - x_{7} + 4 x_{8} - 1.047368$                                                                                                                               & 240,85                       \\ \hline
+12345            & 75,1987                 & 8,66657                 & $\frac{x_{2} \left(1.38874812584547 x_{1} x_{2} x_{6} + \left(29.606543018814 - 7.276618 x_{3}\right) \left(x_{1}^{2} x_{2} - 3.628442\right)\right)}{x_{1}^{2} x_{2} - 3.628442}$ & 241,386                      \\ \hline
+34634            & 74,8878                 & 8,6474                  & $\frac{17.118883 x_{3} + 7.201367 x_{4} \left(x_{4} + x_{8}\right) + 9.917516 x_{5} + 7.201367 x_{6} x_{8}}{x_{3} + x_{5}}$                                                        & 243,297                      \\ \hline
+34679            & 73,9494                 & 8,59709                 & $19.311305945722 x_{4} + \frac{19.311305945722 x_{8}}{x_{6} + 4.757337} - 2.752398 + \frac{2.543005}{x_{1} - x_{4}}$                                                               & 242,149                      \\ \hline
+92034            & 67,6306                 & 8,21978                 & $x_{4} x_{8} + 9.145434 x_{4} + 2.830163 x_{8} + 17.905898 - \frac{8.70694}{x_{1}}$                                                                                                & 243,905                      \\ \hline
+\textbf{Media}   & \textbf{73,26318}       & \textbf{8,55301}        & \textbf{}                                                                                                                                                                          & \textbf{242,3174}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_PG_l1_20}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                                        \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                        & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 71,5954                 & 8,45822                 & $\frac{7.032548 \left(x_{7} + 4.233078\right) \left(- 9.743939 x_{0} + 1.83278911093748 x_{1} + 9.743939 x_{5} + 9.743939 x_{6} + 9.743939 x_{8} + 54.074554628962\right) - 573.404636120864}{\left(x_{7} + 4.233078\right) \left(- x_{1} + x_{7} + 13.977017\right)}$ & 408,479                      \\ \hline
+12345            & 71,0264                 & 8,42233                 & $x_{4} \left(- x_{7} + x_{8} + 7.616501\right) + \left(- 0.130897471021591 x_{0} + 0.130897471021591 x_{3} + 1.40296223594871\right) \left(- x_{2} x_{6} + x_{4} \left(x_{1} + 3.405839\right) + x_{8} + 8.596406\right)$                                              & 414,717                      \\ \hline
+34634            & 74,6436                 & 8,63526                 & $\frac{x_{1} x_{3} x_{6} \left(4.70400488550279 x_{6} x_{8} + 176.910764760774 x_{7} x_{8} - 112.090917003674 x_{7}\right)}{x_{7} \left(3.072794 x_{1} x_{3} x_{6} x_{8} - 0.20555331045662 x_{1} + 0.837036924363371\right)}$                                         & 410,267                      \\ \hline
+34679            & 71,9799                 & 8,47883                 & $- 4.134354 x_{0} + \frac{x_{0}}{x_{4}} + x_{8} + 47.485464997316 + \frac{x_{4}}{x_{1}} + \frac{3 x_{8}}{x_{1}} - \frac{9.747931}{x_{1} x_{4}} - \frac{9.747931}{x_{1}^{2}}$                                                                                           & 413,912                      \\ \hline
+92034            & 88,3816                 & 9,06109                 & $\frac{8.74980113037591 x_{5} x_{6} x_{8} \left(x_{1} x_{6} + x_{8}\right) + \left(x_{1} + 1.189869 x_{6}\right) \left(8.74980113037591 x_{2} + 164.59603818099 x_{4}\right)}{\left(x_{1} + 1.189869 x_{6}\right) \left(- x_{1} + x_{4} + x_{6} + 8.383508\right)}$    & 409,705                      \\ \hline
+\textbf{Media}   & \textbf{75,52538}       & \textbf{8,611146}       & \textbf{}                                                                                                                                                                                                                                                              & \textbf{411,416}             \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_PG_l1_40}
+
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 72,027                  & 8,4807                  & $\frac{x_{1} x_{3} \left(x_{2} - 5.59159480223596\right) \left(x_{2} + x_{6} \left(x_{2} + x_{3} - 6.794898\right) - 9.199928\right) \left(x_{3} + 5.801676 x_{8} + 11.675728080933\right) - 0.172363985855122 x_{4} \left(7.95334816944888 x_{4} + 8.559894\right) \left(- 51.950807147778 x_{1} x_{4} + 14.074931332506 x_{1} + 6.794898 x_{4} x_{7}\right)}{x_{1} x_{3} \left(x_{2} - 5.59159480223596\right) \left(x_{2} + x_{6} \left(x_{2} + x_{3} - 6.794898\right) - 9.199928\right)}$                 & 568,104                      \\ \hline
+12345            & 78,3789                 & 8,821                   & $0.490486 x_{8} \left(x_{1} + 9.997301\right) + 0.490486 x_{8} + \frac{0.490486 \left(6.862822 x_{2} - 27.900025917088\right)}{1.42187001786137 x_{1} x_{2} x_{7} + \frac{6.604657}{6.645738 x_{2} x_{8} - 16.09552482906}} + 28.4877087529016 + \frac{0.490486 \left(- 6.054129 x_{4} + 7.151687 x_{7} + x_{8}\right)}{x_{8} - 4.814394}$                                                                                                                                                                     & 563,698                      \\ \hline
+34634            & 73,7058                 & 8,58074                 & $\frac{7.235697 \left(1.076021 x_{6} + 0.138203686528057 x_{8} \left(x_{4} - x_{5}\right) \left(- 0.761994838143756 x_{1} + \left(0.134950490038967 x_{1} + 0.761994838143756\right) \left(x_{6} - 2.945426\right) - 4.30258632769744\right) + 0.138203686528057 \left(x_{4} - x_{5}\right) \left(x_{6} - 2.945426\right) \left(0.521747 x_{1} x_{3}^{2} x_{7} + x_{1} + 7.410125 x_{4} - x_{6} - x_{7} + 16.515407\right) - 3.169340229946\right)}{\left(x_{4} - x_{5}\right) \left(x_{6} - 2.945426\right)}$ & 562,27                       \\ \hline
+34679            & 72,1519                 & 8,48776                 & $\frac{x_{1}^{4} x_{6} \left(0.131997257096998 x_{2} + 0.131997257096998 x_{8}^{2} + 0.435508054142635\right) + 4.16429328807068 x_{1}^{4} - 0.131997257096998 x_{6} \left(0.136658825638781 x_{2} + x_{4}\right) \left(x_{1}^{4} \left(0.928767868515598 x_{5} - 8.91105588432996\right) \left(- x_{6} + x_{8} + 17.492948\right) + 16.308265850949\right)}{x_{1}^{4} x_{6}}$                                                                                                                                 & 563,854                      \\ \hline
+92034            & 67,6692                 & 8,21935                 & $\frac{14.7909375936658 x_{4} \left(0.0512960542013406 x_{3}^{3} - 0.0064707086769394 x_{4}\right) \left(- x_{0} + x_{1} + 3.847447 x_{8} + 27.402314675696\right)}{x_{3}^{3}}$                                                                                                                                                                                                                                                                                                                                & 565,646                      \\ \hline
+\textbf{Media}   & \textbf{72,78656}       & \textbf{8,51791}        & \textbf{}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      & \textbf{564,7144}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_PG_l1_60}
+
+\end{table}
 
 \subsubsection{Resultados en el conjunto completo}
 
 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                                                                                                           \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                           & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 72,027                  & 8,4807                  & $- \frac{x_{0}}{x_{1}} + x_{1} x_{8} + 19.2998352727278 x_{4} + 2.589387$                                                                                 & 372,72                       \\ \hline
+12345            & 78,3789                 & 8,821                   & $\frac{x_{4} \left(14.438755 x_{0} - 0.448011 x_{4}\right) \left(x_{6} \left(x_{1} - 1.021619\right) + 8.705818\right)}{6.459812 x_{0} - 0.448011 x_{4}}$ & 383,73                       \\ \hline
+34634            & 73,7058                 & 8,58074                 & $\frac{\left(x_{4} - 3.26324\right) \left(- x_{0} + 2 x_{1} + 3 x_{8}\right) - 41.429611744983}{x_{4} - 3.26324}$                                         & 380,58                       \\ \hline
+34679            & 72,1519                 & 8,48776                 & $\frac{- 1.43471227697771 x_{1} \left(- x_{0} + x_{2} + 7.736133\right) + x_{8} \left(- 6.445267 x_{0} + 6.445267 x_{1} + 49.348328581374\right)}{x_{8}}$ & 387,93                       \\ \hline
+92034            & 67,6692                 & 8,21935                 & $- 4.959803 x_{4} + 62.285738396657 + \frac{6.506819 x_{4}}{x_{1} x_{8}} - \frac{42.338693498761}{x_{1} x_{8}}$                                           & 381,19                       \\ \hline
+\textbf{Media}   & \textbf{72,78656}       & \textbf{8,51791}        & \textbf{}                                                                                                                                                 & \textbf{381,23}              \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_PG_c_20}
+\end{table}
 
-% \caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas.}\label{table:resultados_PG_c}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                                                                    \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                    & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 76,1103                 & 8,72255                 & $- \frac{4.857741 x_{0}}{\left(4.633198 - \frac{x_{8}}{x_{5} \left(x_{5} - 1.87042031549003\right)}\right) \left(x_{0} - x_{8}\right)} + x_{4} \left(x_{8} + 9.965374367248\right) + x_{8} + 16.018685$                                                                                            & 713,016                      \\ \hline
+12345            & 71,0573                 & 8,42639                 & $- \frac{1.86996 x_{0}}{x_{1} x_{8}} + 1.27560944008 x_{1} + 3.321396 x_{4} + 0.27560944008 x_{6} + 3.321396 x_{8} + 27.7756719779449 - \frac{3.73992}{x_{4} + 9.821161 - \frac{x_{1} + 9.333703}{x_{1}}}$                                                                                         & 708,014                      \\ \hline
+34634            & 70,00                   & 8,36                    & $\frac{2.136168 x_{3} x_{4} x_{6} + x_{8} \left(x_{4} \left(x_{5} - 5.99442\right) + 3.780477 x_{5}\right) \left(- x_{0} + 3.7926395619 x_{1} + 22.66176693834 x_{4} - x_{5} + x_{8} - 2.136168\right)}{x_{8} \left(x_{4} \left(x_{5} - 5.99442\right) + 3.780477 x_{5}\right)}$                   & 698,90                       \\ \hline
+34679            & 74,83                   & 8,65                    & $\frac{- x_{4} + \left(2.091543 x_{1} - 1.312926378933\right) \left(- x_{4} x_{6} + x_{4} \left(x_{1} - x_{6} + 23.302110494373\right) - 5.280203 x_{4} + 3 x_{8} + 2.091543\right)}{2.091543 x_{1} - 1.312926378933}$                                                                             & 703,24                       \\ \hline
+92034            & 69,9743                 & 8,3593                  & $\frac{x_{1} \left(x_{4}^{2} - x_{8}\right) \left(- x_{3} x_{4} + x_{6} + x_{8} + 8.137284\right) + x_{1} \left(3 x_{1} + x_{8} - 7.977115\right) + x_{4} \left(x_{4}^{2} - x_{8}\right) \left(- x_{0} x_{6} + x_{1} \left(x_{8} + 15.375257\right)\right)}{x_{1} \left(x_{4}^{2} - x_{8}\right)}$ & 709,473                      \\ \hline
+\textbf{Media}   & \textbf{72,39464}       & \textbf{8,502896}       & \textbf{}                                                                                                                                                                                                                                                                                          & \textbf{706,5294}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_PG_c_40}
+
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 75,5039                 & 8,68442                 & $\frac{4.14543935040911 x_{5} x_{8} + x_{5} \left(16.98136426032 x_{4} - x_{6} \left(- 3.8029444162814 x_{1} + 3.76685958041453 x_{4} + 1.57628623404889\right) + 2.45743\right) - 2.70634051927123}{x_{5}}$                                                                                                                                                                                                                                                                                                                                                                                             & 965,808                      \\ \hline
+12345            & 71,4202                 & 8,44867                 & $x_{1} + 1.085503 - \frac{3.92698286132999 x_{3} - 19.2683515209509}{0.250717285625945 + \frac{0.314227284956544}{x_{8}}} + \frac{1.57098084188863 x_{1} - \frac{1.57098084188863 \left(2.085503 x_{1} - 5.906431325079\right) \left(x_{7} + 6.526696\right)}{x_{3}^{2} x_{4} \left(x_{1} - 5.441193\right)}}{x_{4}}$                                                                                                                                                                                                                                                                                    & 959,316                      \\ \hline
+34634            & 70,2228                 & 8,37828                 & $7.285274 x_{4} + \frac{4.89046039227162 x_{4} x_{8}}{x_{5} x_{6}} + 16.533253 - \frac{\frac{x_{0} x_{4}}{x_{3} x_{8}^{3}} - x_{2} + 6.968277}{9.29484662526815 + \frac{8.805064}{x_{1} - 2.154974}}$                                                                                                                                                                                                                                                                                                                                                                                                    & 972,419                      \\ \hline
+34679            & 71,9836                 & 8,48336                 & $\frac{0.0181826215286566 x_{8} \left(6.51000240118267 x_{0} + x_{8} - 40.5930874225626\right) \left(0.283461817126309 x_{4} - 0.283461817126309 x_{8} + 7.346281\right) \left(x_{4} \left(x_{8} + 1.016277\right) + 1.11712670629841 x_{8} + \left(x_{1} + 9.508911\right) \left(0.283461817126309 x_{8} + 0.0380045762075757\right) \left(x_{8} + 1.016277\right) + 0.149776528893546\right)}{\left(0.27239738875198 x_{0} - 1.69853255557603\right) \left(0.283461817126309 x_{8} + 0.0380045762075757\right) \left(0.283461817126309 x_{8} + 1.85046737184408\right) \left(x_{8} + 1.016277\right)}$ & 983,623                      \\ \hline
+92034            & 69,8625                 & 8,35727                 & $- \frac{\left(\frac{x_{0}}{15.819981199736 + \frac{6.714138 \left(x_{5} - 7.19636\right) \left(x_{5} - x_{6}\right)}{x_{4} x_{6}^{3} x_{7}} + \frac{x_{3}}{x_{1}} + \frac{4.676273 x_{5}}{x_{1}}} - \frac{7.775808 x_{5} x_{6}}{x_{4} - 7.20854}\right) \left(x_{0} + x_{6} - x_{8} - 13.51207\right)}{x_{6}}$                                                                                                                                                                                                                                                                                          & 980,662                      \\ \hline
+\textbf{Media}   & \textbf{71,7986}        & \textbf{8,4704}         & \textbf{}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                & \textbf{972,3656}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_PG_c_60}
+
+\end{table}
 
 
 \subsection{Resultados de GA-P}
