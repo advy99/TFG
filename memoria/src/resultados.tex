@@ -10,7 +10,7 @@ También tenemos que tener en cuenta que los algoritmos implementados son algori
 
 \subsection{Parámetros utilizados}
 
-Como vimos en el estado del arte, la Programación Genética es un algoritmo que necesita una población con un gran número de individuos, por este motivo se ha escogido una población de mil individuos. De cara a limitar el sobreajuste de las expresiones y mantener el resultado simple se ha limitado el tamaño máximo de las expresiones a diez nodos.
+Como vimos en el estado del arte, la Programación Genética es un algoritmo que necesita una población con un gran número de individuos, por este motivo se ha escogido una población de mil individuos. De cara a estudiar el sobreajuste de las expresiones y mantener el resultado simple se ha experimentado con distintas longitudes máximas de nodos, variando entre veinte, cuarenta y sesenta. Se ha tomado el valor inicial veinte ya que contamos con nueve nodos, y una expresión en la que intervengan todos los nodos con una única operación ya supondría una longitud de árbol de dicho tamaño.
 
 Con respecto a los demás parámetros se han utilizado los más comunes en otras implementaciones de Programación Genética y que de forma empírica han funcionado mejor en nuestro conjunto de datos.
 
@@ -19,7 +19,7 @@ Se han utilizado los siguientes parámetros:
 \begin{itemize}
 	\item Tamaño de población: $1.000$.
 	\item Probabilidad de que un nodo sea una variable: $30\%$.
-	\item Tamaño máximo del árbol: $10$.
+	\item Tamaño máximo del árbol: $20$, $40$ y $60$.
 	\item Número de evaluaciones: $1.000.000$.
 	\item Probabilidad de cruce en PG: $75\%$.
 	\item Probabilidad de cruce en GA (solo para GA-P): $75\%$.
@@ -33,179 +33,222 @@ Se han utilizado los siguientes parámetros:
 
 \subsection{Resultados de Programación Genética}
 
-Tras las distintas ejecuciones con las semillas aleatorias y en cada uno de los conjuntos de datos, obtenemos los siguientes resultados.
+Tras las distintas ejecuciones con las semillas aleatorias, en cada uno de los conjuntos de datos y con distintas profundidades máximas para las expresiones, obtenemos los siguientes resultados.
 
 
 \subsubsection{Resultados en la lateralidad izquierda}
 
 
-\begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
-\hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de Programación Genética en la lateralidad izquierda}}                                                \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}                                           \\ \hline
-12345            & 118,629                 & $( -2.795300  * ( ( x_0  - ( x_0  *  2.079655 ) ) +  4.778957 ) )$        \\ \hline
-92034            & 113,681                 & $( x_0  * ( ( 2.955791  /  x_0 ) * ( -4.162967  +  x_0 ) ) )$              \\ \hline
-8324             & 116,483                 & $( ( -1.432396  -  7.975771 ) - ( 3.960089  / ( -1.432396  /  x_0 ) ) )$ \\ \hline
-34679            & 116,616                 & $( -9.075032  - ( -2.749338  * ( ( x_0  /  x_0 ) *  x_0 ) ) )$             \\ \hline
-34634            & 116,644                 & $( ( x_0  + ( -5.473511  / ( x_0  -  9.989626 ) ) ) *  2.327900 )$        \\ \hline
-\textbf{Media}   & \textbf{116,4106}       &                                                                       \\ \hline
-\end{tabular}%
-% }
-\caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas.}\label{table:resultados_PG_l0}
-
-\end{table}
+% \caption{Resultados de Programación Genética en la lateralidad izquierda con cinco semillas distintas.}\label{table:resultados_PG_l0}
 
 \subsubsection{Resultados en la lateralidad derecha}
 
 
-\begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
-\hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de Programación Genética en la lateralidad derecha}}                                              \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}                                         \\ \hline
-12345            & 107,154                 & $( ( x_0  /  6.053368 ) * ( 6.051508  - ( x_0  /  -2.234684 ) ) )$      \\ \hline
-92034            & 103,496                 & $( ( 4.069355  * ( -6.973380  +  x_0 ) ) -  1.133718 )$                \\ \hline
-8324             & 103,209                 & $( 3.925351  * ( ( 3.575640  - ( 4.634127  -  x_0 ) ) -  5.821175 ) )$ \\ \hline
-34679            & 106,156                 & $( x_0  + ( -3.565364  * ( 6.913891  - ( x_0  /  1.292461 ) ) ) )$      \\ \hline
-34634            & 107,11                  & $( x_0  * ( ( x_0  + ( 8.715935  /  3.905992 ) ) /  8.165300 ) )$       \\ \hline
-\textbf{Media}   & \textbf{105,425}        &                                                                     \\ \hline
-\end{tabular}%
-% }
-\caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas.}\label{table:resultados_PG_l1}
-\end{table}
+% \caption{Resultados de Programación Genética en la lateralidad derecha con cinco semillas distintas.}\label{table:resultados_PG_l1}
 
 
 \subsubsection{Resultados en el conjunto completo}
 
 
 
-\begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
-\hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de Programación Genética en el conjunto completo}}                         \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}                                            \\ \hline
-12345            & 112,162                 & $( ( -3.556759  - ( -3.164731  *  x_0 ) ) + ( -5.675591  -  6.310600 ) )$ \\ \hline
-92034            & 111,47                  & $( x_0  + ( ( x_0  - ( 3.431506  -  x_0 ) ) -  9.472036 ) )$                \\ \hline
-8324             & 111,505                 & $( ( ( ( 2.695238  *  x_0 ) +  -9.196454 ) +  -6.145053 ) /  0.783998 )$  \\ \hline
-34679            & 112,22                  & $( 5.258742  * ( ( 5.394186  -  x_0 ) *  -0.634723 ) )$                   \\ \hline
-34634            & 109,894                 & $( -3.418017  * ( x_0  - ( ( x_0  -  5.692729 ) +  x_0 ) ) )$               \\ \hline
-\textbf{Media}   & \textbf{111,4502}       &                                                                        \\ \hline
-\end{tabular}%
-% }
-\caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas.}\label{table:resultados_PG_c}
-
-\end{table}
-
-Como esperábamos, en la mayoría de expresiones podemos ver términos que se podrían reducir, haciendo más simples las expresiones.
-
-Comparando las tablas \ref{table:resultados_PG_l0} y \ref{table:resultados_PG_l1} podemos observar que los resultados son mejores utilizando los datos de la lateralidad derecha, aunque tampoco mejora en exceso el resultado.
-
-Tras estos resultados podemos ver que Programación Genética no obtiene unos buenos resultados, para verlo de una forma más clara tenemos la figura \ref{fig:predicciones_completo_gp}, donde podemos ver con una cruz azul los valores reales del conjunto de test y con una cruz roja la estimación del modelo entrenado con el conjunto de datos completo:
-
-\begin{figure}[H]
-	 \centering
-	 \includegraphics[width=\textwidth]{predicciones_completo_gp.png}
-	 \caption{Predicciones de Programación Genética en el conjunto de datos completo.}
-	\label{fig:predicciones_completo_gp}
-\end{figure}
-
-
-Vemos como, en general, se suele centrar en las clases intermedias, de entre treinta y cuarenta años, y es que en realidad si el modelo no está seguro de si el valor a predecir es mayor o menor penaliza menos estar en una zona centrada que en el otro extremo de los posibles valores, por lo que asigna un valor intermedio.
+% \caption{Resultados de Programación Genética en el conjunto de datos completo con cinco semillas distintas.}\label{table:resultados_PG_c}
 
 
 \subsection{Resultados de GA-P}
 
 \subsubsection{Resultados en la lateralidad izquierda}
 
-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de GA-P en la lateralidad izquierda}}                         \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}                             \\ \hline
-12345            & 120,281                 & $( ( x_0  -  -1.232599 ) + ( x_0  -  -1.232599 ) )$         \\ \hline
-92034            & 114,659                 & $( x_0  + ( x_0  +  2.316669  ) )$                          \\ \hline
-8324             & 118,272                 & $( -3.006461  - ( ( -3.006461  +  x_0 ) *  -3.006461 ) )$  \\ \hline
-34679            & 117,77                  & $( x_0  + ( x_0  +  0.855270 ) )$                           \\ \hline
-34634            & 119                     & $( ( x_0  +  x_0 ) + ( 5.793486  / ( x_0  -  5.793486 ) ) )$ \\ \hline
-\textbf{Media}   & \textbf{117,921}        &                                                         \\ \hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                               \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                               & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 105,984                 & 10,2702                 & $- 0.562944 x_{4} \left(7.241616 x_{4} - 55.303901927408\right) + 1.305974$   & 141,485                      \\ \hline
+12345            & 100,876                 & 10,0319                 & $5.406614 x_{8} + 29.231474944996$                                            & 141,138                      \\ \hline
+34634            & 100,763                 & 10,0211                 & $- x_{1} + 6.125949 x_{8} + 22.105049$                                        & 140,7                        \\ \hline
+34679            & 93,7853                 & 9,67101                 & $- 7.23293 x_{0} - 7.23293 x_{3} + 57.3288752548182$                          & 141,04                       \\ \hline
+92034            & 96,2872                 & 9,78688                 & $- 2.13862653776928 x_{3} \left(x_{0} - x_{1}\right) + 22.489303306194 x_{4}$ & 141,619                      \\ \hline
+\textbf{Media}   & \textbf{99,5391}        & \textbf{9,956218}       & \textbf{}                                                                     & \textbf{141,1964}            \\ \hline
 \end{tabular}%
-% }
-\caption{Resultados de GA-P en la lateralidad izquierda con cinco semillas distintas.}\label{table:resultados_GAP_l0}
+}
+\caption{Resultados de GA-P en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_GAP_l0_20}
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                             & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 106,414                 & 10,2687                 & $9.420502 x_{8} + 16.4450458993274 + \frac{2.002494}{x_{6} + x_{7} + \frac{0.0258254486850358 \left(x_{0} x_{6} + x_{8}\right)}{x_{5}}} + \frac{0.21690136106819}{x_{7}}$                                                                                                   & 157,054                      \\ \hline
+12345            & 101,481                 & 10,0556                 & $\frac{6.343311 x_{1} + x_{4} \left(4.636233 x_{3} + 0.009872\right) \left(1.70859878525695 x_{7} + 44.713095658404\right) - 6.343311 x_{7} + 6.343311 \left(4.636233 x_{3} + 0.009872\right) \left(x_{4} - 3.223974\right)}{x_{4} \left(4.636233 x_{3} + 0.009872\right)}$ & 156,835                      \\ \hline
+34634            & 105,507                 & 10,2383                 & $\frac{3.934784 x_{7} - \left(0.839881610288214 x_{5} + 49.9756550744149\right) \left(7.167195701757 x_{4} \left(x_{4} - 7.214591\right) + 31.709114390909\right) - 15.212733}{0.839881610288214 x_{5} + 49.9756550744149}$                                                 & 158,041                      \\ \hline
+34679            & 101,808                 & 10,0697                 & $- 19.4000046379507 x_{3} - x_{4} + 6.62357 x_{8} + 46.669923763818$                                                                                                                                                                                                        & 155,895                      \\ \hline
+92034            & 90,0522                 & 9,48147                 & $\frac{x_{5} \left(- 1.682394 x_{3} + x_{7} \left(x_{2} + 7.26215461426359\right)\right) + x_{7} \left(- 4.10325 x_{0} + x_{1} - 2.595173 x_{7} + 31.51114861225\right)}{x_{7}}$                                                                                            & 156,941                      \\ \hline
+\textbf{Media}   & \textbf{101,05244}      & \textbf{10,022754}      & \textbf{}                                                                                                                                                                                                                                                                   & \textbf{156,9532}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_GAP_l0_40}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                                                                                                                                                          \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                                                                                          & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 109,328                 & 10,4143                 & $43.9669394617345 - \frac{4.140663}{x_{6} \left(12.6380300703761 x_{3} + 9.33905077966226\right) \left(2.597719 x_{4} - \frac{15.947952852866 \left(17.891121783689 x_{5} - 9.517986\right)}{129.475465344502 x_{8} + 2485.49276185648}\right)}$                                                                                                                                                         & 175,71                       \\ \hline
+12345            & 104,977                 & 10,1982                 & $5.358472 x_{1} - x_{4} + 3.79355832629 + \frac{- x_{5} + 9.025482 + \frac{1.861277}{x_{1} - 2.368914}}{0.472618381452186 x_{4} - 4.48753138186053} + \frac{34.9201774581833}{x_{6}}$                                                                                                                                                                                                                    & 175,178                      \\ \hline
+34634            & 98,134                  & 9,89685                 & $\frac{20.29728961448 x_{0} + x_{2} \left(4.258802 x_{0} - 4.258802 x_{7} + 27.385745016374\right) \left(- x_{0} + 3.09645753834459 x_{2} + 4.76596226227 x_{5} + 3.12447 x_{7} + 2.52589133529367 x_{8} + 13.092019813904\right) + 3.79696423480656 x_{2} - 20.29728961448 x_{7} + 130.519427272187}{x_{2} \left(4.258802 x_{0} - 4.258802 x_{7} + 27.385745016374\right)}$                             & 174,249                      \\ \hline
+34679            & 102,165                 & 10,0855                 & $\frac{- x_{3} x_{7} \left(\left(0.301125296672985 - 0.0343419072553285 x_{1}\right) \left(x_{0} - 1.485544\right) + 0.203935074753282\right) + 1.33361783847221 x_{4} \left(x_{0} - 1.485544\right) + x_{7} \left(x_{0} - 1.485544\right) \left(4.34752563517778 x_{1} x_{8} + 0.41248294723453 x_{1} + x_{2} + 1.74610078570674 x_{7} + 15.3431835673666\right)}{x_{7} \left(x_{0} - 1.485544\right)}$ & 174,99                       \\ \hline
+92034            & 115,191                 & 10,6844                 & $- 0.932501101127054 x_{3}^{2} - 2.29224735759073 x_{3} + x_{7} - 814.689331512556$                                                                                                                                                                                                                                                                                                                      & 175,417                      \\ \hline
+\textbf{Media}   & \textbf{105,959}        & \textbf{10,25585}       & \textbf{}                                                                                                                                                                                                                                                                                                                                                                                                & \textbf{175,1088}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en la lateralidad izquierda con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_GAP_l0_60}
 
 \end{table}
 
+
 \subsubsection{Resultados en la lateralidad derecha}
 
-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de GA-P en la lateralidad derecha}}                                  \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}                                      \\ \hline
-12345            & 112,25                  & $( ( 2.750558  /  x_0 ) - ( 2.750558  * ( 2.750558  -  x_0 ) ) )$    \\ \hline
-92034            & 108,509                 & $( x_0  + ( x_0  +  2.316669  ) )$                                   \\ \hline
-8324             & 109,103                 & $( -2.47599 * ( -1.237995  + ( x_0  /  -1.237995 ) ) )$             \\ \hline
-34679            & 108,31                  & $( ( -3.390844  -  x_0 ) - ( x_0  *  -3.390844 ) )$                  \\ \hline
-34634            & 111,957                 & $( ( x_0  /  -7.179885 ) * ( -7.179885  - ( x_0  +  -7.179885 ) ) )$ \\ \hline
-\textbf{Media}   & \textbf{110,0258}       &                                                                  \\ \hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                                                                                   \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                   & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 106,905                 & 10,319                  & $- x_{0} + 30.90315763246 x_{2} - 18.457885$                                                                                      & 140,745                      \\ \hline
+12345            & 94,0461                 & 9,67977                 & $\frac{44.1526629994558 x_{3} + 42.1578249994558 x_{6} - 22.8268233449342}{x_{3} \left(x_{3} + x_{6} - 0.541461124838127\right)}$ & 144,044                      \\ \hline
+34634            & 100,869                 & 10,0296                 & $- 2.254762 x_{3} + 7.763433 x_{4} + 30.340520937156$                                                                             & 141,561                      \\ \hline
+34679            & 96,4597                 & 9,79635                 & $4.949036 x_{8} + 28.171072$                                                                                                      & 141,89                       \\ \hline
+92034            & 114,387                 & 10,6715                 & $- x_{1} + x_{4} + x_{7} + 37.208034999904 + \frac{x_{5}}{x_{2}}$                                                                 & 140,851                      \\ \hline
+\textbf{Media}   & \textbf{102,53336}      & \textbf{10,099244}      & \textbf{}                                                                                                                         & \textbf{141,8182}            \\ \hline
 \end{tabular}%
-% }
-\caption{Resultados de GA-P en la lateralidad derecha con cinco semillas distintas.}\label{table:resultados_GAP_l1}
+}
+\caption{Resultados de GA-P en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_GAP_l1_20}
+
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                            & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 101,82                  & 10,0613                 & $\frac{4.011549 x_{4} + 1.483872 x_{7} + \left(x_{4} - 0.817758369342637\right) \left(x_{7} + 4.490661\right) \left(x_{2} \left(x_{2} + 8.276852 x_{4} + x_{8}\right) - 0.317014 x_{8} \left(x_{6} - 0.428029999621518\right) - 3.930736\right) + 3.38308835061391}{\left(x_{4} - 0.817758369342637\right) \left(x_{7} + 4.490661\right)}$ & 154,292                      \\ \hline
+12345            & 95,0305                 & 9,71106                 & $0.252960779442991 x_{4} x_{7} + 7.13189921928476 x_{4} + 7.747107 x_{8} + 8.21558821029725$                                                                                                                                                                                                                                               & 155,024                      \\ \hline
+34634            & 96,5837                 & 9,81508                 & $- x_{0} + \frac{x_{0}}{x_{4}} + 40.201901570175$                                                                                                                                                                                                                                                                                          & 154,897                      \\ \hline
+34679            & 93,337                  & 9,65032                 & $\frac{\left(0.333209026563975 x_{6} + x_{7} x_{8} + 3.26368\right) \left(- 0.174650371786979 x_{3} - x_{4} - 0.174650371786979 x_{6} + x_{8} \left(x_{2} + 5.725725\right) + 17.936217226255\right) + 6.69638133639}{0.333209026563975 x_{6} + x_{7} x_{8} + 3.26368}$                                                                    & 154,386                      \\ \hline
+92034            & 112,385                 & 10,5356                 & $- \frac{454.284762156967 x_{4}}{x_{6} - 19.612354161456}$                                                                                                                                                                                                                                                                                 & 155,563                      \\ \hline
+\textbf{Media}   & \textbf{99,83124}       & \textbf{9,954672}       & \textbf{}                                                                                                                                                                                                                                                                                                                                  & \textbf{154,8324}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_GAP_l1_40}
+
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                               \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                               & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 99,0048                 & 9,90214                 & $\frac{32.9684722614274 \left(6.79122521918809 x_{2} + 2.2608240995111\right)}{\frac{2.085793 x_{5}}{7.736029 + \frac{x_{1} - 0.06749}{x_{0}}} + 7.636216} - 21.599430234104$                                                                                                 & 176,098                      \\ \hline
+12345            & 92,6626                 & 9,60962                 & $- \frac{0.247929948932501 x_{1} x_{6}}{x_{4}} + x_{2} \left(x_{2} + 8.704459\right) + x_{3} + x_{8} + 14.991496 + \frac{75.091289129679}{\left(x_{3} - x_{7}\right) \left(- 7.119515 x_{0} + x_{6} + 5.294337\right) \left(4.655679 x_{1} + x_{2} + 20.331233801025\right)}$ & 175,212                      \\ \hline
+34634            & 104,367                 & 10,1908                 & $- \frac{76.6048720698636 x_{6} + x_{8} + 348.436169617267}{x_{0} x_{8} - 0.231349526566329 x_{3} - 1.287287 x_{5} \left(x_{0} + 9.744934\right) + 16.0810312714432}$                                                                                                         & 174,558                      \\ \hline
+34679            & 91,0223                 & 9,52109                 & $\frac{43.3871571811698 x_{8} \left(x_{2} \left(- x_{5} + 0.106799667853033 x_{8} + 10.9424582327298\right) + 8.723544\right)}{x_{3} \left(x_{6} + 7.0834\right) \left(1.050635 x_{8} + 7.231897\right)}$                                                                     & 174,145                      \\ \hline
+92034            & 106,72                  & 10,3135                 & $\frac{x_{3}}{- x_{3} + x_{6} + 7.097175} + 46.5585359022312 - \frac{7.70075}{x_{6} \left(0.193085706783404 x_{7} x_{8} + 0.368988330996\right)}$                                                                                                                             & 175,541                      \\ \hline
+\textbf{Media}   & \textbf{98,75534}       & \textbf{9,90743}        & \textbf{}                                                                                                                                                                                                                                                                     & \textbf{175,1108}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en la lateralidad derecha con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_GAP_l1_60}
 
 \end{table}
 
 
 \subsubsection{Resultados en el conjunto completo}
 
-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
 \begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-\multicolumn{3}{|c|}{\textbf{Ejecuciones de GA-P en el conjunto completo}}             \\ \hline
-\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{Expresión obtenida}               \\ \hline
-12345            & 114,051                 & $( 0.433841 - ( x_0  * -2.15097351559 ) )$   \\ \hline
-92034            & 114,683                 & $( ( -2.527384  -  x_0 ) * -1.836229 )$      \\ \hline
-8324             & 114,388                 & $( x_0  / 0.45434982724 )$                   \\ \hline
-34679            & 114,386                 & $( -9.634510  * ( x_0 * -0.221638947229 ) )$ \\ \hline
-34634            & 112,798                 & $( x_0  * 2.15785599997 )$                   \\ \hline
-\textbf{Media}   & \textbf{114,0612}       &                                           \\ \hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 20}}                                                                                                                                                                           \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                           & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 107,70                  & 10,35                   & $\frac{\left(x_{4} - 3.685732\right) \left(x_{2} + 4.540992 x_{7} + 28.253958740032\right) - 0.137036}{x_{4} - 3.685732}$ & 141,08                       \\ \hline
+12345            & 98,67                   & 9,92                    & $8.83413590872242 x_{8} + 15.4033695080307$                                                                               & 142,52                       \\ \hline
+34634            & 100,51                  & 10,02                   & $x_{2} + 6.801396 x_{5} x_{8} + 0.00400999426328585$                                                                      & 141,03                       \\ \hline
+34679            & 96,82                   & 9,83                    & $\frac{26.8176232960506 x_{0} + 14.2143978151892}{x_{0} - 0.045289}$                                                      & 140,70                       \\ \hline
+92034            & 99,24                   & 9,95                    & $\frac{x_{1} \left(x_{8} \left(x_{2} + 8.400743\right) + 7.874867\right) + 1.74760580024839}{x_{1}}$                      & 141,43                       \\ \hline
+\textbf{Media}   & \textbf{100,59}         & \textbf{10,01}          & \textbf{}                                                                                                                 & \textbf{141,35}              \\ \hline
 \end{tabular}%
-% }
-\caption{Resultados de GA-P en el conjunto de datos con cinco semillas distintas.}\label{table:resultados_GAP_c}
-
+}
+\caption{Resultados de GA-P en el conjunto de datos con cinco semillas distintas y una profundidad máxima de 20 nodos.}\label{table:resultados_GAP_c_20}
 \end{table}
 
 
-En este caso observamos como el problema de las expresiones con partes reducibles se ha reducido drásticamente. Como comentamos, GA-P al tener en cuenta las constantes numéricas como parte de su entrenamiento evita el agrandar la expresión para conseguir el valor que necesita.
 
-Al igual que en Programación Genética, comparando las tablas \ref{table:resultados_GAP_l0} y \ref{table:resultados_GAP_l1}, podemos ver que se comporta mejor en el conjunto de la lateralidad derecha que en el la lateralidad izquierda.
 
-Una cosa a destacar es que viendo los resultados, con GA-P se han obtenido peores resultados que con Programación Genética, a pesar de solucionar el problema del aprendizaje de constantes numéricas. Esto tiene una explicación que podemos deducir fácilmente observando las predicciones sobre el conjunto de test.
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 40}}                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                            & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 111,82                  & 10,53                   & $\frac{12.010776 x_{3} + \left(x_{3} \left(x_{0} + 1.993584\right) + 0.707863\right) \left(- x_{0} + \left(x_{2} + 0.707863\right) \left(x_{4} + 4.724223\right) - 13.788212459408 \left(x_{5} - 2.234417\right) \left(- x_{1} + 2.455478 x_{2} + 4.598239\right)\right)}{x_{3} \left(x_{0} + 1.993584\right) + 0.707863}$ & 155,16                       \\ \hline
+12345            & 93,7564                 & 9,67657                 & $\frac{0.552495011802275 x_{4}}{x_{7}} + 2.90990447847638 x_{8} + 30.7054857787826$                                                                                                                                                                                                                                        & 154,355                      \\ \hline
+34634            & 103,36                  & 10,14                   & $\frac{2.31164037435855 x_{1} + x_{4} x_{7} \left(x_{1} \left(2.14928325573 x_{2} - 0.84058 x_{7} + 17.6596718420358\right) - 1.572178\right)}{x_{1} x_{7}}$                                                                                                                                                               & 155,71                       \\ \hline
+34679            & 98,13                   & 9,88                    & $4.179991781038 x_{3} + 4.179991781038 x_{8} + 25.7386848541989$                                                                                                                                                                                                                                                           & 155,37                       \\ \hline
+92034            & 96,1912                 & 9,79747                 & $x_{7} - \left(0.289865 x_{3} - 2.526474644735\right) \left(x_{8} + 15.5034431143808\right)$                                                                                                                                                                                                                               & 154,019                      \\ \hline
+\textbf{Media}   & \textbf{100,65}         & \textbf{10,00}          & \textbf{}                                                                                                                                                                                                                                                                                                                  & \textbf{154,92}              \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en el conjunto de datos con cinco semillas distintas y una profundidad máxima de 40 nodos.}\label{table:resultados_GAP_c_40}
+\end{table}
 
-\begin{figure}[H]
-	 \centering
-	 \includegraphics[width=\textwidth]{predicciones_completo_gap.png}
-	 \caption{Predicciones de GA-P en el conjunto de datos completo.}
-	\label{fig:predicciones_completo_gap}
-\end{figure}
 
-Vemos en estas predicciones como en este caso se ha hecho más notable que el algoritmo se centra en valores intermedios, siendo menos de diez predicciones las que se están fuera del rango $[27, 40]$.
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Produndidad máxima: 60}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Semilla} & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{Expresión simplificada}                                                                                                                                                                                                                                                                                                                                                                                                             & \textbf{Tiempo de ejecución} \\ \hline
+8324             & 96,9077                 & 9,82555                 & $\frac{x_{3} \left(4.06386 x_{2} \left(x_{0} - x_{1} + 6.810631 x_{3} - x_{4} + x_{8} - 28.288546658736\right) + 7.96571015724\right) + 9.778615 \left(0.480990764015349 x_{4} - 4.5081763619975\right) \left(x_{3} \left(1.33965924159401 x_{3} - 1.47821686367516\right) + 1.420402\right)}{\left(0.480990764015349 x_{4} - 4.5081763619975\right) \left(x_{3} \left(1.33965924159401 x_{3} - 1.47821686367516\right) + 1.420402\right)}$ & 174,64                       \\ \hline
+12345            & 97,0772                 & 9,81387                 & $x_{2} - \frac{8.357504 x_{8} \left(x_{5} - 4.44925 - \frac{10.26745830102}{x_{5}} + \frac{8.0108694056354}{x_{2}}\right)}{3.285712 + \frac{5.723848}{x_{7}}} + 27.9106522693195 + \frac{7.769659609728}{x_{1} + 0.625830744880001 x_{6} - 5.77320788935192}$                                                                                                                                                                               & 175,393                      \\ \hline
+34634            & 99,2464                 & 9,9227                  & $\frac{0.112759363568444 x_{2} \left(51.033576518988 x_{5} - 11.800623325796\right) \left(x_{4} \left(317.036187573238 x_{5} - 450.906448245451\right) + x_{6}\right) + 21.9735685843462 x_{8}}{x_{2} \left(51.033576518988 x_{5} - 11.800623325796\right)}$                                                                                                                                                                                & 175,35                       \\ \hline
+34679            & 100,314                 & 10,0087                 & $\frac{\left(1.25396597618502 x_{3} - 3.79618401089228\right) \left(\left(0.0952998550364097 x_{0} - x_{6}\right) \left(x_{6} - 0.0125025488804125 \left(x_{6} + 8.640738\right) \left(x_{8} + 6.123075\right) - 17.1639452689995\right) + 0.465253272701096\right)}{0.0952998550364097 x_{0} - x_{6}}$                                                                                                                                     & 175,22                       \\ \hline
+92034            & 98,7409                 & 9,91933                 & $1.33290732578742 x_{5} + \frac{35.7609511536407 x_{8}}{2.07890448600297 x_{4} - x_{5} + \frac{6.246307 \left(3.607653 x_{0} + 7.823707\right)}{0.109048340584139 x_{5} + 41.838156855168}} - \frac{9.102824 \left(x_{1} - 7.823707\right)}{- x_{4} + x_{5} + 5.787108}$                                                                                                                                                                    & 175,755                      \\ \hline
+\textbf{Media}   & \textbf{98,45724}       & \textbf{9,89803}        & \textbf{}                                                                                                                                                                                                                                                                                                                                                                                                                                   & \textbf{175,2716}            \\ \hline
+\end{tabular}%
+}
+\caption{Resultados de GA-P en el conjunto de datos con cinco semillas distintas y una profundidad máxima de 60 nodos.}\label{table:resultados_GAP_c_60}
 
-De esto podemos deducir que los datos son demasiado similares, y por esto no es capaz de asignar un valor a cada uno de ellos dependiendo de la clase, prefiriendo escoger un valor centrado con respecto a las posibles salidas.
+\end{table}
 
 
 \newpage
