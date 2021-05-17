@@ -26,58 +26,47 @@ Para esto simplemente leeremos los valores y a cada característica le asignarem
 
 
 \begin{table}[H]
+\centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
-                                                      & \textbf{Valor categórico}       & \textbf{Valor numérico asignado} \\ \hline
-\multirow{6}{*}{\textbf{Crestas y surcos}}            & No hay surcos                   & 1                                \\ \cline{2-3}
-                                                      & Restos de surcos                & 2                                \\ \cline{2-3}
-                                                      & Surcos poco profundas           & 3                                \\ \cline{2-3}
-                                                      & Crestas en formación            & 4                                \\ \cline{2-3}
-                                                      & Crestas poco profundas          & 5                                \\ \cline{2-3}
-                                                      & Crestas con porosidad regular   & 6                                \\ \hline
-\multirow{3}{*}{\textbf{Superficie porosa irregular}} & No                              & 1                                \\ \cline{2-3}
-                                                      & Medianamente                    & 2                                \\ \cline{2-3}
-                                                      & Si                              & 3                                \\ \hline
-\multirow{2}{*}{\textbf{Borde superior}}              & No definido                     & 1                                \\ \cline{2-3}
-                                                      & Definido                        & 2                                \\ \hline
-\multirow{2}{*}{\textbf{Nódulo óseo}}                 & Ausente                         & 1                                \\ \cline{2-3}
-                                                      & Presente                        & 2                                \\ \hline
-\multirow{2}{*}{\textbf{Borde inferior}}              & No definido                     & 1                                \\ \cline{2-3}
-                                                      & Definido                        & 2                                \\ \hline
-\multirow{2}{*}{\textbf{Borde dorsal}}                & No definido                     & 1                                \\ \cline{2-3}
-                                                      & Definido                        & 2                                \\ \hline
-\multirow{2}{*}{\textbf{Plataforma dorsal}}           & Ausente                         & 1                                \\ \cline{2-3}
-                                                      & Presente                        & 2                                \\ \hline
-\multirow{3}{*}{\textbf{Bisel ventral}}               & Ausente                         & 1                                \\ \cline{2-3}
-                                                      & En proceso de formación         & 2                                \\ \cline{2-3}
-                                                      & Formado                         & 3                                \\ \hline
-\multirow{5}{*}{\textbf{Borde ventral}}               & Ausente                         & 1                                \\ \cline{2-3}
-                                                      & Parcialmente formado            & 2                                \\ \cline{2-3}
-                                                      & Formado sin excrecencias        & 3                                \\ \cline{2-3}
-                                                      & Formado con pocas excrecencias  & 4                                \\ \cline{2-3}
-                                                      & Formado con muchas excrecencias & 5                                \\ \hline
+                                                      & \textbf{Variable asignada} & \textbf{Valor categórico}       & \textbf{Valor numérico asignado} \\ \hline
+\multirow{6}{*}{\textbf{Crestas y surcos}}            & \multirow{6}{*}{$x_0$}     & No hay surcos                   & 1                                \\ \cline{3-4}
+                                                      &                            & Restos de surcos                & 2                                \\ \cline{3-4}
+                                                      &                            & Surcos poco profundas           & 3                                \\ \cline{3-4}
+                                                      &                            & Crestas en formación            & 4                                \\ \cline{3-4}
+                                                      &                            & Crestas poco profundas          & 5                                \\ \cline{3-4}
+                                                      &                            & Crestas con porosidad regular   & 6                                \\ \hline
+\multirow{3}{*}{\textbf{Superficie porosa irregular}} & \multirow{3}{*}{$x_1$}     & No                              & 1                                \\ \cline{3-4}
+                                                      &                            & Medianamente                    & 2                                \\ \cline{3-4}
+                                                      &                            & Si                              & 3                                \\ \hline
+\multirow{2}{*}{\textbf{Borde superior}}              & \multirow{2}{*}{$x_2$}     & No definido                     & 1                                \\ \cline{3-4}
+                                                      &                            & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Nódulo óseo}}                 & \multirow{2}{*}{$x_3$}     & Ausente                         & 1                                \\ \cline{3-4}
+                                                      &                            & Presente                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Borde inferior}}              & \multirow{2}{*}{$x_4$}     & No definido                     & 1                                \\ \cline{3-4}
+                                                      &                            & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Borde dorsal}}                & \multirow{2}{*}{$x_5$}     & No definido                     & 1                                \\ \cline{3-4}
+                                                      &                            & Definido                        & 2                                \\ \hline
+\multirow{2}{*}{\textbf{Plataforma dorsal}}           & \multirow{2}{*}{$x_6$}     & Ausente                         & 1                                \\ \cline{3-4}
+                                                      &                            & Presente                        & 2                                \\ \hline
+\multirow{3}{*}{\textbf{Bisel ventral}}               & \multirow{3}{*}{$x_7$}     & Ausente                         & 1                                \\ \cline{3-4}
+                                                      &                            & En proceso de formación         & 2                                \\ \cline{3-4}
+                                                      &                            & Formado                         & 3                                \\ \hline
+\multirow{5}{*}{\textbf{Borde ventral}}               & \multirow{5}{*}{$x_8$}     & Ausente                         & 1                                \\ \cline{3-4}
+                                                      &                            & Parcialmente formado            & 2                                \\ \cline{3-4}
+                                                      &                            & Formado sin excrecencias        & 3                                \\ \cline{3-4}
+                                                      &                            & Formado con pocas excrecencias  & 4                                \\ \cline{3-4}
+                                                      &                            & Formado con muchas excrecencias & 5                                \\ \hline
 \end{tabular}%
 }
 \caption{Transformaciones aplicadas a las características antes de realizar el sobremuestreo.}\label{table:transformaciones_numericas}
 
 \end{table}
 
-Para transformar las etiquetas simplemente se ha hecho la media del rango de edades de cada fase, quedando de la siguiente forma:
+Con respecto a las etiquetas, aunque en un principio este problema esté pensado para clasificación y se divida en diez fases, contamos con el conjunto de datos preparado para regresión, es decir, con un valor numérico asignado.
 
-
-\begin{table}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-\textbf{Fase}                  & Fase 1 & Fase 2 & Fase 3 & Fase 3 & Fase 3 & Fase 6 & Fase 6 & Fase 8 & Fase 9 & Fase 10 \\ \hline
-\textbf{Valor correspondiente} & 19     & 20.5   & 23     & 25.5   & 25.5   & 32.5   & 37     & 42     & 47     & 55      \\ \hline
-\end{tabular}%
-}
-\end{table}
-
-Esta transformación es necesaria ya que los algoritmos a utilizar darán como resultado un valor numérico, que será la edad estimada. Como vemos en principio no hay problema, ya que las fases con mayor rango de edades contienen dos años de variación con respecto al valor asignado, a excepción de la última fase ya que esta es todos los mayores de 50. Para solucionar el problema de la última fase se ha asignado un valor que continua con la tendencia creciente del valor, aumentándolo en siete con respecto a la fase anterior, un valor mayor que la diferencia entre las dos fases anteriores (cuya diferencia es de cinco).
+% TODO : A ver que hago con esta parte de Borderline-SMOTE, en principio la voy a dejar por si me sirve para la segunda parte de clasificación
 
 \subsection{Algoritmo Borderline-SMOTE}
 
