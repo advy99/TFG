@@ -46,6 +46,8 @@ En 2017 investigadores de la Universidad de Granada publicaron un artículo prel
 Más adelante, en 2021, este mismo equipo con la ayuda de investigadores de la Universidad de Cordoba publicaron una continuación de su estudio \cite{NSLVOrdAge}. En este caso, utilizando el mismo conjunto de datos que utilizaremos nosotros, aplicando técnicas de balanceo y sobremuestreo de datos para resolver problemas relativos a dicho conjunto de datos, han enfocado el problema como un problema de clasificación ordinal. Utilizando el software NSLVOrd \cite{NSLVOrd}, un algoritmo de clasificación ordinal basado en el enfoque de aprendizaje de reglas de forma iterativa publicado por investigadores de la Universidad de Granada en 2016, son capaces de obtener una raíz del error cuadrático medio de $12.34$ años utilizando 34 reglas para las distintas fases. Este es, hasta este momento, el mejor resultado del estado del arte de este problema, y además en este estudio se discute sobre la importancia de las características a observar en la sínfisis púbica propuestas por Todd, llegando a la conclusión de que ciertas características nunca se utilizan, y por lo tanto no entran en juego a la hora de realizar la estimación de la edad.
 
 
+% Comentar el enfoque de Gilbert y McKern y diferenciar ambos enfoques
+
 \subsection{Regresión simbólica}
 
 La regresión simbólica es un tipo de regresión que, a diferencia de otros tipos de regresiones como la lineal o la polinómica, es capaz de ajustar un modelo sin tener la información de como es la fórmula resultante, es decir, ajusta tanto los parámetros utilizados en la fórmula de la regresión como su forma. Esto permite que el modelo no se vea afectado por el sesgo del diseñador que construye dicho modelo para ajustarse a sus datos.
