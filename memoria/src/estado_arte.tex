@@ -45,7 +45,16 @@ En 2017 investigadores de la Universidad de Granada publicaron un artículo prel
 
 Más adelante, en 2021, este mismo equipo con la ayuda de investigadores de la Universidad de Cordoba publicaron una continuación de su estudio \cite{NSLVOrdAge}. En este caso, utilizando el mismo conjunto de datos que utilizaremos nosotros, aplicando técnicas de balanceo y sobremuestreo de datos para resolver problemas relativos a dicho conjunto de datos, han enfocado el problema como un problema de clasificación ordinal. Utilizando el software NSLVOrd \cite{NSLVOrd}, un algoritmo de clasificación ordinal basado en el enfoque de aprendizaje de reglas de forma iterativa publicado por investigadores de la Universidad de Granada en 2016, son capaces de obtener una raíz del error cuadrático medio de $12.34$ años utilizando 34 reglas para las distintas fases. Este es, hasta este momento, el mejor resultado del estado del arte de este problema, y además en este estudio se discute sobre la importancia de las características a observar en la sínfisis púbica propuestas por Todd, llegando a la conclusión de que ciertas características nunca se utilizan, y por lo tanto no entran en juego a la hora de realizar la estimación de la edad.
 
-\subsection{Programación Genética y regresión simbólica}
+
+\subsection{Regresión simbólica}
+
+La regresión simbólica es un tipo de regresión que, a diferencia de otros tipos de regresiones como la lineal o la polinómica, es capaz de ajustar un modelo sin tener la información de como es la fórmula resultante, es decir, ajusta tanto los parámetros utilizados en la fórmula de la regresión como su forma. Esto permite que el modelo no se vea afectado por el sesgo del diseñador que construye dicho modelo para ajustarse a sus datos.
+
+Uno de los trabajos donde claramente podemos ver las diferencias entre los distintos modelos de regresión es en \cite{analisisRegresionSimbolica}, donde hacen una comparación entre distintos tipos de regresión. De este trabajo podemos obtener que si se conoce el conjunto de datos y problema a tratar, así como la forma que puede tener la solución, se pueden conseguir mejores resultados si el modelo se ciñe a la fórmula que se estime oportuna a partir de ese conocimiento del problema, pero por otro lado, si se desconoce que forma tendrán las soluciones, así como el peso necesario de cada característica, la regresión simbólica aporta un gran valor a la hora de evitar un sesgo que con cualquier otra aproximación estaríamos obligados a añadir.
+
+%  TODO : Ampliar esta seccion con mas papers y trabajos que hablen sobre regresión simbólica
+
+\subsection{Programación Genética}
 
 La Programación Genética apareció como una adaptación de los algoritmos evolutivos para representar programas de ordenador como cromosomas en una estructura de árbol. A pesar de que su aparición fue en 1985 no fue hasta principios de 1990 cuando este método comenzó a ser más utilizado gracias a John Koza \cite{kozaGP}.
 
@@ -53,15 +62,23 @@ La forma en la que la Programación Genética expresa los cromosomas permite res
 
 Uno de los primeros trabajos fue de publicado por P. A. Whigham en 1995 \cite{PGgramaticas}, en el que se utiliza una gramática inicial libre del contexto para generar expresiones a utilizar en el algoritmo, y que durante el entrenamiento el algoritmo complete la gramática y la amplíe con nuevas reglas, siendo un claro ejemplo de aprendizaje incremental.
 
-Ese mismo año investigadores de la Universidad de Georgia publicaban un artículo \cite{primerGAP} en el que proponían utilizar Programación Genética para hacer regresión simbólica, es decir, aprender una fórmula matemática estructurada como un árbol. En este trabajo se mencionan los principales problemas de la Programación Genética para regresión simbólica y por esto se propone una modificación del algoritmo, un algoritmo híbrido entre Programación Genética y un Algoritmo Genético, de ahí el nombre GA-P (Genetic Algorithm-Programming).
+La Programación Genética nos ofrece un algoritmo muy bueno para problemas en los que los resultados son variables, no se conoce a priori la forma que tendrá el resultado, además de todas las ventajas de los algoritmos evolutivos. Por este motivo, una de las aplicaciones principales de este algoritmo es la regresión simbólica, ya que Programación Genética permite que las expresiones no tengan una forma fija, si no que se aprenda la forma de estas expresiones.
 
+La principal forma de conseguir que Programación Genética trabaje con regresión simbólica es modificar los cromosomas propuestos por John Koza, en lugar de ser programas de ordenador, generador por gramáticas, los cromosomas serán expresiones matemáticas, manteniendo siempre la forma de árbol. Esta modificación es tan simple por reemplazar la gramática por una gramática que genere expresiones matemáticas, con los operadores que se estimen oportunos.
+
+
+
+En 1995, investigadores de la Universidad de Georgia publicaban un artículo \cite{primerGAP} en el que proponían utilizar Programación Genética para hacer regresión simbólica, es decir, aprender una fórmula matemática estructurada como un árbol. En este trabajo se mencionan los principales problemas de la Programación Genética para regresión simbólica, todos ellos derivados de que este algoritmo solo puede modificar la estructura de las expresiones, no su contenido como tal, no siendo capaz de trabajar con valores numéricos constantes, además de generar ramificaciones complejas para obtener cierta constante.
+
+Un claro ejemplo de esto es que si en cierto nodo se necesita multiplicar un valor $a$ por la constante $2$, lo único que podrá modificar Programación Genética será la ramificación que se multiplica por $a$, y si no cuenta con una constante que sea el valor necesario, utilizará las constantes disponibles para hacer una expresión compleja cuyo resultado sea $2$.
+
+Para resolver dichos problemas se propone una modificación del algoritmo, un algoritmo híbrido entre Programación Genética y un Algoritmo Genético, de ahí el nombre GA-P (Genetic Algorithm-Programming). Este algoritmo se basa en que cada individuo tendrá tanto el árbol de Programación Genética como un cromosoma habitual en un Algoritmo Genético, de forma que los nodos del árbol que representen una constante numérica tendrán asociados una posición en el cromosoma de la parte de Algoritmo Genético, de esta forma, se aprenderán tanto la estructura de la expresión con Programación Genética, como las constantes numéricas que intervienen en la expresión utilizando un Algoritmo Genético.
 
 Más adelante esta variación de Programación Genética se utilizará en diversos trabajos, como el publicado por investigadores de la Universidad de Oviedo y la Universidad de Granada en 1999 \cite{GAPredElectrica}, donde utilizando este algoritmo consiguen unos resultados bastante buenos en dos problemas reales aplicando regresión simbólica.
 
 Un año más tarde, en el año 2000, aunque ya existían trabajos en los que se utilizaba Programación Genética y algunas variantes de cara a realizar regresión simbólica, investigadores del Laboratorio Nacional de Computación Científica de Brasil publican un artículo \cite{PGregresionSimbolica} donde explican en detalle los distintos operadores necesarios.
 
 En el año 2000, también investigadores de la Universidad de Granada, publicaron un trabajo donde utilizan GA-P para aprender consultas booleanas \cite{GAPFormulasBooleanas} en el que demuestran la versatilidad del algoritmo para distintos problemas, además de que las soluciones obtenidas son fácilmente interpretables.
-
 
 %\subsection{Sistemas basados en reglas}
 
