@@ -223,14 +223,13 @@ De esta forma podremos obtener un valor del error del algoritmo para unos datos 
 \end{figure}
 
 
-% TODO : Explicar aqui el 5x2cv
 \subsubsection{Validación cruzada utilizando 5x2cv}
 
 En nuestro caso utilizaremos 5x2cv para validación. Este método fue propuesto por Thomas G. Dietterich en el año 1998 \cite{propuesta5x2cv}.
 
-Este método se basa en utilizar 5 particiones distintas de los datos, cada una de ellas dividida en dos partes con un 50\% de los datos cada una. De esta forma, con cada una de las cinco particiones que realicemos a los datos aplicaremos una validación cruzada con dos folds, entrenando con la primera mitad de los datos y validando con la segunda mitad en el primer fold, y al contrario en el segundo fold. Como podemos ver, realizamos cinco iteraciones, siendo cada una de estas un 2-cv, de ahí el nombre 5x2cv.
+Este método se basa en realizar cinco repeticiones de una validación cruzada con dos iteraciones, cada una de estas repeticiones utilizando particiones distintas de los datos al 50\%. De esta forma, con cada una de las cinco particiones que realicemos a los datos aplicaremos una validación cruzada con dos folds, entrenando con la primera mitad de los datos y validando con la segunda mitad en el primer fold, y al contrario en el segundo fold.
 
-En total obtendremos dos valores de error en validación en cada iteración, y como tenemos cinco iteraciones, diez valores en total, siendo el error final obtenido en validación la media de estos diez valores.
+Como podemos ver, con cinco repeticiones y siendo cada una de estas un 2-cv (de ahí el nombre 5x2cv) obtendremos diez valores de error, siendo el error final obtenido en validación la media de estos diez valores.
 
 
 
