@@ -14,11 +14,18 @@ En este artículo se proponen distintas técnicas de sobremuestreo, principalmen
 
 En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artículo que la técnica que mejor ha funcionado para este conjunto de datos es Borderline-SMOTE. Por este motivo, en este trabajo también utilizaremos este algoritmo.
 
-\subsubsection{Problema de la alta dimensionalidad}
+\subsubsection{Enfoque con el que trabajaremos el conjunto de datos}
 
-Para resolver este problema queremos obtener soluciones simples y fácilmente interpretables. Un problema a la hora de conseguir este objetivo es que el conjunto de datos se compone de un alto número de características, con múltiples valores para dichas características en algunos casos.
+De cara a resolver el problema y obtener un buen estimador de la edad a partir de los huesos del pubis enfocaremos el problema como un problema de regresión. Utilizaremos la propuesta de Gilbert y McKern para transformar las características a valores numéricos, que serán la entrada del modelo que entrenemos.
 
-De cara a solucionar esto proponemos utilizar la modificación propuesta en 1973 por Gilbert y McKern \cite{propuestaGilbert} al sistema de clasificación de Todd. En esta publicación, para realizar la estimación de la edad, a cada característica se le asocia un valor numérico. De esta forma realizar la estimación de la edad se basa en, para cada caso, sumar la puntuación asociada a sus características y dependiendo del rango del valor final se asignará la fase.
+El modelo devolverá como resultado la expresión que mejor se ajuste a los datos con los que se ha entrenado el modelo, y será esa expresión con la que validaremos el modelo.
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=\textwidth]{esquema_datos.png}
+    \caption{Esquema general de los pasos que seguirá el conjunto de datos para entrenar y validar el modelo.}
+	 \label{fig:esquema_datos}
+\end{figure}
 
 \newpage
 
