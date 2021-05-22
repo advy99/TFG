@@ -10,13 +10,13 @@ Nuestro conjunto de datos se compone de tres ficheros:
 
 \begin{figure}[H]
 	\begin{lstlisting}[language={}]
-	NoGrooves,Absence,Defined,Absent,Defined,Present,Absent,Absent,FormedWithoutRarefactions,Ph07-35-39
+	NoGrooves,Absence,Defined,Absent,Defined,Present,Absent,Absent,FormedWithoutRarefactions,36
 	\end{lstlisting}
-	\caption{Ejemplo de dato perteneciente a la fase 7 (entre 35 y 39 años) propuesta por Todd, del conjunto de datos \texttt{completo.arff}.}
+	\caption{Ejemplo de un dato cuya edad de muerte es 36 años, del conjunto de datos \texttt{completo.arff}.}
 	\label{fig:ejemplo_dato}
 \end{figure}
 
-Como vemos en la figura \ref{fig:ejemplo_dato} los datos tienen asignados valores categóricos para cada característica, y finalmente la fase a la que pertenecen.
+Como vemos en la figura \ref{fig:ejemplo_dato} los datos tienen asignados valores categóricos para cada característica, y finalmente la edad a la que murió la persona con las características asociadas.
 
 \subsection{Transformación de las características}
 
@@ -145,9 +145,6 @@ Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \r
 De cara a su implementación se utilizará el módulo de Python \texttt{imbalanced-learn} que implementa el algoritmo de BorderlineSMOTE \cite{imblearnBLSMOTE}.
 
 
-\subsection{Reducción de la dimensionalidad}
-
-Tras aplicar la transformación numérica y el sobremuestreo simplemente sumamos los valores numéricos de las característica para quedarnos con un fichero de datos con dos columnas, el valor final de la suma, y la correspondiente etiqueta.
 
 \newpage
 
