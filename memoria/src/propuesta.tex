@@ -8,11 +8,11 @@ Este conjunto de datos se divide en dos partes, las muestras tomadas de la later
 
 \subsubsection{Problema del balanceo de clases}
 
-Como vimos en la figura \ref{fig:conteo_original} con el conteo de cada una de las fases, los datos de este problema se encuentran altamente desbalanceados, hay fases en las que apenas contamos con datos, y la diferencia entre número de datos en una fase baja y una fase alta es muy grande. De cara a resolver este problema proponemos utilizar un algoritmo de sobremuestreo de datos, al igual que  \cite{NSLVOrdAge}.
+Como vimos en las figuras \ref{fig:conteo_original} y \ref{fig:conjunto_regresion} con el conteo de cada una de las fases y la densidad de las edades en el conjunto completo, los datos de este problema se encuentran altamente desbalanceados, hay rangos de edades en las que apenas contamos con datos, y la diferencia entre número de datos entre una edad temprana y alta es muy grande. De cara a resolver este problema proponemos utilizar un algoritmo de sobremuestreo de datos, al igual que \cite{NSLVOrdAge}.
 
 En este artículo se proponen distintas técnicas de sobremuestreo, principalmente utilizando un sobremuestreo de forma aleatoria, utilizando el algoritmo SMOTE \cite{revisionSMOTE} (y varias variaciones de este algoritmo), y utilizando el algoritmo ADASYN \cite{propuestaADASYN}.
 
-En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artículo que la técnica que mejor ha funcionado para este conjunto de datos es Borderline-SMOTE. Por este motivo, en este trabajo también utilizaremos este algoritmo.
+En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artículo que la técnica que mejor ha funcionado para este conjunto de datos es Borderline-SMOTE, sin embargo nuestro enfoque no es de clasificación, es de regresión, por lo que haremos una revisión de las adaptaciones de SMOTE a regresión y finalmente utilizaremos SMOGN, un algoritmo que utilizará un sobremuestreo con SMOTER (SMOTE para Regresión), equilibrará la densidad entre las distintas edades utilizando submuestreo en caso de que no pueda generar nuevos datos sintéticos y añadirá ruido gaussiano de cara a adaptar los nuevos datos a un problema de regresión.
 
 \subsubsection{Enfoque con el que trabajaremos el conjunto de datos}
 
