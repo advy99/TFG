@@ -56,7 +56,7 @@ Observando estas características Todd proponía una clasificación en diez fase
 
 Como era de esperar, podemos ver que las fases de edad más tempranas son más fáciles de asignar y los rangos de edad son más pequeños, mientras que en las fases más avanzadas los rangos de edad son mucho mayores, llegando a la última fase de más de 50 años, que aunque hoy en día nos parezca que gran parte de la población se asignaría a esa fase, en la época que Todd propuso esta clasificación la esperanza de vida era mucho menor.
 
-En este trabajo propondremos una forma de automatizar este proceso de forma que sirva de ayuda al forense de cara a realizar su trabajo utilizando técnicas de inteligencia artificial y aprendizaje automático.
+En este trabajo propondremos una forma de automatizar este proceso de forma que sirva de ayuda al forense de cara a realizar su trabajo utilizando técnicas de inteligencia artificial y aprendizaje automático, pero con un enfoque distinto al que normalmente se le ha dado a este problema, tratandolo como un problema de regresión y no de clasificación.
 
 \subsubsection{Conjunto de datos}
 
@@ -69,9 +69,17 @@ Este conjunto está formado por datos tomados de ambas lateralidades de la sínf
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale = 0.33]{num_elementos_fase_original.png}
-	\caption{Número de datos por cada clase con el conjunto de datos completo.}
+	\caption{Número de datos por cada fase propuesta por Todd con el conjunto de datos completo.}
 	\label{fig:conteo_original}
+\end{figure}
 
+También disponemos del conjunto de datos preparado para regresión:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 0.9]{conjunto_datos/completo_regresion.csv.png}
+	\caption{Densidad de cada valor el conjunto de datos completo.}
+	\label{fig:conjunto_regresion}
 \end{figure}
 
 Como vemos, este conjunto de datos se encuentra claramente desbalanceado, hay muchas más muestras de las clases de edad más avanzada que de edades más bajas, además de contar con muy pocos en la mayoría de clases. Más adelante veremos como podemos solucionar estos problemas utilizando técnicas de sobremuestreo.
