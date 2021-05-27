@@ -71,13 +71,13 @@ Con respecto a las etiquetas, aunque en un principio este problema esté pensado
 \subsection{Sobremuestreo}
 
 % TODO: cambiar cita
-El algoritmo que utilizaremos, SMOGN \cite{BL-SMOTE}, se basa en distintas variantes de SMOTE \cite{SMOTE}, donde se mejora el algoritmo original y se adapta a regresión.
+El algoritmo que utilizaremos, SMOGN \cite{SMOGN}, se basa en distintas variantes de SMOTE \cite{SMOTE}, donde se mejora el algoritmo original y se adapta a regresión.
 
 \subsubsection{SMOTE}
 
-SMOTE se trata de un método para conseguir nuevos datos de las clases minoritarias de forma sintética.
+SMOTE se trata de un método para conseguir balancear el número de datos para un problema de clasificación creando nuevos datos de las clases minoritarias de forma sintética.
 
-Las clases minoritarias se sobremuestrean tomando cada muestra de dicha clase minoritaria, e introduciendo valores sintéticos a los largo del segmento que une a todos o a cualquiera de los $k$ vecinos más cercanos de la clase. Dependiendo de la cantidad de datos sintéticos a generar se escogerá el valor de $k$ para seleccionar más o menos vecinos.
+Las clases minoritarias se sobremuestrean tomando cada muestra de dicha clase minoritaria, e introduciendo valores sintéticos a lo largo del segmento que une a todos o a cualquiera de los $k$ vecinos más cercanos de la clase. Dependiendo de la cantidad de datos sintéticos a generar se escogerá el valor de $k$ para seleccionar más o menos vecinos.
 
 
 \begin{figure}[H]
@@ -96,7 +96,7 @@ Este problema se hace mucho más presente en nuestro caso, al contar con tantas 
 \subsubsection{Borderline SMOTE}
 
 
-Esta variante, basada en SMOTE, propone buscar los límites en el espacio de valores de la clase a obtener nuevos datos sintéticos, de forma que cuando se generen dichos datos nuevos, estén dentro de dichos límites. De esta forma evitamos problemas con conjuntos de datos con mucho ruido y múltiples clases.
+Borderline SMOTE \cite{BL-SMOTE} se trata de una variante de SMOTE que propone buscar los límites en el espacio de valores de la clase a obtener nuevos datos sintéticos, de forma que cuando se generen dichos datos nuevos, estén dentro de dichos límites. De esta forma evitamos problemas con conjuntos de datos con mucho ruido y múltiples clases.
 
 En su artículo proponen dos variantes, una donde las nuevas muestras sintéticas son creadas a partir de todo el conjunto de datos, y otra donde las nuevas muestras solo se generan a partir de los datos considerados en el límite.
 
@@ -150,7 +150,30 @@ Esta claro que, como vemos en la figura \ref{fig:ejemploBL-SMOTE} y la figura \r
 
 \subsubsection{SMOTER: SMOTE para Regresión}
 
+Uno de los principales problemas que tiene SMOTE es que solo es posible aplicarlo para problemas de clasificación. Para solucionar este problema en 2013 investigadores de la Universidad de Oporto y de Waikato proponen una adaptación del algoritmo SMOTE (o sus variantes) para regresión \cite{SMOTER}.
 
+Este trabajo se centra en resolver tres problemas para poder adaptar SMOTE a un problema de regresión:
+
+\begin{enumerate}
+	\item Como definir los datos relevantes y los datos que se consideran raros.
+	\item Como crear los nuevos datos sintéticos.
+	\item Como asignar un valor numérico a esos datos sintéticos para usarlos en un modelo de regresión.
+\end{enumerate}
+
+Con respecto al primer problema, proponen una función de relevancia, en el que el usuario introduzca información sobre que etiquetas hay que obtener nuevos datos, ya que al ser un problema de regresión el número de posibles valores a sobremuestrear es infinito de cara al algoritmo, necesita algo de información sobre que etiquetas es necesario obtener los nuevos datos.
+
+Para resolver el segundo problema proponen generar los datos sintéticos de forma similar al algoritmo SMOTE, adaptando algunos detalles para que sea capaz de trabajar con regresión.
+
+Por último, para tratar el tercer problema, se propone utilizar una media ponderada utilizando el valor de rareza de las etiquetas de los datos con los que se han generado los datos sintéticos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{smoter_resultados.png}
+	\caption{Comparación entre un modelo entrenado con los datos originales o los datos sobremuestreados con SMOTER en diecisiete conjuntos de datos. Imagen obtenida de \cite{SMOTER}.}
+	\label{fig:smoter_resultados}
+\end{figure}
+
+Como vemos, en la mayoría de conjuntos de datos es capaz de mejorar notablemente los resultados, y en ninguna de las pruebas se obtienen peores resultados que en el conjunto de datos original, por lo que vemos que este algoritmo es una buena opción para obtener nuevos datos sintéticos en regresión.
 
 \subsubsection{Algoritmo a utilizar: SMOGN}
 
