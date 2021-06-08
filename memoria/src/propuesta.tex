@@ -16,7 +16,9 @@ En nuestro caso, al utilizar el mismo conjunto de datos, podemos ver en su artí
 
 \subsubsection{Enfoque con el que trabajaremos el conjunto de datos}
 
-De cara a resolver el problema y obtener un buen estimador de la edad a partir de los huesos del pubis enfocaremos el problema como un problema de regresión. Utilizaremos la propuesta de Gilbert y McKern para transformar las características a valores numéricos, que serán la entrada del modelo que entrenemos.
+De cara a resolver el problema y obtener un buen estimador de la edad a partir de los huesos del pubis enfocaremos el problema como un problema de regresión. Utilizaremos las características propuestas por Todd de cara a obtener el conjunto de datos, pero aplicaremos las transformaciones propuestas por Gilbert y McKern para transformar dichas características a valores numéricos y poder utilizarlos en el modelo de regresión simbólica, que serán la entrada del modelo que entrenemos, pero sin realizar la suma final de valores, ya que eso eliminaría demasiados grados de libertad a la hora de crear un estimador.
+
+En nuestra propuesta, los algoritmos que utilizaremos aprenderán las expresiones, de forma que no será necesario fijar un grado de libertad, de ahí que limitar estos grados de libertad no es necesario, ya que los propios algoritmos utilizarán el más conveniente. Esto no permite tener un método más potente que sigue siendo interpretable ya que seleccionará las características a utilizar, evitando cualquier sesgo introducido a priori.
 
 El modelo devolverá como resultado la expresión que mejor se ajuste a los datos con los que se ha entrenado el modelo, y será esa expresión con la que validaremos el modelo.
 
