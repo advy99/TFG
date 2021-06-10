@@ -70,8 +70,9 @@ Con respecto a las etiquetas, aunque en un principio este problema esté pensado
 
 \subsection{Sobremuestreo}
 
-% TODO: cambiar cita
-El algoritmo que utilizaremos, SMOGN \cite{SMOGN}, se basa en distintas variantes de SMOTE \cite{SMOTE}, donde se mejora el algoritmo original y se adapta a regresión.
+El algoritmo que utilizaremos, SMOGN \cite{SMOGN}, se basa en una versión mejorada de SMOTE \cite{SMOTE} adaptada para trabajar con regresión, SMOTER \cite{SMOTER}. SMOGN también nos permite utilizar variantes de SMOTE, como Borderline SMOTE \cite{BL-SMOTE}, que será la variante escogida para nuestro problema debido a los buenos resultados obtenidos.
+
+En esta sección introduciremos SMOTE y Borderline SMOTE de cara a mostrar la idea original de sobremuestreo en problemas de clasificación, su adaptación a problemas de regresión con SMOTER y finalmente una mejora de este último, SMOGN, que será el algoritmo a utilizar.
 
 \subsubsection{SMOTE}
 
@@ -177,7 +178,7 @@ Como vemos, en la mayoría de conjuntos de datos es capaz de mejorar notablement
 
 \subsubsection{Algoritmo a utilizar: SMOGN}
 
-SMOGN \cite{SMOGN} se trata de una propuesta publicada en 2017 por los mismos investigadores que propusieron SMOTER. Este trabajo soluciona diversos errores y mejora la propuesta anterior. 
+SMOGN \cite{SMOGN} se trata de una propuesta publicada en 2017 por los mismos investigadores que propusieron SMOTER. Este trabajo soluciona diversos errores y mejora la propuesta anterior.
 
 
 \newpage
