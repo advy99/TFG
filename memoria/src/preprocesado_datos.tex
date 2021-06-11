@@ -202,12 +202,16 @@ De cara a generar nuevas muestras, SMOGN divide los datos de entrada en dos tipo
 
 En la figura \ref{fig:SMOGN-5NN} vemos un ejemplo donde los círculos azules son datos considerados relevantes, las cruces verdes datos normales, y se ha creado el nuevo dato en rojo. Podemos distinguir las dos zonas comentadas, segura y no segura, para decidir si aplicar SMOTER o ruido gaussiano. En este caso vemos como si existen una cantidad suficiente de muestras para aplicar SMOTER, luego se escogerá este método para crear el dato. En este ejemplo podemos ver claramente como es mucho más difícil que un dato normal esté en la zona segura, haciendo que SMOTER no obtenga un resultado tan bueno, mientras que si es más común encontrar estos casos en las zonas no seguras, de ahí que en estos casos se utilice el ruido gaussiano.
 
+Finalmente comparan su propuesta con otros métodos como submuestreo aleatorio, introducción de ruido gaussiano, y SMOTER en distintos conjuntos de datos distintos y métodos de entrenamiento distintos, obteniendo finalmente los resultados medios:
+
 \begin{figure}[H]
     \centering
 	  \includegraphics[width=0.5\textwidth]{comparacion_smogn.png}
-    \caption{Comparación de SMOG con Random Undersampling, Gaussian Noise, y SMOTER. Imagen obtenida de \cite{SMOGN}}
+    \caption{Comparación de SMOGN, Random Undersampling, Gaussian Noise y SMOTER con respecto al conjunto de datos original. A la izquierda número de casos con mejores resultados, y a la derecha peores resultados. Imagen obtenida de \cite{SMOGN}}
 	 \label{fig:comparacion_smogn}
 \end{figure}
+
+Como nos muestra la figura \ref{fig:comparacion_smogn}, aunque la mayoría de técnicas consiguen mejores resultados que el conjunto de datos original, SMOGN es la que mejores resultados obtiene, minimizando el número de veces en los que no resulta conveniente el sobremuestreo y consiguiendo una amplia ventaja con respecto al conjunto de datos original.
 
 
 \newpage
