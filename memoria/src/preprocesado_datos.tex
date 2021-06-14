@@ -222,29 +222,29 @@ Tras aplicar todas las fases del preprocesado obtenemos los conjuntos de datos f
 
 \begin{figure}[H]
     \centering
-	  \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_l0.png}
-    \caption{Conteo de elementos por fase en el conjunto de datos original de la lateralidad izquierda.}
+	  \includegraphics[width=0.6\textwidth]{conjunto_datos/l0_regresion.csv.png}
+    \caption{Densidad de cada valor el conjunto de datos original de la lateralidad izquierda.}
 	 \label{fig:l0-orig}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-     \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_l0_BL-SMOTE.png}
-    \caption{Conteo de elementos por fase en el conjunto de datos de la lateralidad izquierda tras aplicar BorderlineSMOTE.}
+     \includegraphics[width=0.6\textwidth]{conjunto_datos/l0_regresion_over_sampling.csv.png}
+    \caption{Comparación de la densidad de cada valor el conjunto de datos original de la lateralidad izquierda y tras aplicar SMOGN.}
 	 \label{fig:l0-over}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-	  \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_l1.png}
-    \caption{Conteo de elementos por fase en el conjunto de datos original de la lateralidad derecha.}
+	  \includegraphics[width=0.6\textwidth]{conjunto_datos/l1_regresion.csv.png}
+	  \caption{Densidad de cada valor el conjunto de datos original de la lateralidad derecha.}
 	 \label{fig:l1-orig}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-     \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_l1_BL-SMOTE.png}
-    \caption{Conteo de elementos por fase en el conjunto de datos de la lateralidad derecha tras aplicar BorderlineSMOTE.}
+     \includegraphics[width=0.6\textwidth]{conjunto_datos/l1_regresion_over_sampling.csv.png}
+	  \caption{Comparación de la densidad de cada valor el conjunto de datos original de la lateralidad derecha y tras aplicar SMOGN.}
 	 \label{fig:l1-over}
 \end{figure}
 
@@ -252,18 +252,32 @@ Tras aplicar todas las fases del preprocesado obtenemos los conjuntos de datos f
 
 \begin{figure}[H]
     \centering
-	  \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_completo.png}
+	  \includegraphics[width=0.6\textwidth]{conjunto_datos/completo_regresion.csv.png}
      \label{fig:completo-orig}
-    \caption{Conteo de elementos por fase en el conjunto de datos completo original.}
+	  \caption{Densidad de cada valor el conjunto de datos original del conjunto completo.}
 
 \end{figure}
 
 \begin{figure}[H]
     \centering
-     \includegraphics[width=0.6\textwidth]{conjunto_datos/num_elementos_fase_completo_BL-SMOTE.png}
-    \caption{Conteo de elementos por fase en el conjunto de datos completo tras aplicar BorderlineSMOTE.}
+     \includegraphics[width=0.6\textwidth]{conjunto_datos/completo_regresion_over_sampling.csv.png}
+	  \caption{Comparación de la densidad de cada valor el conjunto de datos original del conjunto completo y tras aplicar SMOGN.}
 	 \label{fig:completo-over}
 \end{figure}
 
 
-Como vemos en las figuras \ref{fig:l0-over}, \ref{fig:l1-over} y \ref{fig:completo-over} ya tenemos conjuntos de datos balanceado y, aplicando la propuesta de Gilbert, con una única variable que serán los conjuntos de datos que utilizaremos.
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{}                   & \textbf{Lateralidad izquierda} & \textbf{Lateralidad derecha} & \textbf{Conjunto completo} \\ \hline
+\textbf{Original}           & 439                            & 453                          & 892                        \\ \hline
+\textbf{Tras aplicar SMOGN} & 579                            & 592                          & 1182                       \\ \hline
+\end{tabular}
+}
+\caption{Comparación del número de datos en el conjunto original y tras aplicar SMOGN.}\label{table:comparacion_orig_SMOGN}
+\end{table}
+
+Como vemos en las figuras \ref{fig:l0-over}, \ref{fig:l1-over} y \ref{fig:completo-over} hemos conseguido equilibrar la densidad de las etiquetas, reduciendo la densidad de las etiquetas con valores más altos, los más predominantes en el conjunto de datos, y creando nuevos datos sintéticos de etiquetas con menor valor. Además, como podemos ver en la tabla \ref{table:comparacion_orig_SMOGN}, aumentando el número de muestras, sin necesidad de que SMOGN haya aplicado submuestreo.
