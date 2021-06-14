@@ -239,11 +239,12 @@ Como podemos ver, con cinco repeticiones y siendo cada una de estas un 2-cv (de 
 
 De cara a evaluar los algoritmos necesitaremos una función de evaluación que nos permita saber el error que estamos cometiendo en las estimaciones.
 
-En nuestro caso, al realizar una regresión simbólica, utilizaremos dos medidas:
+En nuestro caso, al realizar una regresión simbólica, utilizaremos tres medidas:
 
 \begin{itemize}
 	\item Error cuadrático medio.
 	\item Raíz del error cuadrático medio.
+	\item Error absoluto medio.
 \end{itemize}
 
 \subsubsection{Error cuadrático medio}
@@ -267,6 +268,20 @@ La raíz del error cuadrático medio se trata de aplicar la raíz cuadrada al er
 	 \caption{Fórmula para calcular la raíz del error cuadrático medio.}
 	\label{fig:ECM}
 \end{figure}
+
+
+\subsubsection{Error absoluto medio}
+
+El error absoluto medio (MAE por sus siglas en inglés) se trata de medir la diferencia entre dos valores, en nuestro caso los valores obtenidos y los valores esperados.
+
+\begin{figure}[H]
+	 \centering
+	 $$ MAE = \frac{\sum_{i = 1}^{n}|\hat{Y_i} - Y_i|}{n} $$
+	 \caption{Fórmula para calcular el error absoluto medio, donde $\hat{Y_i}$ son las etiquetas predecidas y $Y_i$ son las etiquetas reales.}
+	\label{fig:ECM}
+\end{figure}
+
+Con el error absoluto medio podremos observar el error de precisión del modelo al estimar valores, así como comparar con el estado del arte del problema, ya que como vimos, en la mayoría de trabajos se utilizaba esta técnica para medir el error.
 
 \newpage
 
