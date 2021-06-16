@@ -1621,9 +1621,141 @@ Tras realizar las distintas pruebas y ejecuciones, utilizando tanto el algoritmo
 	\item \textbf{Comparación de los resultados obtenidos con el estado del arte.} Finalmente revisaremos el estado del arte, compararemos nuestros resultados con los estudios previos, y comentaremos si este enfoque ha proporcionado un nuevo punto de vista viable para abordar el problema de estimación de la edad.
 \end{enumerate}
 
-\subsubsection{Uso de distintas profundidades en Programación Genética}
 
-\subsubsection{Uso de distintas profundidades en GA-P}
+\subsubsection{Resumen de los resultados}
+
+Para realizar el análisis de resultados, debido a la gran cantidad de ejecuciones realizadas y resultados obtenidos, se han resumidos los resultados en seis tablas, una tabla por conjunto de datos (diferenciando entre conjunto original y con sobremuestreo), donde podemos ver los errores en media de cada algoritmo con distinta profundidad máxima de árbol.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad izquierda}}                      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 78,29122                & 8,840838                & 7,34858                \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 83,53466                & 8,97871                 & 7,283056               \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 78,26134                & 8,82909                 & 7,26459                \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 77,69454                & 8,807858                & 7,310698               \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 75,86876                & 8,704602                & 7,226134               \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 78,14404                & 8,826406                & 7,281462               \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad izquierda.}\label{table:resumen_l0}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad derecha}}                        \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 72,09066                & 8,483666                & 6,963514               \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 71,68338                & 8,45994                 & 6,92191                \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 75,84564                & 8,647456                & 6,975748               \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 71,10252                & 8,425564                & 6,93037                \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 71,65424                & 8,457206                & 6,920638               \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 72,13152                & 8,486486                & 6,94396                \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad derecha.}\label{table:resumen_l1}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo}}                      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 73,50034                & 8,569666                & 7,065968               \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 72,58126                & 8,515504                & 7,020512               \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 71,4802                 & 8,450386                & 6,94271                \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 74,05094                & 8,599972                & 7,122182               \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 72,47752                & 8,510716                & 7,022764               \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 72,23008                & 8,494072                & 6,99007                \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo.}\label{table:resumen_completo}
+\end{table}
+
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad izquierda con sobremuestreo}}    \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 63,87642                & 7,987276                & 6,504278               \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 63,64042                & 7,9709                  & 6,466798               \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 63,17712                & 7,94391                 & 6,477742               \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 63,67778                & 7,97497                 & 6,508852               \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 62,47418                & 7,90087                 & 6,43548                \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 68,1283                 & 8,148552                & 6,51231                \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad izquierda con sobremuestreo.}\label{table:resumen_l1_over}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad derecha con sobremuestreo}}      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 67,82148                & 8,22918                 & 6,768058               \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 68,17448                & 8,250954                & 6,791658               \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 68,19856                & 8,252648                & 6,77378                \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 68,3044                 & 8,259594                & 6,826746               \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 67,7971                 & 8,227468                & 6,78825                \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 67,57086                & 8,214506                & 6,769916               \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad derecha con sobremuestreo.}\label{table:resumen_l1_over}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo con sobremuestreo}}      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} \\ \hline
+\textbf{PG: Profundidad máxima 20}   & 63,8009                 & 7,985344                & 6,55832                \\ \hline
+\textbf{PG: Profundidad máxima 40}   & 62,44686                & 7,899814                & 6,471976               \\ \hline
+\textbf{PG: Profundidad máxima 60}   & 62,2492                 & 7,887122                & 6,465792               \\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 63,61904                & 7,97332                 & 6,553096               \\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 64,6985                 & 8,01656                 & 6,529756               \\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 62,41038                & 7,897584                & 6,481414               \\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo con sobremuestreo.}\label{table:resumen_completo_over}
+\end{table}
+
+
+\subsubsection{Uso de distintas profundidades en Programación Genética y GA-P}
+
+Como podemos ver en cada ejecución de los distintos conjuntos en ambos algoritmos, las diferencias de resultados en un conjunto de datos con un algoritmo, variando únicamente la profundidad máxima de los árboles a utilizar no son significantes.
+
+En las tablas \ref{table:resultados_PG_l0_20}, \ref{table:resultados_PG_l0_40} y \ref{table:resultados_PG_l0_60} podemos ver un claro ejemplo en como esta profundidad máxima no influye
 
 \subsubsection{Comparación entre Programación Genética y GA-P}
 
