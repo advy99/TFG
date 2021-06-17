@@ -1769,11 +1769,81 @@ A pesar de esto, podemos encontrar algunas excepciones, como en la tabla \ref{ta
 
 Un primer detalle que podemos observar en los resultados, comentado en la sección anterior, es la diferencia entre Programación Genética y GA-P en los resultados comparando distintas profundidades máximas para los árboles. Programación Genética si que llega a obtener mejores resultados con una profundidad de cuarenta nodos (aunque la diferencia sea muy pequeña), mientras que con GA-P si que llegamos a obtener buenos resultados con veinte nodos, lo que nos lleva a pensar que el ampliar la profundidad máxima de las expresiones para Programación Genética si que ha beneficiado a los resultados. Esto se puede explicar fácilmente por la mejora que añade GA-P, ya que al ser capaz de aprender los valores constantes no necesita aplicar operaciones sobre dichas constantes para obtener ciertos valores, mientras que Programación Genética si, por lo que la mayor profundidad máxima del árbol le permite ajustar más las constantes.
 
-De cara a los resultados obtenidos, podemos ver como en la mayoría de las tablas GA-P obtiene mejores valores que Programación Genética, teniendo como única excepción la tabla \ref{table:resumen_completo_over}.
+De cara a los resultados obtenidos, podemos ver como en la mayoría de las tablas GA-P obtiene mejores valores que Programación Genética, teniendo como única excepción la tabla \ref{table:resumen_completo_over}. De cara a observar estas distinciones también se han realizado las siguientes gráficas:
 
-Las tablas \ref{table:resumen_l0}, \ref{table:resumen_l1} y \ref{table:resumen_completo} nos muestran como la mejora de GA-P se nota especialmente en los conjuntos de datos sin sobremuestreo, mientras que en los resultados con sobremuestreo esta diferencia es más pequeña, lo que nos lleva a pensar que GA-P es más versátil para conjuntos de datos donde existen pocas muestras para algunas etiquetas, adaptándose mejor que Programación Genética para problemas de regresión simbólica al implementar la mejora de nichos y aprender mejor la fórmula obtenida, ya que Programación Genética si que necesita más cantidad de datos para aprender la fórmula.
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_20.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 20 nodos.}\label{fig:cmp_pg_gap_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_40.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 40 nodos.}\label{fig:cmp_pg_gap_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_60.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 60 nodos.}\label{fig:cmp_pg_gap_60}
+\end{figure}
+
+
+
+Las tablas \ref{table:resumen_l0}, \ref{table:resumen_l1} y \ref{table:resumen_completo} e imágenes \ref{fig:cmp_pg_gap_20}, \ref{fig:cmp_pg_gap_40} y \ref{fig:cmp_pg_gap_60} nos muestran como la mejora de GA-P se nota especialmente en los conjuntos de datos sin sobremuestreo, mientras que en los resultados con sobremuestreo esta diferencia es más pequeña, lo que nos lleva a pensar que GA-P es más versátil para conjuntos de datos donde existen pocas muestras para algunas etiquetas, adaptándose mejor que Programación Genética para problemas de regresión simbólica al implementar la mejora de nichos y aprender mejor la fórmula obtenida, ya que Programación Genética si que necesita más cantidad de datos para aprender la fórmula.
 
 \subsubsection{Comparación de resultados del conjunto de datos original y del conjunto de datos con sobremuestreo}
+
+Con respecto a los resultados obtenidos con el conjunto de datos original y el conjunto con datos sintéticos, podemos ver como claramente se consigue una mejora en los resultados:
+
+% TODO insertar imágenes
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_20.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 20 nodos.}\label{fig:cmp_pg_over_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_40.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 40 nodos.}\label{fig:cmp_pg_over_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_60.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 60 nodos.}\label{fig:cmp_pg_over_60}
+
+\end{figure}
+
+Estos cambios también son notables sobre GA-P:
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_20.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 20 nodos.}\label{fig:cmp_gap_over_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_40.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 40 nodos.}\label{fig:cmp_gap_over_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_60.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 60 nodos.}\label{fig:cmp_gap_over_60}
+
+\end{figure}
 
 \subsubsection{Análisis de las expresiones obtenidas y mejores expresiones}
 
