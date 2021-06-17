@@ -1,4 +1,4 @@
-\section{Resultados}
+\section{Resultados} \label{resultados}
 
 \subsection{Número de ejecuciones y validación}
 
@@ -1761,9 +1761,17 @@ Como podemos ver en cada ejecución de los distintos conjuntos en ambos algoritm
 
 En las tablas de la sección anterior (\ref{table:resumen_l0}, \ref{table:resumen_l1}, \ref{table:resumen_completo}, \ref{table:resumen_l0_over}, \ref{table:resumen_l1_over} y \ref{table:resumen_completo_over}) podemos ver como la profundidad máxima de los nodos apenas influye en los resultados y las expresiones obtenidas por las ejecuciones con una profundidad máxima de veinte nodos son mucho más sencillas de interpretar.
 
-A pesar de esto, podemos encontrar algunas excepciones, como en la tabla \ref{table:resumen_completo_over}, donde vemos como tanto para Programación Genética como para GA-P utilizar el tamaño más grande si que se han conseguido mejores resultados. Con respecto a esto, en GA-P podemos ver que se trata de una excepción al ver que en los resultados en otras tablas siempre se obtiene el mejor valor con una profundidad de veinte, y en los casos donde se obtiene el mejor valor con cuarenta nodos la diferencia es ínfima. Sin embargo para Programación Genética esto se repite en la mayoría de las tablas, como \ref{table:resumen_l0}, \ref{table:resumen_completo} o \ref{table:resumen_completo_over}, lo que nos lleva a pensar que el ampliar la profundidad máxima de las expresiones para este este algoritmo si que ha beneficiado a los resultados. Esto se puede explicar fácilmente por la mejora que añade GA-P, ya que al ser capaz de aprender los valores constantes no necesita aplicar operaciones sobre dichas constantes para obtener ciertos valores, mientras que Programación Genética si, por lo que la mayor profundidad máxima del árbol le permite ajustar más las constantes.
+A pesar de esto, podemos encontrar algunas excepciones, como en la tabla \ref{table:resumen_completo_over}, donde vemos como tanto para Programación Genética como para GA-P utilizar el tamaño más grande si que se han conseguido mejores resultados. Con respecto a esto, en GA-P podemos ver que se trata de una excepción al ver que en los resultados en otras tablas siempre se obtiene el mejor valor con una profundidad de veinte, y en los casos donde se obtiene el mejor valor con cuarenta nodos la diferencia es ínfima. Sin embargo para Programación Genética esto se repite en la mayoría de las tablas, como \ref{table:resumen_l0}, \ref{table:resumen_completo} o \ref{table:resumen_completo_over}. Comentaremos este detalle en la siguiente sección, donde comparamos Programación Genética y GA-P.
+
+\newpage
 
 \subsubsection{Comparación entre Programación Genética y GA-P}
+
+Un primer detalle que podemos observar en los resultados, comentado en la sección anterior, es la diferencia entre Programación Genética y GA-P en los resultados comparando distintas profundidades máximas para los árboles. Programación Genética si que llega a obtener mejores resultados con una profundidad de cuarenta nodos (aunque la diferencia sea muy pequeña), mientras que con GA-P si que llegamos a obtener buenos resultados con veinte nodos, lo que nos lleva a pensar que el ampliar la profundidad máxima de las expresiones para Programación Genética si que ha beneficiado a los resultados. Esto se puede explicar fácilmente por la mejora que añade GA-P, ya que al ser capaz de aprender los valores constantes no necesita aplicar operaciones sobre dichas constantes para obtener ciertos valores, mientras que Programación Genética si, por lo que la mayor profundidad máxima del árbol le permite ajustar más las constantes.
+
+De cara a los resultados obtenidos, podemos ver como en la mayoría de las tablas GA-P obtiene mejores valores que Programación Genética, teniendo como única excepción la tabla \ref{table:resumen_completo_over}.
+
+Las tablas \ref{table:resumen_l0}, \ref{table:resumen_l1} y \ref{table:resumen_completo} nos muestran como la mejora de GA-P se nota especialmente en los conjuntos de datos sin sobremuestreo, mientras que en los resultados con sobremuestreo esta diferencia es más pequeña, lo que nos lleva a pensar que GA-P es más versátil para conjuntos de datos donde existen pocas muestras para algunas etiquetas, adaptándose mejor que Programación Genética para problemas de regresión simbólica.
 
 \subsubsection{Comparación de resultados del conjunto de datos original y del conjunto de datos con sobremuestreo}
 
