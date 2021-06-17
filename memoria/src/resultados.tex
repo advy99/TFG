@@ -1799,8 +1799,6 @@ Las tablas \ref{table:resumen_l0}, \ref{table:resumen_l1} y \ref{table:resumen_c
 
 Con respecto a los resultados obtenidos con el conjunto de datos original y el conjunto con datos sintéticos, podemos ver como claramente se consigue una mejora en los resultados:
 
-% TODO insertar imágenes
-
 \begin{figure}[H]
     \centering
 	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_20.png}
@@ -1845,7 +1843,9 @@ Estos cambios también son notables sobre GA-P:
 
 \end{figure}
 
-Como suponíamos al introducir el problema y el conjunto de datos a utilizar en la sección \ref{introduccion}
+Como suponíamos al introducir el problema y el conjunto de datos a utilizar en la sección \ref{introduccion}, el conjunto de datos original no cuenta con suficientes datos para los valores de edades más tempranas, y el realizar el sobremuestreo explicado en la sección \ref{sobremuestreo} ha conseguido mejorar notablemente los resultados.
+
+Estos resultados son una muestra de la importancia de trabajar con un buen conjunto de datos, así como de la importancia de buscar nuevas técnicas que nos permitan obtener datos sintéticos. Como se ha visto en el estado del arte y la explicación del sobremuestreo, SMOTE y sus variantes realizan una función clave en este tipo de problemas, donde obtener datos es una tarea compleja.
 
 \subsubsection{Análisis de las expresiones obtenidas y mejores expresiones}
 
