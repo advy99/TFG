@@ -303,10 +303,32 @@ Con esto también podemos concluir que el enfocar el problema como un problema d
 \subsection{Análisis de las expresiones obtenidas y mejores expresiones}
 
 
-Tras comparar los distintos algoritmos y conjuntos de datos utilizados, en esta sección analizaré de forma general los detalles más importantes de los resultados, así como mostrar las mejores expresiones obtenidas por cada algoritmo en cada conjunto de datos de cara a analizarlas en profundidad.
+Tras comparar los distintos algoritmos, los conjuntos de datos utilizados y revisar el estado del arte en comparación con nuestra propuesta, en esta sección se analizará de forma general los detalles más importantes de los resultados obtenidos, así como mostrar las mejores expresiones obtenidas por cada algoritmo en cada conjunto de datos de cara a analizarlas en profundidad.
 
 \subsubsection{Mejores expresiones obtenidas}
 
+En esta sección seleccionaremos cuatro fórmulas, una por cada algoritmo utilizado con y sin sobremuestreo sobre el conjunto de datos completo, con el objetivo de escoger los mejores resultados y más sencillos para su interpretación. Debido a que las fórmulas que utilizan como máximo veinte nodos de profundidad para los árboles son más simples y se han obtenido resultados similares con distintas profundidades máximas, me limitaré a estas ya que queremos que el resultado sea interpretable.
+
+\begin{equation} \label{eq:PG_completo}
+10,856454 x_{4} + 5,428227 x_{8} + 8,374907 - \frac{3,803607512943}{x_{1}^{3}}
+\end{equation}
+
+
+\begin{equation} \label{eq:GAP_completo}
+2,330831 x_{1} + 8,270077 x_{8} + \left(x_{0} - x_{8}\right) \left(x_{8} - 2,330831\right) + 16,945320843987
+\end{equation}
+
+
+\begin{equation} \label{eq:PG_completo_over}
+3.2443 x_{1} - 3.2443 x_{3} + x_{4}^{2} + 2.5906246154344 x_{4} x_{8} + 22.5431061461
+\end{equation}
+
+
+\begin{equation} \label{eq:GAP_completo_over}
+3.030219 x_{1} + 5.632281 x_{4} + 5.204124 x_{8} + 12.212446187961
+\end{equation}
+
+\ref{eq:PG_completo} se trata de la mejor fórmula obtenida con Programación Genética sobre el conjunto de datos completo sin sobremuestreo, \ref{eq:GAP_completo} la mejor fórmula con GA-P sobre el conjunto de datos sin sobremuestreo, \ref{eq:PG_completo_over} la mejor fórmula de Programación Genética con sobremuestreo, y \ref{eq:GAP_completo_over} la mejor fórmula de GA-P con sobremuestreo.
 
 \subsubsection{Uso de características}
 
