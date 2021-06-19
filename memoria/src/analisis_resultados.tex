@@ -1,0 +1,258 @@
+
+\section{Análisis de resultados}
+
+Tras realizar las distintas pruebas y ejecuciones, utilizando tanto el algoritmo de Programación Genética como GA-P, así como el conjunto de datos original como el conjunto de datos sobremuestreado, en esta sección analizaremos los resultados obtenidos. En este análisis nos centraremos en los siguientes apartados:
+
+\begin{enumerate}
+	\item \textbf{Comparación del uso de distintas profundidades.} Estudiaremos si es necesario utilizar árboles con muchos nodos, de cara a que el algoritmo se pueda ajustar tanto como desee, o si por el contrario el ser menos restrictivos con la profundidad conlleva a un sobreajuste por parte del modelo.
+	\item \textbf{Comparación entre Programación Genética y GA-P.} Compararemos los resultados entre ambos algoritmos, viendo sus diferencias así como comentar si para este problema ha funcionado las adaptaciones que aplica GA-P al algoritmo original de Programación Genética.
+	\item \textbf{Comparación entre los resultados obtenidos por el conjunto de datos original y el conjunto de datos con sobremuestreo.} En este caso veremos si es necesario aplicar las técnicas de sobremuestreo, si han mejorado los resultados de forma notable y por lo tanto se debería tener en cuenta para trabajos futuros con este conjunto de datos, donde la falta de balanceo de datos es clara.
+	\item \textbf{Estudio de las mejores expresiones obtenidas.} Se escogerán las mejores expresiones obtenidas de todas las ejecuciones, así como un estudio de estas, como obtener las características que Programación Genética y GA-P han tenido más en cuenta para obtener los resultados.
+	\item \textbf{Comparación de los resultados obtenidos con el estado del arte.} Finalmente revisaremos el estado del arte, compararemos nuestros resultados con los estudios previos, y comentaremos si este enfoque ha proporcionado un nuevo punto de vista viable para abordar el problema de estimación de la edad.
+\end{enumerate}
+
+
+\subsection{Resumen de los resultados}
+
+Para realizar el análisis de resultados, debido a la gran cantidad de ejecuciones realizadas y resultados obtenidos, se han resumidos los resultados en seis tablas, una tabla por conjunto de datos (diferenciando entre conjunto original y con sobremuestreo), donde podemos ver los errores en media de cada algoritmo con distinta profundidad máxima de árbol.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad izquierda}}                      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 78,29122                & 8,840838                & 7,34858                & 211,616\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 83,53466                & 8,97871                 & 7,283056               & 373,8546\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 78,26134                & 8,82909                 & 7,26459                & 520,019\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 77,69454                & 8,807858                & 7,310698               & 283,5206\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 75,86876                & 8,704602                & 7,226134               & 499,1296\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 78,14404                & 8,826406                & 7,281462               & 688,3636\\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad izquierda.}\label{table:resumen_l0}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad derecha}}                        \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 72,09066                & 8,483666                & 6,963514               & 213,0604\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 71,68338                & 8,45994                 & 6,92191                & 391,2276\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 75,84564                & 8,647456                & 6,975748               & 533,1198\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 71,10252                & 8,425564                & 6,93037                & 283,6592\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 71,65424                & 8,457206                & 6,920638               & 517,811\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 72,13152                & 8,486486                & 6,94396                & 706,0454\\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad derecha.}\label{table:resumen_l1}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo}}                      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 73,50034                & 8,569666                & 7,065968               & 349,5058\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 72,58126                & 8,515504                & 7,020512               & 662,9214\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 71,4802                 & 8,450386                & 6,94271                & 940,1766\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 74,05094                & 8,599972                & 7,122182               & 460,3008\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 72,47752                & 8,510716                & 7,022764               & 875,7186\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 72,23008                & 8,494072                & 6,99007                & 1222,924\\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo.}\label{table:resumen_completo}
+\end{table}
+
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad izquierda con sobremuestreo}}    \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 63,87642                & 7,987276                & 6,504278               & 261,74\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 63,64042                & 7,9709                  & 6,466798               & 476,78\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 63,17712                & 7,94391                 & 6,477742               & 657,799\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 63,67778                & 7,97497                 & 6,508852               & 345,7916\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 62,47418                & 7,90087                 & 6,43548                & 635,3626\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 68,1283                 & 8,148552                & 6,51231                & 879,1732\\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad izquierda con sobremuestreo.}\label{table:resumen_l0_over}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre la lateralidad derecha con sobremuestreo}}      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 67,82148                & 8,22918                 & 6,768058               & 257,7232\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 68,17448                & 8,250954                & 6,791658               & 477,6992\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 68,19856                & 8,252648                & 6,77378                & 680,5406\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 68,3044                 & 8,259594                & 6,826746               & 342,6014\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 67,7971                 & 8,227468                & 6,78825                & 622,9388\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 67,57086                & 8,214506                & 6,769916               & 882,5354\\ \hline
+\end{tabular}%
+}
+\caption{Resumen de los resultados obtenidos de media en la lateralidad derecha con sobremuestreo.}\label{table:resumen_l1_over}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo con sobremuestreo}}      \\ \hline
+\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+\textbf{PG: Profundidad máxima 20}   & 63,8009                 & 7,985344                & 6,55832                & 465,1212\\ \hline
+\textbf{PG: Profundidad máxima 40}   & 62,44686                & 7,899814                & 6,471976               & 898,2496\\ \hline
+\textbf{PG: Profundidad máxima 60}   & 62,2492                 & 7,887122                & 6,465792               & 1245,464\\ \hline
+\textbf{GA-P: Profundidad máxima 20} & 63,61904                & 7,97332                 & 6,553096               & 613,734\\ \hline
+\textbf{GA-P: Profundidad máxima 40} & 64,6985                 & 8,01656                 & 6,529756               & 1181,024\\ \hline
+\textbf{GA-P: Profundidad máxima 60} & 62,41038                & 7,897584                & 6,481414               & 1642,246\\ \hline
+\end{tabular}%
+}
+
+\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo con sobremuestreo.}\label{table:resumen_completo_over}
+\end{table}
+
+
+
+\subsection{Uso de distintas profundidades en Programación Genética y GA-P}
+
+Como podemos ver en cada ejecución de los distintos conjuntos en ambos algoritmos, las diferencias de resultados en un conjunto de datos con un algoritmo, variando únicamente la profundidad máxima de los árboles a utilizar no son significantes.
+
+En las tablas de la sección anterior (\ref{table:resumen_l0}, \ref{table:resumen_l1}, \ref{table:resumen_completo}, \ref{table:resumen_l0_over}, \ref{table:resumen_l1_over} y \ref{table:resumen_completo_over}) podemos ver como la profundidad máxima de los nodos apenas influye en los resultados y las expresiones obtenidas por las ejecuciones con una profundidad máxima de veinte nodos son mucho más sencillas de interpretar.
+
+A pesar de esto, podemos encontrar algunas excepciones, como en la tabla \ref{table:resumen_completo_over}, donde vemos como tanto para Programación Genética como para GA-P utilizar el tamaño más grande si que se han conseguido mejores resultados. Con respecto a esto, en GA-P podemos ver que se trata de una excepción al ver que en los resultados en otras tablas siempre se obtiene el mejor valor con una profundidad de veinte, y en los casos donde se obtiene el mejor valor con cuarenta nodos la diferencia es ínfima. Sin embargo para Programación Genética esto se repite en la mayoría de las tablas, como \ref{table:resumen_l0}, \ref{table:resumen_completo} o \ref{table:resumen_completo_over}. Comentaremos este detalle en la siguiente sección, donde comparamos Programación Genética y GA-P.
+
+\newpage
+
+\subsection{Comparación entre Programación Genética y GA-P}
+
+Un primer detalle que podemos observar en los resultados, comentado en la sección anterior, es la diferencia entre Programación Genética y GA-P en los resultados comparando distintas profundidades máximas para los árboles. Programación Genética si que llega a obtener mejores resultados con una profundidad de cuarenta nodos (aunque la diferencia sea muy pequeña), mientras que con GA-P si que llegamos a obtener buenos resultados con veinte nodos, lo que nos lleva a pensar que el ampliar la profundidad máxima de las expresiones para Programación Genética si que ha beneficiado a los resultados. Esto se puede explicar fácilmente por la mejora que añade GA-P, ya que al ser capaz de aprender los valores constantes no necesita aplicar operaciones sobre dichas constantes para obtener ciertos valores, mientras que Programación Genética si, por lo que la mayor profundidad máxima del árbol le permite ajustar más las constantes.
+
+De cara a los resultados obtenidos, podemos ver como en la mayoría de las tablas GA-P obtiene mejores valores que Programación Genética, teniendo como única excepción la tabla \ref{table:resumen_completo_over}. De cara a observar estas distinciones también se han realizado las siguientes gráficas:
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_20.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 20 nodos.}\label{fig:cmp_pg_gap_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_40.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 40 nodos.}\label{fig:cmp_pg_gap_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_pg_gap_60.png}
+	  \caption{Comparación entre PG y GA-P con profundidad máxima de 60 nodos.}\label{fig:cmp_pg_gap_60}
+\end{figure}
+
+
+
+Las tablas \ref{table:resumen_l0}, \ref{table:resumen_l1} y \ref{table:resumen_completo} e imágenes \ref{fig:cmp_pg_gap_20}, \ref{fig:cmp_pg_gap_40} y \ref{fig:cmp_pg_gap_60} nos muestran como la mejora de GA-P se nota especialmente en los conjuntos de datos sin sobremuestreo, mientras que en los resultados con sobremuestreo esta diferencia es más pequeña, lo que nos lleva a pensar que GA-P es más versátil para conjuntos de datos donde existen pocas muestras para algunas etiquetas, adaptándose mejor que Programación Genética para problemas de regresión simbólica al implementar la mejora de nichos y aprender mejor la fórmula obtenida, ya que Programación Genética si que necesita más cantidad de datos para aprender la fórmula.
+
+\subsection{Comparación de resultados del conjunto de datos original y del conjunto de datos con sobremuestreo}
+
+Con respecto a los resultados obtenidos con el conjunto de datos original y el conjunto con datos sintéticos, podemos ver como claramente se consigue una mejora en los resultados:
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_20.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 20 nodos.}\label{fig:cmp_pg_over_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_40.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 40 nodos.}\label{fig:cmp_pg_over_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_pg_60.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con PG y profundidad máxima de 60 nodos.}\label{fig:cmp_pg_over_60}
+
+\end{figure}
+
+Estos cambios también son notables sobre GA-P:
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_20.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 20 nodos.}\label{fig:cmp_gap_over_20}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_40.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 40 nodos.}\label{fig:cmp_gap_over_40}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+	  \includegraphics[width=0.7\textwidth]{analisis/comparacion_over_gap_60.png}
+	  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y profundidad máxima de 60 nodos.}\label{fig:cmp_gap_over_60}
+
+\end{figure}
+
+Como suponíamos al introducir el problema y el conjunto de datos a utilizar en la sección \ref{introduccion}, el conjunto de datos original no cuenta con suficientes datos para los valores de edades más tempranas, y el realizar el sobremuestreo explicado en la sección \ref{sobremuestreo} ha conseguido mejorar notablemente los resultados.
+
+Estos resultados son una muestra de la importancia de trabajar con un buen conjunto de datos, así como de la importancia de buscar nuevas técnicas que nos permitan obtener datos sintéticos. Como se ha visto en el estado del arte y la explicación del sobremuestreo, SMOTE y sus variantes realizan una función clave en este tipo de problemas, donde obtener datos es una tarea compleja.
+
+\subsection{Comparación con el estado del arte}
+
+
+
+
+
+\subsection{Análisis de las expresiones obtenidas y mejores expresiones}
+
+
+Tras comparar los distintos algoritmos y conjuntos de datos utilizados, en esta sección analizaré de forma general los detalles más importantes de los resultados, así como mostrar las mejores expresiones obtenidas por cada algoritmo en cada conjunto de datos de cara a analizarlas en profundidad.
+
+\subsubsection{Uso de características}
+
+
+
+
+
+
+\newpage
