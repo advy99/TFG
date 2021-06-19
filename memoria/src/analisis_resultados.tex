@@ -7,8 +7,8 @@ Tras realizar las distintas pruebas y ejecuciones, utilizando tanto el algoritmo
 	\item \textbf{Comparación del uso de distintas longitudes de árbol.} Estudiaremos si es necesario utilizar árboles con muchos nodos, de cara a que el algoritmo se pueda ajustar tanto como desee, o si por el contrario el ser menos restrictivos con la longitud conlleva a un sobreajuste por parte del modelo.
 	\item \textbf{Comparación entre Programación Genética y GA-P.} Compararemos los resultados entre ambos algoritmos, viendo sus diferencias así como comentar si para este problema ha funcionado las adaptaciones que aplica GA-P al algoritmo original de Programación Genética.
 	\item \textbf{Comparación entre los resultados obtenidos por el conjunto de datos original y el conjunto de datos con sobremuestreo.} En este caso veremos si es necesario aplicar las técnicas de sobremuestreo, si han mejorado los resultados de forma notable y por lo tanto se debería tener en cuenta para trabajos futuros con este conjunto de datos, donde la falta de balanceo de datos es clara.
-	\item \textbf{Estudio de las mejores expresiones obtenidas.} Se escogerán las mejores expresiones obtenidas de todas las ejecuciones, así como un estudio de estas, como obtener las características que Programación Genética y GA-P han tenido más en cuenta para obtener los resultados.
 	\item \textbf{Comparación de los resultados obtenidos con el estado del arte.} Finalmente revisaremos el estado del arte, compararemos nuestros resultados con los estudios previos, y comentaremos si este enfoque ha proporcionado un nuevo punto de vista viable para abordar el problema de estimación de la edad.
+	\item \textbf{Estudio de las mejores expresiones obtenidas.} Se escogerán las mejores expresiones obtenidas de todas las ejecuciones, así como un estudio de estas, como obtener las características que Programación Genética y GA-P han tenido más en cuenta para obtener los resultados.
 \end{enumerate}
 
 
@@ -343,7 +343,7 @@ Los resultados individuales de estas fórmulas son los siguientes:
 
 Estos resultados se encuentra un poco por debajo de la media global, aunque no se tratan de las mejores con el objetivo de que sean fórmulas simples.
 
-Todas las fórmulas obtenidas tienen algo en común, la presencia de la última característica ($x_8$), el borde ventral, de la quinta característica ($x_4$), el nódulo oseo (a excepción de \ref{eq:GAP_completo}) y de la segunda característica $x_1$, la superficie porosa irregular (a excepción de \ref{eq:PG_completo}). En un principio con esto podríamos deducir que forman una parte importante en el proceso de estimación de la edad, aunque lo veremos más a fondo en la siguiente sección.
+Todas las fórmulas obtenidas tienen algo en común, la presencia de la última característica ($x_8$), el borde ventral, de la quinta característica ($x_4$), el borde inferior (a excepción de \ref{eq:GAP_completo}) y de la segunda característica $x_1$, la superficie porosa irregular (a excepción de \ref{eq:PG_completo}). En un principio con esto podríamos deducir que forman una parte importante en el proceso de estimación de la edad, aunque lo veremos más a fondo en la siguiente sección.
 
 
 
@@ -359,7 +359,7 @@ De cara a realizar este estudio, a partir de todas las fórmulas obtenidas en la
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \multicolumn{11}{|c|}{\textbf{Uso de variables}}                                                                                                                                                                                              \\ \hline
-                              & $\boldsymbol{x_0}$   & $\boldsymbol{x_1}$   & $\boldsymbol{x_2}$  & $\boldsymbol{x_3}$  & $\boldsymbol{x_4}$   & $\boldsymbol{x_5}$  & $\boldsymbol{x_6}$  & $\boldsymbol{x_7}$  & $\boldsymbol{x_8}$   & \textbf{\begin{tabular}[c]{@{}c@{}}Número total \\ de caraterísticas\end{tabular}} \\ \hline
+                              & $\boldsymbol{x_0}$   & $\boldsymbol{x_1}$   & $\boldsymbol{x_2}$  & $\boldsymbol{x_3}$  & $\boldsymbol{x_4}$   & $\boldsymbol{x_5}$  & $\boldsymbol{x_6}$  & $\boldsymbol{x_7}$  & $\boldsymbol{x_8}$   & \textbf{\begin{tabular}[c]{@{}c@{}}Número total \\ de características\end{tabular}} \\ \hline
 \textbf{PG}                   & 46               & 94               & 14              & 8               & 64               & 12              & 42              & 57              & 105              & \textbf{442}                            \\ \hline
 \textbf{GA-P}                 & 48               & 93               & 20              & 10              & 68               & 14              & 60              & 42              & 85               & \textbf{440}                            \\ \hline
 \textbf{PG sobremuestreo}     & 54               & 94               & 13              & 17              & 67               & 18              & 29              & 22              & 97               & \textbf{411}                            \\ \hline
@@ -371,9 +371,21 @@ De cara a realizar este estudio, a partir de todas las fórmulas obtenidas en la
 \caption{Uso de las características en todas las fórmulas obtenidas dividido por algoritmo y sobremuestreo.}\label{table:uso_caracteristicas}
 \end{table}
 
-En total se han realizado ejecuciones en dos algoritmos (Programación Genética y GA-P), con tres longitudes máximas cada uno (20, 40, y 60 nodos como longitud máxima del árbol), con seis conjuntos de datos distintos (lateralidad izquierda, derecha, conjunto completo y estos tres con oversampling) y con cinco semillas distintas, lo que supone que hemos obtenido
+En total se han realizado ejecuciones en dos algoritmos (Programación Genética y GA-P), con tres longitudes máximas cada uno ($20$, $40$, y $60$ nodos como longitud máxima del árbol), con seis conjuntos de datos distintos (lateralidad izquierda, derecha, conjunto completo y estos tres con oversampling) y con cinco semillas distintas, lo que supone que hemos obtenido $180$ fórmulas distintas, cada una de ellas independientes, como resultado.
+
+Suponiendo que las fórmulas utilizan su longitud de árbol, son un total de $7.200$ nodos ($1.200$ nodos de las expresiones de longitud máxima $20$ nodos, $2.400$ de expresiones con longitud máxima $40$ y $3.600$ de expresiones con longitud máxima $60$), de los cuales, como podemos ver en la tabla \ref{table:uso_caracteristicas}, sabemos que en total de $1.707$ son características, un $47,41\%$ del número máximo de posibles nodos suponiendo que todas las expresiones llegan a este máximo.
+
+Con respecto al uso concreto de cada variable, la más utilizada es la características $x_8$, el borde ventral, seguida de la segunda variable, $x_1$, la superficie porosa irregular, ambas con más de un $20\%$ de apariciones en el total de $180$ fórmulas, con una aparición del $21.85$ y del $21,15$ respectivamente. Además de estas dos variables, otra que destaca es el borde inferior, $x_4$, apareciendo un $15,58\%$ de las ocasiones que aparece un nodo de variable.
+
+Unicamente estas tres variables del total de nueve suponen casi un $60\%$ de todas las características utilizadas en las $180$ expresiones totales obtenidas, por lo que podemos afirmar que se tratan de variables de gran interés a la hora de estimar la edad de los individuos.
+
+Por otro lado, entre las menos utilizadas encontramos el nódulo óseo, $x_3$, el borde superior, $x_2$ y el borde dorsal, $x_6$, utilizados apenas un $3,28\%$, $4,22\%$ y $4,63\%$ respectivamente. En este caso, un tercio del total de características apenas llegan a aparecer un poco más del $12\%$.
+
+Además de dicha frecuencia de uso tan baja, en otros trabajos que han tratado este problema como \cite{NSLVOrd} han llegado a la conclusión de que ciertas variables no intervienen en el proceso de estimación de la edad, como por ejemplo el borde dorsal o el borde superior, coincidiendo con nuestros resultados. Por este motivo, podemos llegar a la conclusión de que se podrían reducir el número de características a utilizar de cara a reducir el tamaño del problema ya que algunas de las variables propuestas por Todd no influyen en el problema.
 
 
+
+\subsubsection{Aportaciones de técnicas de inteligencia artificial explicables al problema}
 
 
 \newpage
