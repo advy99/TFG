@@ -16,8 +16,7 @@ Tras realizar las distintas pruebas y ejecuciones, utilizando tanto el algoritmo
 
 Para realizar el análisis de resultados, debido a la gran cantidad de ejecuciones realizadas y resultados obtenidos, se han resumidos los resultados en seis tablas, una tabla por conjunto de datos (diferenciando entre conjunto original y con sobremuestreo), donde podemos ver los errores en media de cada algoritmo con distinta profundidad máxima de árbol.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -36,8 +35,7 @@ Para realizar el análisis de resultados, debido a la gran cantidad de ejecucion
 \caption{Resumen de los resultados obtenidos de media en la lateralidad izquierda.}\label{table:resumen_l0}
 \end{table}
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -57,8 +55,7 @@ Para realizar el análisis de resultados, debido a la gran cantidad de ejecucion
 \end{table}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -80,8 +77,7 @@ Para realizar el análisis de resultados, debido a la gran cantidad de ejecucion
 
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -101,8 +97,7 @@ Para realizar el análisis de resultados, debido a la gran cantidad de ejecucion
 \end{table}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -122,8 +117,7 @@ Para realizar el análisis de resultados, debido a la gran cantidad de ejecucion
 \end{table}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
@@ -243,8 +237,7 @@ De cara a comparar con el estado del arte utilizaremos los resultados obtenidos 
 
 En este trabajo se obtienen los siguientes resultados:
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 % \resizebox{\textwidth}{!}{%
@@ -267,8 +260,7 @@ En su trabajo también se habla de como su propuesta es capaz de obtener resulta
 
 Tras revisar estos resultados, vamos a añadir los obtenidos en nuestros experimentos:
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
+
 \begin{table}[H]
 \centering
 % \resizebox{\textwidth}{!}{%
@@ -332,10 +324,7 @@ En esta sección seleccionaremos cuatro fórmulas, una por cada algoritmo utiliz
 
 Los resultados individuales de estas fórmulas son los siguientes:
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+
 \begin{table}[]
 \centering
 % \resizebox{\textwidth}{!}{%
@@ -359,6 +348,27 @@ Todas las fórmulas obtenidas tienen algo en común, la presencia de la última 
 
 
 \subsubsection{Uso de características}
+
+Como comentamos en la sección anterior, hay algunas características que son más usadas que otras. En esta sección estudiaremos que características son las más utilizadas y revisaremos el estado del arte para comprobar si las variables más utilizadas coinciden con lo esperado.
+
+De cara a realizar este estudio, a partir de todas las fórmulas obtenidas en las distintas ejecuciones se han contado el número de apariciones de cada característica:
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{11}{|c|}{\textbf{Uso de variables}}                                                                                                                                                                                              \\ \hline
+                              & \textbf{$x_0$}   & \textbf{$x_1$}   & \textbf{$x_2$}  & \textbf{$x_3$}  & \textbf{$x_4$}   & \textbf{$x_5$}  & \textbf{$x_6$}  & \textbf{$x_7$}  & \textbf{$x_8$}   & \textbf{Número total de caraterísticas} \\ \hline
+\textbf{PG}                   & 46               & 94               & 14              & 8               & 64               & 12              & 42              & 57              & 105              & \textbf{442}                            \\ \hline
+\textbf{GA-P}                 & 48               & 93               & 20              & 10              & 68               & 14              & 60              & 42              & 85               & \textbf{440}                            \\ \hline
+\textbf{PG sobremuestreo}     & 54               & 94               & 13              & 17              & 67               & 18              & 29              & 22              & 97               & \textbf{411}                            \\ \hline
+\textbf{GA-P sobremuestreo}   & 44               & 80               & 25              & 21              & 67               & 35              & 27              & 29              & 86               & \textbf{414}                            \\ \hline
+\textbf{Total}                & \textbf{192}     & \textbf{361}     & \textbf{72}     & \textbf{56}     & \textbf{266}     & \textbf{79}     & \textbf{158}    & \textbf{150}    & \textbf{373}     & \textbf{1707}                           \\ \hline
+\textbf{\% respecto al total} & \textbf{11,25\%} & \textbf{21,15\%} & \textbf{4,22\%} & \textbf{3,28\%} & \textbf{15,58\%} & \textbf{4,63\%} & \textbf{9,26\%} & \textbf{8,79\%} & \textbf{21,85\%} & \textbf{}                               \\ \hline
+\end{tabular}%
+}
+\end{table}
 
 
 
