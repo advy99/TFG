@@ -330,6 +330,34 @@ En esta sección seleccionaremos cuatro fórmulas, una por cada algoritmo utiliz
 
 \ref{eq:PG_completo} se trata de la mejor fórmula obtenida con Programación Genética sobre el conjunto de datos completo sin sobremuestreo, \ref{eq:GAP_completo} la mejor fórmula con GA-P sobre el conjunto de datos sin sobremuestreo, \ref{eq:PG_completo_over} la mejor fórmula de Programación Genética con sobremuestreo, y \ref{eq:GAP_completo_over} la mejor fórmula de GA-P con sobremuestreo.
 
+Los resultados individuales de estas fórmulas son los siguientes:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+% \resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Resultados de las expresiones escogidas}}   \\ \hline
+\textbf{}                       & \textbf{RECM}    & \textbf{MAE}        \\ \hline
+\textbf{PG}                     & 8,39821          & 6,92052             \\ \hline
+\textbf{GA-P}                   & 8,4945           & 6,96785             \\ \hline
+\textbf{PG con sobremuestreo}   & 7,8669           & 6,41288             \\ \hline
+\textbf{GA-P con sobremuestreo} & 7,87184          & 6,42334             \\ \hline
+\end{tabular}%
+% }
+\caption{Resultados de las expresiones \ref{eq:PG_completo}, \ref{eq:GAP_completo}, \ref{eq:PG_completo_over} y \ref{eq:GAP_completo_over}.}\label{table:resultados_escogidas}
+\end{table}
+
+Estos resultados se encuentra un poco por debajo de la media global, aunque no se tratan de las mejores con el objetivo de que sean fórmulas simples.
+
+Todas las fórmulas obtenidas tienen algo en común, la presencia de la última característica ($x_8$), el borde ventral, de la quinta característica ($x_4$), el nódulo oseo (a excepción de \ref{eq:GAP_completo}) y de la segunda característica $x_1$, la superficie porosa irregular (a excepción de \ref{eq:PG_completo}). En un principio con esto podríamos deducir que forman una parte importante en el proceso de estimación de la edad, aunque lo veremos más a fondo en la siguiente sección.
+
+
+
 \subsubsection{Uso de características}
 
 
