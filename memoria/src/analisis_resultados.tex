@@ -239,7 +239,27 @@ Estos resultados son una muestra de la importancia de trabajar con un buen conju
 
 \subsection{Comparación con el estado del arte}
 
+De cara a comparar con el estado del arte utilizaremos los resultados obtenidos por Gámez-Granados et al \cite{NSLVOrdAge} ya que se trata de un trabajo actual, donde se consiguen unos muy buenos resultados siendo los mejores del estado del arte actual, además de utilizar el mismo conjunto de datos utilizado en este trabajo pero con un enfoque de clasificación, y no de regresión, por lo que nos permitirá saber si modificar el enfoque original de Todd por el enfoque de Gilbert y McKern pero utilizando las características de Todd ha funcionado.
 
+En este trabajo se obtienen los siguientes resultados:
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+% \resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Mejores resultados del estado del arte}}        \\ \hline
+\textbf{}                                     & \textbf{RECM} & \textbf{MAE} \\ \hline
+\textbf{NSLVORD: Lateralidad izquierda}       & 12,486        & 9,412        \\ \hline
+\textbf{NSLVORD: Lateralidad derecha}         & 12,558        & 9,596        \\ \hline
+\textbf{Random Forest: Lateralidad izquierda} & 12,277        & 9,408        \\ \hline
+\textbf{Random Forest: Lateralidad derecha}   & 11,372        & 8,298        \\ \hline
+\end{tabular}%
+% }
+\caption{Resultados obtenidos de \cite{NSLVOrdAge}.}\label{table:resultados_estado_arte}
+\end{table}
 
 
 
