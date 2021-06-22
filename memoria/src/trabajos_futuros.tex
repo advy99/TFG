@@ -1,1 +1,26 @@
 \section{Trabajos futuros}
+
+Aunque los resultados obtenidos en este trabajo han sido satisfactorios, como hemos ido comentando a lo largo de esta memoria, todavía existen diversos puntos donde se podría ampliar este trabajo en un futuro. En esta sección comentaremos esos puntos donde plateamos que se podría llevar a cabo una continuación de este trabajo, ya sea retocando y mejorando esta propuesta o utilizándola como base para realizar una experimentación diferente.
+
+\subsection{Realizar un estudio de las características de interés}
+
+Como hemos visto en diversos trabajos en el estado del arte así como deducido a partir de nuestra experimentación, el número de características a extraer del pubis propuestas en el trabajo de Todd son demasiado altas para el aporte que realizan algunas de ellas a la hora de estimar la edad de los individuos.
+
+Por este motivo, uno de las posibles lineas por las que seguir investigando para mejorar los resultados de este problema podría ser el estudio de sus características, cuáles son realmente de interés y por el contrario, de que características se podría prescindir sin eliminar información de interés.
+
+\subsection{Obtener varias fórmulas especificas para ciertos rangos de edad, en lugar de una general}
+
+En este trabajo nos hemos centrado en obtener una única fórmula general que nos permita estimar la edad de cualquier individuo, pero como hemos visto en el estado del arte, existen ciertas características que claramente son distintivas para ciertos grupos de edad alejados, como personas muy jóvenes y personas muy mayores, haciendo que una características de gran importancia si se trata de una persona de edad avanzada no sea nada relevante para una persona de edad temprana.
+
+Realizando este estudio, centrándose en ciertos rangos de edad e intentando especializar el modelo para zonas concretas de edad, podríamos mejorar los resultados locales ya que en el entrenamiento del modelo no entraría en juego el ruido introducido por individuos de otras edades, que podrían hacer creer al modelo que una características no es relevante cuando si lo puede ser para otro grupo de individuos.
+
+\subsection{Utilizar PG y GA-P para aprender reglas en lugar de fórmulas}
+
+Otra de las propuestas es utilizar los algoritmos evolutivos utilizados en este trabajo utilizando un enfoque de aprender reglas difusas, como en alguno de los trabajos del estado del arte.
+
+Con este trabajo hemos demostrado que estos algoritmos tienen un buen comportamiento y que el aprender la estructura de la fórmula ha sido de gran relevancia a la hora de obtener unos buenos resultados, por lo que se podría trabajar en utilizar estos algoritmos como base de aprendizaje para otros enfoques, como el enfoque tomado en el trabajo de Gámez-Granados et al \cite{NSLVOrdAge}, pero utilizando Programación Genética y GA-P.
+
+
+ % Obtener fórmulas por edades
+ % Utilizar PG y GA-P para aprender reglas en lugar de fórmulas
+ % Estuiar en profundidad las variables propuestas por todd de cara a reducir el número de variables
