@@ -325,17 +325,17 @@ En esta sección seleccionaremos cuatro fórmulas, una por cada algoritmo utiliz
 Los resultados individuales de estas fórmulas son los siguientes:
 
 
-\begin{table}[]
+\begin{table}[H]
 \centering
 % \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|}
 \hline
 \multicolumn{3}{|c|}{\textbf{Resultados de las expresiones escogidas}}   \\ \hline
 \textbf{}                       & \textbf{RECM}    & \textbf{MAE}        \\ \hline
-\textbf{PG}                     & 8,39821          & 6,92052             \\ \hline
-\textbf{GA-P}                   & 8,4945           & 6,96785             \\ \hline
-\textbf{PG con sobremuestreo}   & 7,8669           & 6,41288             \\ \hline
-\textbf{GA-P con sobremuestreo} & 7,87184          & 6,42334             \\ \hline
+\textbf{PG (\ref{eq:PG_completo})}                     & 8,39821          & 6,92052             \\ \hline
+\textbf{GA-P (\ref{eq:GAP_completo})}                   & 8,4945           & 6,96785             \\ \hline
+\textbf{PG con sobremuestreo (\ref{eq:PG_completo_over})}   & 7,8669           & 6,41288             \\ \hline
+\textbf{GA-P con sobremuestreo (\ref{eq:GAP_completo_over})} & 7,87184          & 6,42334             \\ \hline
 \end{tabular}%
 % }
 \caption{Resultados de las expresiones \ref{eq:PG_completo}, \ref{eq:GAP_completo}, \ref{eq:PG_completo_over} y \ref{eq:GAP_completo_over}.}\label{table:resultados_escogidas}
@@ -382,10 +382,6 @@ Unicamente estas tres variables del total de nueve suponen casi un $60\%$ de tod
 Por otro lado, entre las menos utilizadas encontramos el nódulo óseo, $x_3$, el borde superior, $x_2$ y el borde dorsal, $x_6$, utilizados apenas un $3,28\%$, $4,22\%$ y $4,63\%$ respectivamente. En este caso, un tercio del total de características apenas llegan a aparecer un poco más del $12\%$.
 
 Además de dicha frecuencia de uso tan baja, en otros trabajos que han tratado este problema como \cite{NSLVOrd} han llegado a la conclusión de que ciertas variables no intervienen en el proceso de estimación de la edad, como por ejemplo el borde dorsal o el borde superior, coincidiendo con nuestros resultados. Por este motivo, podemos llegar a la conclusión de que se podrían reducir el número de características a utilizar de cara a reducir el tamaño del problema ya que algunas de las variables propuestas por Todd no influyen en el problema.
-
-
-
-\subsubsection{Aportaciones de técnicas de inteligencia artificial explicables al problema}
 
 
 \newpage
