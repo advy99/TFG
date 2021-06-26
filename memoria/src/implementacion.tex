@@ -47,7 +47,7 @@ Estas clase se tratará de una clase de consulta de cara a almacenar todos los i
 
 \subsubsection{Clase Expresion}
 
-Una vez tenemos la parte genérica de un algoritmo con una población de expresiones, necesitamos una estructura que nos represente dichas expresiones, en este caso, la clase \texttt{Expresion}. Esta clase será la expresión original de Programación Genética, que contendrá un árbol que conformará la expresión. Este árbol se ha representado como un vector con la representación en preorder del árbol.
+Una vez tenemos la parte genérica de un algoritmo con una población de expresiones, necesitamos una estructura que represente dichas expresiones, en este caso, la clase \texttt{Expresion}. Esta clase será la expresión original de Programación Genética, que contendrá un árbol que conformará la expresión. Este árbol se ha representado como un vector con la representación en preorden del árbol.
 
 En esta clase encontraremos como atributos el propio árbol, el ajuste de dicha expresión, la longitud máxima que permitiremos que tenga la expresión, entre otros atributos auxiliares. También podemos encontrar como métodos distintas operaciones de las expresiones de Programación Genética, como intercambiar un subárbol, evaluar la expresión con ciertos datos, entre otras.
 
@@ -101,7 +101,7 @@ Esta clase se trata de la clase del algoritmo de Programación Genética que imp
 
 \subsubsection{Clase Expresion\_GAP y AlgoritmoGAP}
 
-Como vemos, con la estructura de clases con plantillas introducir un nuevo algoritmo es tan simple como definir el comportamiento de la expresión a utilizar y como se ajusta dicho algoritmo a los datos. Por este motivo, introducir la variante de GA-P es muy simple.
+Como vemos, con la estructura de clases con plantillas, introducir un nuevo algoritmo es tan simple como definir el comportamiento de la expresión a utilizar y como se ajusta dicho algoritmo a los datos. Por este motivo, introducir la variante de GA-P es muy simple.
 
 Para las expresiones de GA-P usaremos como base las expresiones de Programación Genética, ya que el único añadido es el cromosoma, los operadores de cruce y mutación de GA-P y la forma en la que se obtienen los valores numéricos, por lo tanto la clase \texttt{Expresion\_GAP} quedará de la siguiente forma.
 
@@ -129,7 +129,7 @@ Para las expresiones de GA-P usaremos como base las expresiones de Programación
 
 \subsubsection{Clase Parametros}
 
-De cara a hacer más sencillo el uso de los algoritmos también se ha implementado una clase \texttt{Parametros} que contiene todos los parámetros posibles para los algoritmos. De esta forma gestionar los parámetros con los que se lanza un algoritmo es mucho más sencillo, además de que nos permite una mayor flexibilidad a la hora de realizar distintas ejecuciones.
+De cara a hacer más sencillo el uso de los algoritmos también se ha implementado una clase auxiliar \texttt{Parametros} que contiene todos los parámetros posibles para los algoritmos. De esta forma gestionar los parámetros con los que se lanza un algoritmo es mucho más sencillo, además de que nos permite una mayor flexibilidad a la hora de realizar distintas ejecuciones.
 
 \begin{figure}[H]
 	 \centering
@@ -150,7 +150,7 @@ Con todas estas clases, el diagrama final quedaría de la siguiente forma:
 	\label{fig:diagrama_clases}
 \end{figure}
 
-Cabe destacar algunas declaraciones de tipos internas que se han hecho, como la del tipo \texttt{funcion\_evaluacion\_t}, que se trata de un puntero a una función que recibe una matriz de datos y un vector de etiquetas y devuelve un real. Esta función será la función que utilicemos para evaluar las expresiones, pero debido a su complejidad sintáctica se ha definido este tipo para que nombrarlo sea más fácil. El tipo completo sería:
+Cabe destacar algunas declaraciones de tipos internas que se han realizado para mayor legibilidad, como la del tipo \texttt{funcion\_evaluacion\_t}, que se trata de un puntero a una función que recibe una matriz de datos y un vector de etiquetas y devuelve un real. Esta función será la función que utilicemos para evaluar las expresiones, pero debido a su complejidad sintáctica se ha definido este tipo para que nombrarlo sea más fácil. El tipo completo sería:
 
 \begin{lstlisting}[language=C++]
 double (*funcion_evaluacion_t)(const std::vector<double> & datos, const std::vector<double> & etiquetas)
