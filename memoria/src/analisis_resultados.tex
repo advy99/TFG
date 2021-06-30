@@ -232,11 +232,11 @@ Estos resultados son una muestra de la importancia de trabajar con un buen conju
 
 \subsection{Comparación con el estado del arte}
 
-De cara a comparar con el estado del arte utilizaremos los resultados obtenidos por Gámez-Granados et al \cite{NSLVOrdAge} ya que se trata de un trabajo actual, donde se consiguen unos muy buenos resultados siendo los mejores del estado del arte actual, además de utilizar el mismo conjunto de datos utilizado en este trabajo pero con un enfoque de clasificación, y no de regresión, por lo que nos permitirá saber si modificar el enfoque original de Todd por el enfoque de Gilbert y McKern pero utilizando las características de Todd ha funcionado.
+De cara a comparar con el estado del arte utilizaremos los distintos resultados comentados en la sección \ref{sec_estado_arte_problema}, ya que se trata de trabajos diversos, donde se consiguen unos muy buenos resultados, además de dar un enfoque de clasificación al problema, y no de regresión, por lo que nos permitirá saber si modificar el enfoque original de Todd por el enfoque de Gilbert y McKern pero utilizando las características de Todd ha funcionado.
 
-En este trabajo se obtienen los siguientes resultados:
+En estos trabajos se obtienen los siguientes resultados:
 
-
+% TODO: cambiar tabla entera por resultados del estado del arte
 \begin{table}[H]
 \centering
 % \resizebox{\textwidth}{!}{%
@@ -250,7 +250,7 @@ En este trabajo se obtienen los siguientes resultados:
 \textbf{Random Forest: Lateralidad derecha}   & 11,372        & 8,298        \\ \hline
 \end{tabular}%
 % }
-\caption{Resultados obtenidos de \cite{NSLVOrdAge}.}\label{table:resultados_estado_arte}
+\caption{Resultados obtenidos por diversos trabajos del estado del arte del problema.}\label{table:resultados_estado_arte}
 \end{table}
 
 Como podemos ver en esta tabla \ref{table:resultados_estado_arte}, la propuesta hecha en \cite{NSLVOrdAge} iguala los resultados de técnicas más complejas como Random Forest, obteniendo unos resultados mucho más interpretables y útiles de cara a los forenses, llegando a mejorarlos al aplicar sobremuestreo, aunque en la publicación solo utilizan medidas de error para problemas de clasificación en el caso de los conjuntos de datos con sobremuestreo, de ahí que no aparezcan en la tabla.
