@@ -234,27 +234,7 @@ Estos resultados son una muestra de la importancia de trabajar con un buen conju
 
 De cara a comparar con el estado del arte utilizaremos los distintos resultados comentados en la sección \ref{sec_estado_arte_problema}, ya que se trata de trabajos diversos, donde se consiguen unos muy buenos resultados, además de dar un enfoque de clasificación al problema en la mayoría de casos, y no de regresión, por lo que nos permitirá saber si modificar el enfoque original de Todd por el enfoque de Gilbert y McKern pero utilizando las características de Todd ha funcionado.
 
-En estos trabajos se obtienen los siguientes resultados:
-
-% TODO: cambiar tabla entera por resultados del estado del arte
-\begin{table}[H]
-\centering
-% \resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|}
-\hline
-\multicolumn{3}{|c|}{\textbf{Mejores resultados del estado del arte}}        \\ \hline
-\textbf{}                                     & \textbf{RECM} & \textbf{MAE} \\ \hline
-\textbf{NSLVORD: Lateralidad izquierda}       & 12,486        & 9,412        \\ \hline
-\textbf{NSLVORD: Lateralidad derecha}         & 12,558        & 9,596        \\ \hline
-\textbf{Random Forest: Lateralidad izquierda} & 12,277        & 9,408        \\ \hline
-\textbf{Random Forest: Lateralidad derecha}   & 11,372        & 8,298        \\ \hline
-\end{tabular}%
-% }
-\caption{Resultados obtenidos por diversos trabajos del estado del arte del problema.}\label{table:resultados_estado_arte}
-\end{table}
-
-
-Tras revisar estos resultados, vamos a añadir los obtenidos en nuestros experimentos. En este caso, para comparar las distintas técnicas, además de mostrar las medidas de error obtenidas con el conjunto de datos sobremuestreado, se han añadido los valores obtenidos por las mismas expresiones (entrenadas con los conjuntos sobremuestreados), pero validadas con el conjunto de datos original, de cara a comprobar que realmente funcionan con datos reales, sin utilizar datos sintéticos :
+En nuestro trabajo se han obtenido como mejor resultado los siguientes valores. En este caso, para comparar las distintas técnicas, además de mostrar las medidas de error obtenidas con el conjunto de datos sobremuestreado, se han añadido los valores obtenidos por las mismas expresiones (entrenadas con los conjuntos sobremuestreados), pero validadas con el conjunto de datos original, de cara a comprobar que realmente funcionan con datos reales, sin utilizar datos sintéticos:
 
 
 \begin{table}[H]
@@ -289,9 +269,27 @@ Tras revisar estos resultados, vamos a añadir los obtenidos en nuestros experim
 
 De cara a la selección se ha buscado que la fórmula sea simple, y que tenga un buen resultado, no estrictamente la mejor, al buscar que esta sea interpretable fácilmente. Profundizaremos sobre esto en la siguiente sección.
 
-Como vemos en \ref{table:cmp_estado_arte}, nuestro trabajo ha conseguido mejorar los resultados obtenidos hasta el momento para el problema de la estimación de la edad a través de los huesos del pubis, con un modelo fácil de interpretar y que sea simple, además de aplicar técnicas de sobremuestreo para seguir mejorando dichos resultados, haciendo que este enfoque sea de gran competencia y pueda añadir un gran valor a la hora de resolver este problema.
+Por otro lado, en los distintos trabajos mencionados en el estado del arte se consiguen los siguientes resultados:
 
-Con esto también podemos concluir que el enfocar el problema como un problema de regresión en lugar de clasificación, utilizar las características propuestas por Todd de cara a obtener un mayor grado de libertad y utilizar algoritmos capaces de aprender dicho grado de libertad, ha permitido sacar el máximo provecho al conjunto de datos disponible, permitiendo una gran flexibilidad al escoger las características utilizadas y eliminando el sesgo que se podría introducir con cualquier otro método al no tener que escoger la forma del resultado.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Mejores resultados obtenidos en el estado del arte}}                                                                                        \\ \hline
+                                                                                                            & \textbf{Número de muestras} & \textbf{RECM} & \textbf{MAE} \\ \hline
+\textbf{Sauchey \& Brooks \cite{sucheyBrooks}}                                             & 739                         & 17.15         & -            \\ \hline
+\textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17.15         & -            \\ \hline
+\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{mejoraModelandoHuesos3D}}             & 93                          & 13.7 - 16.5   &              \\ \hline
+\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12.1          & 9.7          \\ \hline
+\end{tabular}%
+}
+\caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
+\end{table}
+
 
 
 \subsection{Análisis de las expresiones obtenidas y mejores expresiones}
