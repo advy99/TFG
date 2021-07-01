@@ -274,23 +274,29 @@ Por otro lado, en los distintos trabajos mencionados en el estado del arte se co
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|}
 \hline
 \multicolumn{4}{|c|}{\textbf{Mejores resultados obtenidos en el estado del arte}}                                                                                        \\ \hline
                                                                                                             & \textbf{Número de muestras} & \textbf{RECM} & \textbf{MAE} \\ \hline
-\textbf{Sauchey \& Brooks \cite{sucheyBrooks}}                                             & 739                         & 17.15         & -            \\ \hline
 \textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17.15         & -            \\ \hline
-\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{mejoraModelandoHuesos3D}}             & 93                          & 13.7 - 16.5   &              \\ \hline
+\textbf{Stoyanova,  Algee-Hewitt \& Slice \cite{mejoraModelandoHuesos3D}}                  & 57                          & 19            &              \\ \hline
+\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{segundaMejoraModelandoHuesos3D}}      & 93                          & 13.7 - 16.5   &              \\ \hline
 \textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12.1          & 9.7          \\ \hline
 \end{tabular}%
 }
 \caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
 \end{table}
 
+En primer lugar, comentar el detalle que podemos observar en la tabla \ref{table:mejores_resultados}, y es que para los resultados obtenidos entrenando con los conjuntos con datos sintéticos se sigue obteniendo buenos resultados con el conjunto de datos original, por lo que el sobremuestreo no ha conllevado a ningún problema de sesgo o sobreajuste.
 
+Por otro lado, con respecto a los resultados del estado del arte, podemos distinguir dos casos. El primer caso, en los trabajos realizados por Slice, Algee-Hewiit et al \cite{modelandoHuesos3D}, \cite{mejoraModelandoHuesos3D} y \cite{segundaMejoraModelandoHuesos3D}, se trata de trabajos en los que se utilizan muy pocas muestras, pero aun así son capaces de obtener unos buenos resultados, aunque no los mejores del estado del arte. El segundo caso, vemos como Kotěrová et al \cite{estimacionHuesosCadera} si utilizan un conjunto de datos más numeroso, además de considerar una gran variedad de modelos para resolver mejor el problema, consiguiendo los mejores resultados del estado del arte.
+
+En nuestro caso, como vemos en la tabla \ref{table:mejores_resultados}, hemos conseguido mejorar los resultados obtenidos en el estado del arte con una mejora bastante significativa. En principio, ya con el conjunto de datos original (892 muestras en total), de tamaño similar al mejor resultado del estado del arte, hemos conseguido mejorar los resultados utilizando el enfoque de Gilbert y McKern con regresión simbólica en Programación Genética y GA-P, manteniendo las características propuestas por Todd. Tras esto, hemos conseguido mejorar todavía más los resultados aplicando un sobremuestreo al conjunto de datos para que se consiga una mejora en el entrenamiento para los datos en los que apenas había muestras.
+
+Por último, además de mejorar los resultados obtenidos en los diversos trabajos del estado del arte del problema, hemos conseguido unos resultados fácilmente interpretables, compuestos de una fórmula matemática simple, de cara a que sean explicables y los expertos forenses sean capaces de analizar y utilizar para mejorar la técnica.
 
 \subsection{Análisis de las expresiones obtenidas y mejores expresiones}
 
