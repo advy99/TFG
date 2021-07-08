@@ -1,6 +1,6 @@
 # TFG
 
-Repositorio con la memoria de mi Trabajo de Fin de Grado en Ingeniería Informática en la UGR
+Repositorio con la memoria de mi Trabajo de Fin de Grado en Ingeniería Informática en la UGR: **Aprendizaje automático de un sistema interpretable de ayuda a la decisión para la estimación de la edad a partir de los huesos del pubis.**
 
 ## Estructura de carpetas
 
