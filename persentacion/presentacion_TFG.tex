@@ -173,7 +173,30 @@ Nuestros objetivos serán:
 \end{frame}
 
 \begin{frame}{Algoritmos: Sobremuestreo de datos}
+	SMOGN:
 
+	\begin{columns}[T]
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item Mejora de SMOTER.
+				\item SMOTER: Adaptación de SMOTE para regresión.
+				\item Generación datos sintéticos utilizando un k-nn.
+				\item Introducción de ruido gaussiano.
+				\item Submuestreo aleatorio.
+				\item Tiene en cuenta si es seguro y fiable generar un nuevo dato sintético.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}[H]
+			    \centering
+				 \includegraphics[width=\textwidth]{SMOGN-5NN.png}
+			    \caption{Ejemplo de un dato sintético generado por SMOGN utilizando los cinco vecinos más cercanos. Imagen obtenida de \cite{SMOGN}}
+				 \label{fig:SMOGN-5NN}
+			\end{figure}
+		\end{column}
+
+	\end{columns}
 
 \end{frame}
 
@@ -237,6 +260,10 @@ Nuestros objetivos serán:
 	\bibitem{XAI}
 
 	\href{https://www.sciencedirect.com/science/article/pii/S1566253519308103}{\scriptsize Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... \& Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115.}
+
+	\bibitem{SMOGN}
+
+	\href{http://proceedings.mlr.press/v74/branco17a/branco17a.pdf}{\scriptsize Branco, P., Torgo, L., \& Ribeiro, R. P. (2017, October). SMOGN: a pre-processing approach for imbalanced regression. In First international workshop on learning with imbalanced domains: Theory and applications (pp. 36-50). PMLR.}
 
 \end{thebibliography}
 
