@@ -123,7 +123,7 @@ Nuestros objetivos serán:
 \section{Inteligencia Artificial Explicable}
 \begin{frame}{Inteligencia Artificial Explicable}
 
-	Producir modelos fácilmente interpretables manteniendo buenos resultados y permitir que sean transparentes de cara a su funcionamiento.
+	Producir modelos fácilmente interpretables manteniendo buenos resultados y permitir que sean transparentes de cara a entender su funcionamiento.
 
 	\begin{figure}[H]
 		\centering
@@ -202,11 +202,50 @@ Nuestros objetivos serán:
 
 \begin{frame}{Algoritmos: Programación Genética}
 
+	\begin{columns}[T]
+
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item Propuesto por John Koza en 1990 \cite{kozaGP}.
+				\item Algoritmo evolutivo.
+				\item Uso de árboles en lugar de cromosomas.
+				\item Distintos tipos de problemas.
+				\item Resultado: Árbol que mejor se ajusta a los datos.
+			\end{itemize}
+		\end{column}
+
+
+		\begin{column}{.6\textwidth}
+			\begin{figure}[H]
+			    \centering
+				 \includegraphics[width=\textwidth]{generacional.png}
+			    \caption{Esquema de un algoritmo evolutivo con un modelo generacional.}
+				 \label{fig:modelo_generacioal}
+			\end{figure}
+		\end{column}
+
+	\end{columns}
 
 \end{frame}
 
 \begin{frame}{Algoritmos: GA-P}
+	\begin{itemize}
+		\item Mejora de PG para regresión simbólica \cite{primerGAP}.
+		\item Programación Genética para aprender expresiones y Algoritmo Genético para aprender constantes.
+		\item Uso de nichos cuando las expresiones convergen.
+	\end{itemize}
 
+\end{frame}
+
+\begin{frame}{Algoritmos: Validación de los resultados}
+	Uso de 5x2-\textit{cross validation}:
+
+	\begin{itemize}
+		\item 5 particiones distintas de los datos al $50\%$.
+		\item Utilizamos la primera mitad para entrenar y la segunda para validar. Realizamos una segunda iteración intercambiando las dos mitades.
+		\item Se obtienen 10 valores, 2 por cada partición.
+		\item Resultado final: Media de dichos diez valores.
+	\end{itemize}
 
 \end{frame}
 
@@ -264,6 +303,14 @@ Nuestros objetivos serán:
 	\bibitem{SMOGN}
 
 	\href{http://proceedings.mlr.press/v74/branco17a/branco17a.pdf}{\scriptsize Branco, P., Torgo, L., \& Ribeiro, R. P. (2017, October). SMOGN: a pre-processing approach for imbalanced regression. In First international workshop on learning with imbalanced domains: Theory and applications (pp. 36-50). PMLR.}
+
+	\bibitem{kozaGP}
+
+	\href{https://mitpress.mit.edu/books/genetic-programming}{\scriptsize Koza, J. R., \& Koza, J. R. (1992). Genetic programming: on the programming of computers by means of natural selection (Vol. 1). MIT press.}
+
+	\bibitem{primerGAP}
+
+	\href{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=393137}{\scriptsize Howard, L. M., \& D'Angelo, D. J. (1995). The GA-P: A genetic algorithm and genetic programming hybrid. IEEE expert, 10(3), 11-15.}
 
 \end{thebibliography}
 
