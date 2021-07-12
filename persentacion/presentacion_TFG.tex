@@ -53,7 +53,7 @@
 \begin{frame}{Estimación de la edad a partir de los huesos del pubis}
 
 	\begin{columns}[T]
-		\begin{column}{.5\textwidth}
+		\begin{column}{.4\textwidth}
 			Problema complejo:
 			\begin{itemize}
 				\item No existe un método concreto.
@@ -64,9 +64,10 @@
 
 		\end{column}
 
-		\begin{column}{.5\textwidth}
+		\begin{column}{.7\textwidth}
 			\begin{table}[H]
-				\resizebox{\textwidth}{!}{%
+				\centering
+				\resizebox{1\textwidth}{!}{%
 					\begin{tabular}{|c|c|c|}
 					\hline
 					Crestas y surcos: Muy definidos & Superficie porosa irregular: Sí & Borde superior: Definido  \\ \hline
@@ -122,16 +123,66 @@ Nuestros objetivos serán:
 \section{Inteligencia Artificial Explicable}
 \begin{frame}{Inteligencia Artificial Explicable}
 
+	Producir modelos fácilmente interpretables manteniendo buenos resultados y permitir que sean transparentes de cara a su funcionamiento.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale = 0.65]{esquema_xai.png}
+		\caption{Diagrama de las ventajas de la Inteligencia Artificial Explicable desde varios puntos de vista. Imagen de \cite{XAI}}
+		\label{fig:esquema_xai}
+	\end{figure}
 
 \end{frame}
 
 \section{Propuesta e implementación}
 \begin{frame}{Conjunto de datos}
 
+	\begin{columns}[T]
+		\begin{column}{.5\textwidth}
+			\vspace*{1cm}
+			\begin{enumerate}
+				\item 892 muestras: 439 de la lateralidad izquierda y 453 de la lateralidad derecha.
+				\item Clasificadas manualmente por el Laboratorio de Antropología Física de la UGR.
+				\item Altamente desbalanceado.
+			\end{enumerate}
+		\end{column}
+
+		\begin{column}{.5\textwidth}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1.15\textwidth]{completo_regresion.csv.png}
+				\caption{Densidad de cada valor el conjunto de datos completo.}
+				\label{fig:conjunto_regresion}
+			\end{figure}
+		\end{column}
+
+	\end{columns}
 
 \end{frame}
 
-\begin{frame}{Algoritmos}
+\begin{frame}{Enfoque utilizado}
+
+	\begin{itemize}
+		\item Enfoque de Gilbert y McKern, pero sin suma final de valores y utilizando las características propuestas por Todd.
+		\item Regresión simbólica.
+		\item Programación Genética y GA-P para aprender expresiones.
+		\item Selección de características por parte del modelo.
+		\item Sobremuestreo de datos utilizando SMOGN.
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Algoritmos: Sobremuestreo de datos}
+
+
+\end{frame}
+
+\begin{frame}{Algoritmos: Programación Genética}
+
+
+\end{frame}
+
+\begin{frame}{Algoritmos: GA-P}
 
 
 \end{frame}
@@ -181,7 +232,11 @@ Nuestros objetivos serán:
 
 	\bibitem{propuestaGilbert}
 
-	\href{https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.1330380109}{Gilbert, B. M., \& McKern, T. W. (1973). A method for aging the female os pubis. American Journal of Physical Anthropology, 38(1), 31-38.}
+	\href{https://onlinelibrary.wiley.com/doi/abs/10.1002/ajpa.1330380109}{\scriptsize Gilbert, B. M., \& McKern, T. W. (1973). A method for aging the female os pubis. American Journal of Physical Anthropology, 38(1), 31-38.}
+
+	\bibitem{XAI}
+
+	\href{https://www.sciencedirect.com/science/article/pii/S1566253519308103}{\scriptsize Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... \& Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115.}
 
 \end{thebibliography}
 
