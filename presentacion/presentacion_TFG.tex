@@ -54,7 +54,7 @@
 
 	\begin{columns}[T]
 		\begin{column}{.4\textwidth}
-			Problema complejo:
+			Problema de gran interés, pero complejo:
 			\begin{itemize}
 				\item No existe un método concreto.
 				\item Trabajo subjetivo por parte de forenses.
@@ -296,6 +296,23 @@ Nuestros objetivos serán:
 
 \begin{frame}{Resultados}
 
+	\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo}}                      \\ \hline
+	\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
+	\textbf{PG: Longitud máxima 20}   & 73,50034                & 8,569666                & 7,065968               & 349,5058\\ \hline
+	\textbf{PG: Longitud máxima 40}   & 72,58126                & 8,515504                & 7,020512               & 662,9214\\ \hline
+	\textbf{PG: Longitud máxima 60}   & \textbf{71,4802}                 & \textbf{8,450386}                & \textbf{6,94271}                & 940,1766\\ \hline
+	\textbf{GA-P: Longitud máxima 20} & 74,05094                & 8,599972                & 7,122182               & 460,3008\\ \hline
+	\textbf{GA-P: Longitud máxima 40} & 72,47752                & 8,510716                & 7,022764               & 875,7186\\ \hline
+	\textbf{GA-P: Longitud máxima 60} & 72,23008                & 8,494072                & 6,99007                & 1222,924\\ \hline
+	\end{tabular}%
+	}
+	\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo.}\label{table:resumen_completo}
+	\end{table}
 
 \end{frame}
 
@@ -348,6 +365,43 @@ Nuestros objetivos serán:
 
 \end{frame}
 
+\begin{frame}{Comparación con el estado del arte}
+
+	\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\multicolumn{4}{|c|}{\textbf{Mejores resultados obtenidos en el estado del arte}}                                                                                        \\ \hline
+	                                                                                                            & \textbf{Número de muestras} & \textbf{RECM} & \textbf{MAE} \\ \hline
+	\textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17.15         & -            \\ \hline
+	\textbf{Stoyanova,  Algee-Hewitt \& Slice \cite{mejoraModelandoHuesos3D}}                  & 57                          & 19            & -             \\ \hline
+	\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{segundaMejoraModelandoHuesos3D}}      & 93                          & 13.7 - 16.5   & -             \\ \hline
+	\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12.1          & 9.7          \\ \hline
+	\end{tabular}%
+	}
+	\caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
+	\end{table}
+
+	\begin{table}[H]
+	\centering
+	\resizebox{0.5\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{Resultados de las expresiones escogidas}}   \\ \hline
+	\textbf{}                       & \textbf{RECM}    & \textbf{MAE}        \\ \hline
+	\textbf{PG (\ref{eq:PG_completo})}                     & 8,39821          & 6,92052             \\ \hline
+	\textbf{GA-P (\ref{eq:GAP_completo})}                   & 8,4945           & 6,96785             \\ \hline
+	\textbf{PG con sobremuestreo (\ref{eq:PG_completo_over})}   & 7,8669           & 6,41288             \\ \hline
+	\textbf{GA-P con sobremuestreo (\ref{eq:GAP_completo_over})} & 7,87184          & 6,42334             \\ \hline
+	\end{tabular}%
+	}
+	\caption{Resultados de las expresiones \ref{eq:PG_completo}, \ref{eq:GAP_completo}, \ref{eq:PG_completo_over} y \ref{eq:GAP_completo_over}.}\label{table:resultados_escogidas}
+	\end{table}
+
+\end{frame}
+
+
 \begin{frame}{Uso de características}
 	\begin{table}[H]
 	\centering
@@ -370,31 +424,18 @@ Nuestros objetivos serán:
 \end{frame}
 
 
-\begin{frame}{Comparación con el estado del arte}
-
-	\begin{table}[H]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tabular}{|c|c|c|c|}
-	\hline
-	\multicolumn{4}{|c|}{\textbf{Mejores resultados obtenidos en el estado del arte}}                                                                                        \\ \hline
-	                                                                                                            & \textbf{Número de muestras} & \textbf{RECM} & \textbf{MAE} \\ \hline
-	\textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17.15         & -            \\ \hline
-	\textbf{Stoyanova,  Algee-Hewitt \& Slice \cite{mejoraModelandoHuesos3D}}                  & 57                          & 19            &              \\ \hline
-	\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{segundaMejoraModelandoHuesos3D}}      & 93                          & 13.7 - 16.5   &              \\ \hline
-	\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12.1          & 9.7          \\ \hline
-	\end{tabular}%
-	}
-	\caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
-	\end{table}
-
-\end{frame}
-
-
 
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
 
+	\begin{itemize}
+		\item Propuesta prometedora para resolver un problema de gran interés y complejidad.
+		\item Interés de uso de técnicas fácilmente interpretables, para a ayudar a los expertos.
+		\item Estudio de distintas técnicas de preprocesado de datos.
+		\item Revisión y propuesta de algoritmos evolutivos.
+		\item Código documentado, escalable y reutilizable para otros trabajos.
+		\item Estudio de resultados y comparación con el estado del arte, así como propuestas de trabajos futuros.
+	\end{itemize}
 
 \end{frame}
 
