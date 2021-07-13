@@ -114,7 +114,7 @@ Nuestros objetivos serán:
 \begin{enumerate}
 	\item Obtener resultados sencillos, obtenidos a partir de modelos fácilmente interpretables.
 	\item Tratar la alta dimensionalidad del problema.
-	\item Estudiar el problema del número de muestras para resolver el problema.
+	\item Resolver el problema del número de muestras del conjunto de datos.
 \end{enumerate}
 
 \end{frame}
@@ -240,11 +240,29 @@ Nuestros objetivos serán:
 \end{frame}
 
 \begin{frame}{Algoritmos: GA-P}
-	\begin{itemize}
-		\item Mejora de PG para regresión simbólica \cite{primerGAP}.
-		\item Programación Genética para aprender expresiones y Algoritmo Genético para aprender constantes.
-		\item Uso de nichos cuando las expresiones convergen.
-	\end{itemize}
+
+	\begin{columns}[T]
+
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item Mejora de PG para regresión simbólica \cite{primerGAP}.
+				\item Programación Genética para aprender expresiones y Algoritmo Genético para aprender constantes.
+				\item Uso de nichos cuando las expresiones convergen.
+			\end{itemize}
+		\end{column}
+
+
+		\begin{column}{.6\textwidth}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.6\textwidth]{expresion_gap.png}
+				\caption{Ejemplo de una expresión de GA-P con un cromosoma asociado.}
+				\label{fig:expresion_gap}
+			\end{figure}
+		\end{column}
+
+	\end{columns}
+
 
 \end{frame}
 
@@ -293,28 +311,6 @@ Nuestros objetivos serán:
 
 \end{frame}
 
-
-\begin{frame}{Resultados}
-
-	\begin{table}[H]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tabular}{|c|c|c|c|c|}
-	\hline
-	\multicolumn{5}{|c|}{\textbf{Comparación de las ejecuciones sobre el conjunto de datos completo}}                      \\ \hline
-	\textbf{}                            & \textbf{ECM con 5x2-cv} & \textbf{RECM con 5x2cv} & \textbf{MAE con 5x2cv} & \textbf{Tiempo de ejecución (s)}\\ \hline
-	\textbf{PG: Longitud máxima 20}   & 73,50034                & 8,569666                & 7,065968               & 349,5058\\ \hline
-	\textbf{PG: Longitud máxima 40}   & 72,58126                & 8,515504                & 7,020512               & 662,9214\\ \hline
-	\textbf{PG: Longitud máxima 60}   & \textbf{71,4802}                 & \textbf{8,450386}                & \textbf{6,94271}                & 940,1766\\ \hline
-	\textbf{GA-P: Longitud máxima 20} & 74,05094                & 8,599972                & 7,122182               & 460,3008\\ \hline
-	\textbf{GA-P: Longitud máxima 40} & 72,47752                & 8,510716                & 7,022764               & 875,7186\\ \hline
-	\textbf{GA-P: Longitud máxima 60} & 72,23008                & 8,494072                & 6,99007                & 1222,924\\ \hline
-	\end{tabular}%
-	}
-	\caption{Resumen de los resultados obtenidos de media en el conjunto de datos completo.}\label{table:resumen_completo}
-	\end{table}
-
-\end{frame}
 
 \begin{frame}{Comparación entre PG y GA-P}
 
@@ -365,6 +361,30 @@ Nuestros objetivos serán:
 
 \end{frame}
 
+
+\begin{frame}{Uso de características}
+	\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{11}{|c|}{\textbf{Uso de variables}}                                                                                                                                                                                              \\ \hline
+	                              & $\boldsymbol{x_0}$   & $\boldsymbol{x_1}$   & $\boldsymbol{x_2}$  & $\boldsymbol{x_3}$  & $\boldsymbol{x_4}$   & $\boldsymbol{x_5}$  & $\boldsymbol{x_6}$  & $\boldsymbol{x_7}$  & $\boldsymbol{x_8}$   & \textbf{\begin{tabular}[c]{@{}c@{}}Número total \\ de características\end{tabular}} \\ \hline
+	\textbf{PG}                   & 46               & 94               & 14              & 8               & 64               & 12              & 42              & 57              & 105              & \textbf{442}                            \\ \hline
+	\textbf{GA-P}                 & 48               & 93               & 20              & 10              & 68               & 14              & 60              & 42              & 85               & \textbf{440}                            \\ \hline
+	\textbf{PG sobremuestreo}     & 54               & 94               & 13              & 17              & 67               & 18              & 29              & 22              & 97               & \textbf{411}                            \\ \hline
+	\textbf{GA-P sobremuestreo}   & 44               & 80               & 25              & 21              & 67               & 35              & 27              & 29              & 86               & \textbf{414}                            \\ \hline
+	\textbf{Total}                & \textbf{192}     & \textbf{361}     & \textbf{72}     & \textbf{56}     & \textbf{266}     & \textbf{79}     & \textbf{158}    & \textbf{150}    & \textbf{373}     & \textbf{1707}                           \\ \hline
+	\textbf{\% respecto al total} & \textbf{11,25\%} & \textbf{21,15\%} & \textbf{4,22\%} & \textbf{3,28\%} & \textbf{15,58\%} & \textbf{4,63\%} & \textbf{9,26\%} & \textbf{8,79\%} & \textbf{21,85\%} & \textbf{}                               \\ \hline
+	\end{tabular}%
+	}
+	\caption{Uso de las características en todas las fórmulas obtenidas dividido por algoritmo y sobremuestreo.}\label{table:uso_caracteristicas}
+	\end{table}
+
+\end{frame}
+
+
+
 \begin{frame}{Comparación con el estado del arte}
 
 	\begin{table}[H]
@@ -397,28 +417,6 @@ Nuestros objetivos serán:
 	\end{tabular}%
 	}
 	\caption{Resultados de las expresiones \ref{eq:PG_completo}, \ref{eq:GAP_completo}, \ref{eq:PG_completo_over} y \ref{eq:GAP_completo_over}.}\label{table:resultados_escogidas}
-	\end{table}
-
-\end{frame}
-
-
-\begin{frame}{Uso de características}
-	\begin{table}[H]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-	\hline
-	\multicolumn{11}{|c|}{\textbf{Uso de variables}}                                                                                                                                                                                              \\ \hline
-	                              & $\boldsymbol{x_0}$   & $\boldsymbol{x_1}$   & $\boldsymbol{x_2}$  & $\boldsymbol{x_3}$  & $\boldsymbol{x_4}$   & $\boldsymbol{x_5}$  & $\boldsymbol{x_6}$  & $\boldsymbol{x_7}$  & $\boldsymbol{x_8}$   & \textbf{\begin{tabular}[c]{@{}c@{}}Número total \\ de características\end{tabular}} \\ \hline
-	\textbf{PG}                   & 46               & 94               & 14              & 8               & 64               & 12              & 42              & 57              & 105              & \textbf{442}                            \\ \hline
-	\textbf{GA-P}                 & 48               & 93               & 20              & 10              & 68               & 14              & 60              & 42              & 85               & \textbf{440}                            \\ \hline
-	\textbf{PG sobremuestreo}     & 54               & 94               & 13              & 17              & 67               & 18              & 29              & 22              & 97               & \textbf{411}                            \\ \hline
-	\textbf{GA-P sobremuestreo}   & 44               & 80               & 25              & 21              & 67               & 35              & 27              & 29              & 86               & \textbf{414}                            \\ \hline
-	\textbf{Total}                & \textbf{192}     & \textbf{361}     & \textbf{72}     & \textbf{56}     & \textbf{266}     & \textbf{79}     & \textbf{158}    & \textbf{150}    & \textbf{373}     & \textbf{1707}                           \\ \hline
-	\textbf{\% respecto al total} & \textbf{11,25\%} & \textbf{21,15\%} & \textbf{4,22\%} & \textbf{3,28\%} & \textbf{15,58\%} & \textbf{4,63\%} & \textbf{9,26\%} & \textbf{8,79\%} & \textbf{21,85\%} & \textbf{}                               \\ \hline
-	\end{tabular}%
-	}
-	\caption{Uso de las características en todas las fórmulas obtenidas dividido por algoritmo y sobremuestreo.}\label{table:uso_caracteristicas}
 	\end{table}
 
 \end{frame}
