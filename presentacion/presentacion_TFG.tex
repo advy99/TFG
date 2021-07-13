@@ -278,24 +278,115 @@ Nuestros objetivos serán:
 
 \end{frame}
 
-\section{Análisis de resultados y comparación con el estado del arte}
+\section{Experimentos y análisis de resultados}
+
+\begin{frame}{Experimentos}
+
+	\begin{itemize}
+		\item Seis conjuntos de datos.
+		\item Tres longitudes máximas de árbol.
+		\item Cinco semillas aleatorias distintas.
+		\item Dos algoritmos: Programación Genética y GA-P.
+		\item Ciento ochenta ejecuciones en total.
+		\item Cada ejecución con un millón de evaluaciones y una población de mil individuos.
+	\end{itemize}
+
+\end{frame}
+
+
 \begin{frame}{Resultados}
 
 
 \end{frame}
 
+\begin{frame}{Comparación entre PG y GA-P}
+
+	\begin{figure}[H]
+	    \centering
+		  \includegraphics[width=0.7\textwidth]{comparacion_pg_gap_20.png}
+		  \caption{Comparación entre PG y GA-P con longitud máxima de 20 nodos.}\label{fig:cmp_pg_gap_20}
+
+	\end{figure}
+
+
+\end{frame}
+
+
 \begin{frame}{Importancia del sobremuestreo}
+
+	\begin{figure}[H]
+	    \centering
+		  \includegraphics[width=0.7\textwidth]{comparacion_over_gap_20.png}
+		  \caption{Comparación entre el conjunto de datos original y con sobremuestreo con GA-P y longitud máxima de 20 nodos.}\label{fig:cmp_gap_over_20}
+
+	\end{figure}
 
 
 \end{frame}
 
 \begin{frame}{Mejores expresiones obtenidas}
 
+	Mejor expresión obtenida por PG:
+	\begin{equation} \label{eq:PG_completo}
+	10.856 x_{4} + 5.428 x_{8} + 8.374 - \frac{3.803}{x_{1}^{3}}
+	\end{equation}
+
+	Mejor expresión obtenida por GA-P:
+	\begin{equation} \label{eq:GAP_completo}
+	2.330 x_{1} + 8.270 x_{8} + \left(x_{0} - x_{8}\right) \left(x_{8} - 2.330\right) + 16.945
+	\end{equation}
+
+	Mejor expresión obtenida por PG con sobremuestreo:
+	\begin{equation} \label{eq:PG_completo_over}
+	3.244 x_{1} - 3.244 x_{3} + x_{4}^{2} + 2.590 x_{4} x_{8} + 22.543
+	\end{equation}
+
+	Mejor expresión obtenida por GA-P con sobremuestreo:
+	\begin{equation} \label{eq:GAP_completo_over}
+	3.030 x_{1} + 5.632 x_{4} + 5.204 x_{8} + 12.212
+	\end{equation}
 
 \end{frame}
 
+\begin{frame}{Uso de características}
+	\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{11}{|c|}{\textbf{Uso de variables}}                                                                                                                                                                                              \\ \hline
+	                              & $\boldsymbol{x_0}$   & $\boldsymbol{x_1}$   & $\boldsymbol{x_2}$  & $\boldsymbol{x_3}$  & $\boldsymbol{x_4}$   & $\boldsymbol{x_5}$  & $\boldsymbol{x_6}$  & $\boldsymbol{x_7}$  & $\boldsymbol{x_8}$   & \textbf{\begin{tabular}[c]{@{}c@{}}Número total \\ de características\end{tabular}} \\ \hline
+	\textbf{PG}                   & 46               & 94               & 14              & 8               & 64               & 12              & 42              & 57              & 105              & \textbf{442}                            \\ \hline
+	\textbf{GA-P}                 & 48               & 93               & 20              & 10              & 68               & 14              & 60              & 42              & 85               & \textbf{440}                            \\ \hline
+	\textbf{PG sobremuestreo}     & 54               & 94               & 13              & 17              & 67               & 18              & 29              & 22              & 97               & \textbf{411}                            \\ \hline
+	\textbf{GA-P sobremuestreo}   & 44               & 80               & 25              & 21              & 67               & 35              & 27              & 29              & 86               & \textbf{414}                            \\ \hline
+	\textbf{Total}                & \textbf{192}     & \textbf{361}     & \textbf{72}     & \textbf{56}     & \textbf{266}     & \textbf{79}     & \textbf{158}    & \textbf{150}    & \textbf{373}     & \textbf{1707}                           \\ \hline
+	\textbf{\% respecto al total} & \textbf{11,25\%} & \textbf{21,15\%} & \textbf{4,22\%} & \textbf{3,28\%} & \textbf{15,58\%} & \textbf{4,63\%} & \textbf{9,26\%} & \textbf{8,79\%} & \textbf{21,85\%} & \textbf{}                               \\ \hline
+	\end{tabular}%
+	}
+	\caption{Uso de las características en todas las fórmulas obtenidas dividido por algoritmo y sobremuestreo.}\label{table:uso_caracteristicas}
+	\end{table}
+
+\end{frame}
+
+
 \begin{frame}{Comparación con el estado del arte}
 
+	\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	\multicolumn{4}{|c|}{\textbf{Mejores resultados obtenidos en el estado del arte}}                                                                                        \\ \hline
+	                                                                                                            & \textbf{Número de muestras} & \textbf{RECM} & \textbf{MAE} \\ \hline
+	\textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17.15         & -            \\ \hline
+	\textbf{Stoyanova,  Algee-Hewitt \& Slice \cite{mejoraModelandoHuesos3D}}                  & 57                          & 19            &              \\ \hline
+	\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{segundaMejoraModelandoHuesos3D}}      & 93                          & 13.7 - 16.5   &              \\ \hline
+	\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12.1          & 9.7          \\ \hline
+	\end{tabular}%
+	}
+	\caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
+	\end{table}
 
 \end{frame}
 
@@ -335,6 +426,26 @@ Nuestros objetivos serán:
 	\bibitem{primerGAP}
 
 	\href{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=393137}{\scriptsize Howard, L. M., \& D'Angelo, D. J. (1995). The GA-P: A genetic algorithm and genetic programming hybrid. IEEE expert, 10(3), 11-15.}
+
+
+
+	\bibitem{modelandoHuesos3D}
+
+	\href{https://onlinelibrary.wiley.com/doi/full/10.1111/1556-4029.12778}{\scriptsize Slice, D. E., \& Algee‐Hewitt, B. F. (2015). Modeling bone surface morphology: a fully quantitative method for age‐at‐death estimation using the pubic symphysis. Journal of forensic sciences, 60(4), 835-843.}
+
+	\bibitem{mejoraModelandoHuesos3D}
+
+	\href{https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.22797}{\scriptsize Stoyanova, D., Algee‐Hewitt, B. F., \& Slice, D. E. (2015). An enhanced computational method for age‐at‐death estimation based on the pubic symphysis using 3 D laser scans and thin plate splines. American journal of physical anthropology, 158(3), 431-440.}
+
+
+	\bibitem{segundaMejoraModelandoHuesos3D}
+
+	\href{https://onlinelibrary.wiley.com/doi/full/10.1111/1556-4029.13439}{\scriptsize Stoyanova, D. K., Algee‐Hewitt, B. F., Kim, J., \& Slice, D. E. (2017). A computational framework for age‐at‐death estimation from the skeleton: surface and outline analysis of 3D laser scans of the adult pubic symphysis. Journal of forensic sciences, 62(6), 1434-1444.}
+
+	\bibitem{estimacionHuesosCadera}
+
+	\href{https://www.sciencedirect.com/science/article/pii/S0379073818301440}{\scriptsize Kotěrová, A., Navega, D., Štepanovský, M., Buk, Z., Brůžek, J., \& Cunha, E. (2018). Age estimation of adult human remains from hip bones using advanced methods. Forensic science international, 287, 163-175.}
+
 
 \end{thebibliography}
 
