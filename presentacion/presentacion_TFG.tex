@@ -27,7 +27,7 @@
 
 \title{Aprendizaje automático de un sistema interpretable de ayuda a la decisión para la estimación de la edad a partir de los huesos del pubis.}
 
-\date{\today}
+\date{19 de julio de 2021}
 \author{\small Autor: Antonio David Villegas Yeguas \\ Directores: Óscar Cordón García y Sergio Damas Arroyo}
 \institute[UGR]{Universidad de Granada\\
 \medskip
@@ -54,12 +54,13 @@
 
 	\begin{columns}[T]
 		\begin{column}{.4\textwidth}
-			Problema de gran interés, pero complejo:
 			\begin{itemize}
+				\item Problema real de gran interés.
+				\item Problema complejo.
 				\item No existe un método concreto.
 				\item Trabajo subjetivo por parte de forenses.
 				\item Falta de muestras para edades tempranas.
-				\item Primera propuesta en 1920 por T. W. Todd \cite{todd}, clasificación en diez fases utilizando nueve características.
+				\item Primera propuesta en 1920 por T. W. Todd \cite{todd}.
 			\end{itemize}
 
 		\end{column}
@@ -398,7 +399,7 @@ Nuestros objetivos serán:
 	\textbf{Slice \& Algee-Hewitt \cite{modelandoHuesos3D}}                                    & 41                          & 17,15         & -            \\ \hline
 	\textbf{Stoyanova,  Algee-Hewitt \& Slice \cite{mejoraModelandoHuesos3D}}                  & 57                          & 19            & -             \\ \hline
 	\textbf{Stoyanova,  Algee-Hewitt, Kim \& Slice \cite{segundaMejoraModelandoHuesos3D}}      & 93                          & 13,7 - 16,5   & -             \\ \hline
-	\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & 12,1          & 9,7          \\ \hline
+	\textbf{Kotěrová, Navega, Štepanovský, Buk, Brůžek \& Cunha \cite{estimacionHuesosCadera}} & 941                         & \textbf{12,1}          & \textbf{9,7}          \\ \hline
 	\end{tabular}%
 	}
 	\caption{Resultados obtenidos en los trabajos discutidos en el estado del arte.}\label{table:resultados_estado_arte}
@@ -413,8 +414,8 @@ Nuestros objetivos serán:
 	\textbf{}                       & \textbf{RMSE}    & \textbf{MAE}        \\ \hline
 	\textbf{PG (\ref{eq:PG_completo})}                     & 8,40          & 6,92             \\ \hline
 	\textbf{GA-P (\ref{eq:GAP_completo})}                   & 8,49           & 6,97             \\ \hline
-	\textbf{PG con sobremuestreo (\ref{eq:PG_completo_over})}   & 7,87           & 6,41             \\ \hline
-	\textbf{GA-P con sobremuestreo (\ref{eq:GAP_completo_over})} & 7,87          & 6,42             \\ \hline
+	\textbf{PG con sobremuestreo (\ref{eq:PG_completo_over})}   & 7,87           & 6,42             \\ \hline
+	\textbf{GA-P con sobremuestreo (\ref{eq:GAP_completo_over})} & \textbf{7,87}          & \textbf{6,41}             \\ \hline
 	\end{tabular}%
 	}
 	\caption{Resultados de las expresiones \ref{eq:PG_completo}, \ref{eq:GAP_completo}, \ref{eq:PG_completo_over} y \ref{eq:GAP_completo_over}.}\label{table:resultados_escogidas}
